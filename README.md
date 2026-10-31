@@ -8,6 +8,8 @@ The new [typed-log pilot](docs/LOG_CONTRACT_PILOT.md) uses a validated `logs-v2`
 
 Current fixed workflow: [bounded context acquisition](docs/FIXED_CONTEXT_PILOT.md) reads source and logs deterministically, retries one eligible log-decoding error, then uses patch and revision model stages. All 82 tests passed. Its separate four-run smoke check verified 1/2 clean and 1/2 faulted repairs; the old datasets are preserved under their original policy versions.
 
+The [60-trial fixed-workflow consistency check](docs/FIXED_CONSISTENCY_60.md) is complete across all ten development tasks: 23/30 verified clean and 23/30 with assigned faults. All 30 faults triggered, and all 18 malformed-log runs regained valid context with one retry. One faulted patch failed regression checks. All 83 automated tests passed, including Docker integration. This development result does not establish held-out performance; held-out tasks and the trace viewer remain future work.
+
 ## Run on Windows
 
 ```powershell
@@ -39,7 +41,7 @@ To run the balanced local development pilot (four development tasks, all three a
 .\.venv\Scripts\python -u -m lab.pilot
 ```
 
-This runs 12 sequential GPU trials with identical budgets. It freezes a seeded architecture order in `schedule.json`, records the source commit, and appends outcomes to `summary.jsonl` under a new `runs/pilot-*` directory. Per-run manifests, traces, diffs, grading, and SQLite results are preserved. It never uses a paid provider or held-out tasks. `--repetitions 2` or `3` broadens development consistency checks; it does not make this a held-out study. Current rules are `completion-v4`, with stage-specific instruction hashes, bounded actions, passed-test caching, empty-turn feedback, and revised local context admission. See [execution policies](docs/POLICIES.md); v3 reports describe the prior baseline.
+This runs 12 sequential GPU trials with identical budgets. It freezes a seeded architecture order in `schedule.json`, records the source commit, and appends outcomes to `summary.jsonl` under a new `runs/pilot-*` directory. Per-run manifests, traces, diffs, grading, and SQLite results are preserved. It never uses a paid provider or held-out tasks. `--repetitions 2` or `3` broadens development consistency checks; it does not make this a held-out study. Current rules are `completion-v5` and `bounded-actions-v4/fixed-context-v1/logs-v2`, with deterministic fixed-workflow context acquisition, stage-specific instruction hashes, bounded actions, passed-test caching, empty-turn feedback, and revised local context admission. Use `--architectures fixed` to scope a development check; the default still runs all three architectures. See [execution policies](docs/POLICIES.md); v3 reports describe the prior baseline.
 
 Install the optional SDK dependency once:
 
