@@ -27,6 +27,8 @@ Local generation requests are now captured byte-for-byte under each run's `reque
 
 The [72-trial clean development pilot](docs/DEVELOPMENT_PILOT_72.md) is complete: fixed 18/24, single 8/24, team 17/24 verified completions. All outcomes, per-task consistency, failures, and limitations are published. This is development evidence, not a held-out benchmark or general architecture ranking. `python -m lab.report <pilot-directory> --output <new-json-file>` validates schedule completeness and regenerates aggregates without overwriting earlier exports.
 
+The [matched fault pilot](docs/FAULT_PILOT_72.md) adds 72 trials: fixed 18/24, single 8/24, team 15/24 verified. Only 30 assigned faults triggered (28 timeouts, two corrupted log reads), so assignment and exposure are reported separately. Use `python -m lab.pilot ... --condition injected` to reproduce the stable canonical task-level assignment. Log-content corruption is not a transport-envelope fault; the report documents this limitation and the next validation gate.
+
 To run the balanced local development pilot (four development tasks, all three architectures, clean tools, one repetition each):
 
 ```powershell

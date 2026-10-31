@@ -1,0 +1,73 @@
+{
+  "scope": "development_only; paired descriptive counts, not independent tasks",
+  "matched_pairs": 72,
+  "inference_configuration_matches": true,
+  "strata": [
+    {
+      "condition": "timeout",
+      "architecture": "fixed",
+      "scheduled": 12,
+      "clean_verified": 9,
+      "assigned_verified": 9,
+      "triggered": 12,
+      "triggered_verified": 9,
+      "clean_success_assigned_failure": 0,
+      "clean_failure_assigned_success": 0
+    },
+    {
+      "condition": "timeout",
+      "architecture": "single",
+      "scheduled": 12,
+      "clean_verified": 4,
+      "assigned_verified": 4,
+      "triggered": 4,
+      "triggered_verified": 4,
+      "clean_success_assigned_failure": 0,
+      "clean_failure_assigned_success": 0
+    },
+    {
+      "condition": "timeout",
+      "architecture": "team",
+      "scheduled": 12,
+      "clean_verified": 9,
+      "assigned_verified": 7,
+      "triggered": 12,
+      "triggered_verified": 7,
+      "clean_success_assigned_failure": 2,
+      "clean_failure_assigned_success": 0
+    },
+    {
+      "condition": "malformed",
+      "architecture": "fixed",
+      "scheduled": 12,
+      "clean_verified": 9,
+      "assigned_verified": 9,
+      "triggered": 0,
+      "triggered_verified": 0,
+      "clean_success_assigned_failure": 0,
+      "clean_failure_assigned_success": 0
+    },
+    {
+      "condition": "malformed",
+      "architecture": "single",
+      "scheduled": 12,
+      "clean_verified": 4,
+      "assigned_verified": 4,
+      "triggered": 0,
+      "triggered_verified": 0,
+      "clean_success_assigned_failure": 0,
+      "clean_failure_assigned_success": 0
+    },
+    {
+      "condition": "malformed",
+      "architecture": "team",
+      "scheduled": 12,
+      "clean_verified": 8,
+      "assigned_verified": 8,
+      "triggered": 2,
+      "triggered_verified": 2,
+      "clean_success_assigned_failure": 1,
+      "clean_failure_assigned_success": 1
+    }
+  ]
+}
