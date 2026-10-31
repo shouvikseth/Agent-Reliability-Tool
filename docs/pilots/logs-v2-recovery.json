@@ -1,0 +1,59 @@
+{
+  "scope": "development-only; one repetition; decoding recovery is separate from repair success",
+  "runs": [
+    {
+      "task": "log-title-length",
+      "architecture": "fixed",
+      "id": "1f1b5710d255405ab5b50a32807ef294",
+      "triggered": true,
+      "log_calls": 1,
+      "valid_log_responses": 0,
+      "verified": false
+    },
+    {
+      "task": "log-limit-zero",
+      "architecture": "single",
+      "id": "2ca99833a4dd4ba5aa84ec7cb51176d2",
+      "triggered": true,
+      "log_calls": 2,
+      "valid_log_responses": 1,
+      "verified": false
+    },
+    {
+      "task": "log-title-length",
+      "architecture": "single",
+      "id": "873364538cdb451f9b4537317e6d9dde",
+      "triggered": true,
+      "log_calls": 2,
+      "valid_log_responses": 1,
+      "verified": false
+    },
+    {
+      "task": "log-title-length",
+      "architecture": "team",
+      "id": "c3c8f4f39a4e442786e81f4464fc53cf",
+      "triggered": true,
+      "log_calls": 3,
+      "valid_log_responses": 2,
+      "verified": true
+    },
+    {
+      "task": "log-limit-zero",
+      "architecture": "team",
+      "id": "dc4d22dc624541fe9a750ba2ad596142",
+      "triggered": true,
+      "log_calls": 2,
+      "valid_log_responses": 1,
+      "verified": false
+    },
+    {
+      "task": "log-limit-zero",
+      "architecture": "fixed",
+      "id": "e73de47ea11f48a2abe2edc825cc26cc",
+      "triggered": true,
+      "log_calls": 1,
+      "valid_log_responses": 0,
+      "verified": false
+    }
+  ]
+}

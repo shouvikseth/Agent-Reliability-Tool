@@ -2,7 +2,9 @@
 
 A reproducible study of fixed workflows, single agents, and planner/writer/reviewer orchestration for software repair.
 
-**Current state: development pilot, not a completed benchmark.** Eight development defects, an SQLite-backed FastAPI target, three orchestration contracts, narrow tools, fault injection, Docker execution, external API verification, an OpenAI Responses adapter, JSONL traces, SQLite results, and a deterministic 216-run schedule design are implemented. `smoke` uses a scripted no-op fixture; `run` uses a real provider. Smoke failures are expected and are not experimental results.
+**Current state: development pilot, not a completed benchmark.** Ten development defects, an SQLite-backed FastAPI target, three orchestration contracts, narrow tools, fault injection, Docker execution, external API verification, model adapters, JSONL traces, SQLite results, and a deterministic 216-run schedule design are implemented. `smoke` uses a scripted no-op fixture; `run` uses a real provider. Smoke failures are expected and are not experimental results.
+
+The new [typed-log pilot](docs/LOG_CONTRACT_PILOT.md) uses a validated `logs-v2` response envelope and two log-informed development tasks. All six malformed assignments triggered; four runs regained valid log access, but only one verified a repair. This separate pilot does not replace the earlier 144-run baseline. All 77 automated tests passed.
 
 ## Run on Windows
 
