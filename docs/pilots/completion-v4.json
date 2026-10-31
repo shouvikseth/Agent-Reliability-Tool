@@ -1,0 +1,818 @@
+{
+  "schedule": {
+    "completion_version": "completion-v4",
+    "commit": "876e3eda79ebbe102e6ccbd7575c6bff683c801d",
+    "execution_policy": "bounded-actions-v1",
+    "context_policy": "visible-history-v1",
+    "seed": 20261030,
+    "condition": "clean",
+    "study": "development_only",
+    "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+    "schedule": [
+      {
+        "task": "pagination-offset",
+        "repetition": 1,
+        "architecture": "single"
+      },
+      {
+        "task": "pagination-offset",
+        "repetition": 1,
+        "architecture": "fixed"
+      },
+      {
+        "task": "pagination-offset",
+        "repetition": 1,
+        "architecture": "team"
+      },
+      {
+        "task": "blank-title",
+        "repetition": 1,
+        "architecture": "fixed"
+      },
+      {
+        "task": "blank-title",
+        "repetition": 1,
+        "architecture": "single"
+      },
+      {
+        "task": "blank-title",
+        "repetition": 1,
+        "architecture": "team"
+      },
+      {
+        "task": "repeat-close",
+        "repetition": 1,
+        "architecture": "team"
+      },
+      {
+        "task": "repeat-close",
+        "repetition": 1,
+        "architecture": "fixed"
+      },
+      {
+        "task": "repeat-close",
+        "repetition": 1,
+        "architecture": "single"
+      },
+      {
+        "task": "request-conflict",
+        "repetition": 1,
+        "architecture": "fixed"
+      },
+      {
+        "task": "request-conflict",
+        "repetition": 1,
+        "architecture": "single"
+      },
+      {
+        "task": "request-conflict",
+        "repetition": 1,
+        "architecture": "team"
+      }
+    ]
+  },
+  "results": [
+    {
+      "status": "budget_exhausted",
+      "tokens": 6063,
+      "dollars": 0.0,
+      "known_dollars": 0.0,
+      "usage_complete": true,
+      "uncertain_reserved_tokens": 0,
+      "model_requests": 5,
+      "execution_policy": "bounded-actions-v1",
+      "cached_test_calls": 0,
+      "error": "Local prompt exceeds conservative token/context allowance",
+      "backend": "docker",
+      "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+      "id": "03e40eb4d3994bc494af9adb334cf82f",
+      "task": "repeat-close",
+      "architecture": "single",
+      "condition": "clean",
+      "fixture": false,
+      "provider": {
+        "provider": "ollama",
+        "model": "qwen2.5-coder:7b",
+        "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "completion_version": "completion-v4",
+        "context_policy": "visible-history-v1",
+        "admission_policy": "message-bytes-v2",
+        "prompt_sha256": "2abcbbb59d5630c1bb14072f90466204e86cfa357bf2fb2148f3125c8101ab0e",
+        "stage_prompt_sha256": {
+          "agent": "86aa1e2884df6c3918e180dee951cd4ec54ad0d17a66a8566b4ff8008f83199d",
+          "inspect": "24d44fa327bcb889966be6ecd7938a94b3e9e84b00cbd4b2a0cd2f72ea15f8c2",
+          "patch": "2f81ae46c7e81ec4eae103e9a171c9748cc03d2aa84bb8d96290b13a9521c7d5",
+          "planner": "51fca2dbe27fe91fab77af89f687ecde5fffd4b62a502accf697e13eed99ea4e",
+          "writer": "e68b933cb205930fc83af900ad0c4c5e0baa0777400283fd9df7c500bb45cc65",
+          "reviewer": "2c943482aea7ff0ac812c983ee2ea7cb464ef2851da0964e0fd69c18c5b12f59",
+          "revision": "7034aa549c8fb91c0f62790338cae1cc65755bbea96b30844d2ae18c50a44354"
+        },
+        "endpoint": "http://127.0.0.1:11434",
+        "num_ctx": 8192,
+        "max_output_tokens": 1024,
+        "temperature": 0,
+        "seed": 20261030,
+        "cost_basis": "local inference; API fees only, excludes hardware/electricity"
+      },
+      "budget": {
+        "tool_calls": 20,
+        "seconds": 600,
+        "tokens": 24000,
+        "dollars": 0.25
+      },
+      "tool_calls": 5,
+      "fault_triggered": false,
+      "seconds": 12.421999999991385,
+      "verification": null,
+      "verified_completion": false
+    },
+    {
+      "status": "submitted",
+      "tokens": 2787,
+      "dollars": 0.0,
+      "known_dollars": 0.0,
+      "usage_complete": true,
+      "uncertain_reserved_tokens": 0,
+      "model_requests": 3,
+      "execution_policy": "bounded-actions-v1",
+      "cached_test_calls": 0,
+      "backend": "docker",
+      "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+      "id": "0ef8d4b83fc74c1c91a74c5463faa37a",
+      "task": "blank-title",
+      "architecture": "fixed",
+      "condition": "clean",
+      "fixture": false,
+      "provider": {
+        "provider": "ollama",
+        "model": "qwen2.5-coder:7b",
+        "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "completion_version": "completion-v4",
+        "context_policy": "visible-history-v1",
+        "admission_policy": "message-bytes-v2",
+        "prompt_sha256": "2abcbbb59d5630c1bb14072f90466204e86cfa357bf2fb2148f3125c8101ab0e",
+        "stage_prompt_sha256": {
+          "agent": "86aa1e2884df6c3918e180dee951cd4ec54ad0d17a66a8566b4ff8008f83199d",
+          "inspect": "24d44fa327bcb889966be6ecd7938a94b3e9e84b00cbd4b2a0cd2f72ea15f8c2",
+          "patch": "2f81ae46c7e81ec4eae103e9a171c9748cc03d2aa84bb8d96290b13a9521c7d5",
+          "planner": "51fca2dbe27fe91fab77af89f687ecde5fffd4b62a502accf697e13eed99ea4e",
+          "writer": "e68b933cb205930fc83af900ad0c4c5e0baa0777400283fd9df7c500bb45cc65",
+          "reviewer": "2c943482aea7ff0ac812c983ee2ea7cb464ef2851da0964e0fd69c18c5b12f59",
+          "revision": "7034aa549c8fb91c0f62790338cae1cc65755bbea96b30844d2ae18c50a44354"
+        },
+        "endpoint": "http://127.0.0.1:11434",
+        "num_ctx": 8192,
+        "max_output_tokens": 1024,
+        "temperature": 0,
+        "seed": 20261030,
+        "cost_basis": "local inference; API fees only, excludes hardware/electricity"
+      },
+      "budget": {
+        "tool_calls": 20,
+        "seconds": 600,
+        "tokens": 24000,
+        "dollars": 0.25
+      },
+      "tool_calls": 4,
+      "fault_triggered": false,
+      "seconds": 10.546999999991385,
+      "verification": {
+        "verifier": {
+          "passed": false,
+          "exit_code": 1,
+          "output": "AssertionError: "
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "verified_completion": false
+    },
+    {
+      "status": "infrastructure_invalid",
+      "tokens": 7189,
+      "dollars": 0.0,
+      "known_dollars": 0.0,
+      "usage_complete": false,
+      "uncertain_reserved_tokens": 7849,
+      "model_requests": 7,
+      "execution_policy": "bounded-actions-v1",
+      "cached_test_calls": 0,
+      "error": "Local Ollama HTTP 500 (unclassified); reservation retained",
+      "backend": "docker",
+      "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+      "id": "228139fa726d437f8f8c9ef663500156",
+      "task": "pagination-offset",
+      "architecture": "single",
+      "condition": "clean",
+      "fixture": false,
+      "provider": {
+        "provider": "ollama",
+        "model": "qwen2.5-coder:7b",
+        "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "completion_version": "completion-v4",
+        "context_policy": "visible-history-v1",
+        "admission_policy": "message-bytes-v2",
+        "prompt_sha256": "2abcbbb59d5630c1bb14072f90466204e86cfa357bf2fb2148f3125c8101ab0e",
+        "stage_prompt_sha256": {
+          "agent": "86aa1e2884df6c3918e180dee951cd4ec54ad0d17a66a8566b4ff8008f83199d",
+          "inspect": "24d44fa327bcb889966be6ecd7938a94b3e9e84b00cbd4b2a0cd2f72ea15f8c2",
+          "patch": "2f81ae46c7e81ec4eae103e9a171c9748cc03d2aa84bb8d96290b13a9521c7d5",
+          "planner": "51fca2dbe27fe91fab77af89f687ecde5fffd4b62a502accf697e13eed99ea4e",
+          "writer": "e68b933cb205930fc83af900ad0c4c5e0baa0777400283fd9df7c500bb45cc65",
+          "reviewer": "2c943482aea7ff0ac812c983ee2ea7cb464ef2851da0964e0fd69c18c5b12f59",
+          "revision": "7034aa549c8fb91c0f62790338cae1cc65755bbea96b30844d2ae18c50a44354"
+        },
+        "endpoint": "http://127.0.0.1:11434",
+        "num_ctx": 8192,
+        "max_output_tokens": 1024,
+        "temperature": 0,
+        "seed": 20261030,
+        "cost_basis": "local inference; API fees only, excludes hardware/electricity"
+      },
+      "budget": {
+        "tool_calls": 20,
+        "seconds": 600,
+        "tokens": 24000,
+        "dollars": 0.25
+      },
+      "tool_calls": 6,
+      "fault_triggered": false,
+      "seconds": 19.28200000000652,
+      "verification": null,
+      "verified_completion": false
+    },
+    {
+      "status": "submitted",
+      "tokens": 2568,
+      "dollars": 0.0,
+      "known_dollars": 0.0,
+      "usage_complete": true,
+      "uncertain_reserved_tokens": 0,
+      "model_requests": 3,
+      "execution_policy": "bounded-actions-v1",
+      "cached_test_calls": 0,
+      "backend": "docker",
+      "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+      "id": "381f34ef41334c2a86a2d004ae72e750",
+      "task": "pagination-offset",
+      "architecture": "fixed",
+      "condition": "clean",
+      "fixture": false,
+      "provider": {
+        "provider": "ollama",
+        "model": "qwen2.5-coder:7b",
+        "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "completion_version": "completion-v4",
+        "context_policy": "visible-history-v1",
+        "admission_policy": "message-bytes-v2",
+        "prompt_sha256": "2abcbbb59d5630c1bb14072f90466204e86cfa357bf2fb2148f3125c8101ab0e",
+        "stage_prompt_sha256": {
+          "agent": "86aa1e2884df6c3918e180dee951cd4ec54ad0d17a66a8566b4ff8008f83199d",
+          "inspect": "24d44fa327bcb889966be6ecd7938a94b3e9e84b00cbd4b2a0cd2f72ea15f8c2",
+          "patch": "2f81ae46c7e81ec4eae103e9a171c9748cc03d2aa84bb8d96290b13a9521c7d5",
+          "planner": "51fca2dbe27fe91fab77af89f687ecde5fffd4b62a502accf697e13eed99ea4e",
+          "writer": "e68b933cb205930fc83af900ad0c4c5e0baa0777400283fd9df7c500bb45cc65",
+          "reviewer": "2c943482aea7ff0ac812c983ee2ea7cb464ef2851da0964e0fd69c18c5b12f59",
+          "revision": "7034aa549c8fb91c0f62790338cae1cc65755bbea96b30844d2ae18c50a44354"
+        },
+        "endpoint": "http://127.0.0.1:11434",
+        "num_ctx": 8192,
+        "max_output_tokens": 1024,
+        "temperature": 0,
+        "seed": 20261030,
+        "cost_basis": "local inference; API fees only, excludes hardware/electricity"
+      },
+      "budget": {
+        "tool_calls": 20,
+        "seconds": 600,
+        "tokens": 24000,
+        "dollars": 0.25
+      },
+      "tool_calls": 4,
+      "fault_triggered": false,
+      "seconds": 9.828000000008615,
+      "verification": {
+        "verifier": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "verified_completion": true
+    },
+    {
+      "status": "agent_error",
+      "tokens": 2632,
+      "dollars": 0.0,
+      "known_dollars": 0.0,
+      "usage_complete": true,
+      "uncertain_reserved_tokens": 0,
+      "model_requests": 3,
+      "execution_policy": "bounded-actions-v1",
+      "cached_test_calls": 0,
+      "error": "Two consecutive empty agent turns without submission",
+      "backend": "docker",
+      "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+      "id": "479423ccbfdc42678c4cc00427e8914a",
+      "task": "blank-title",
+      "architecture": "single",
+      "condition": "clean",
+      "fixture": false,
+      "provider": {
+        "provider": "ollama",
+        "model": "qwen2.5-coder:7b",
+        "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "completion_version": "completion-v4",
+        "context_policy": "visible-history-v1",
+        "admission_policy": "message-bytes-v2",
+        "prompt_sha256": "2abcbbb59d5630c1bb14072f90466204e86cfa357bf2fb2148f3125c8101ab0e",
+        "stage_prompt_sha256": {
+          "agent": "86aa1e2884df6c3918e180dee951cd4ec54ad0d17a66a8566b4ff8008f83199d",
+          "inspect": "24d44fa327bcb889966be6ecd7938a94b3e9e84b00cbd4b2a0cd2f72ea15f8c2",
+          "patch": "2f81ae46c7e81ec4eae103e9a171c9748cc03d2aa84bb8d96290b13a9521c7d5",
+          "planner": "51fca2dbe27fe91fab77af89f687ecde5fffd4b62a502accf697e13eed99ea4e",
+          "writer": "e68b933cb205930fc83af900ad0c4c5e0baa0777400283fd9df7c500bb45cc65",
+          "reviewer": "2c943482aea7ff0ac812c983ee2ea7cb464ef2851da0964e0fd69c18c5b12f59",
+          "revision": "7034aa549c8fb91c0f62790338cae1cc65755bbea96b30844d2ae18c50a44354"
+        },
+        "endpoint": "http://127.0.0.1:11434",
+        "num_ctx": 8192,
+        "max_output_tokens": 1024,
+        "temperature": 0,
+        "seed": 20261030,
+        "cost_basis": "local inference; API fees only, excludes hardware/electricity"
+      },
+      "budget": {
+        "tool_calls": 20,
+        "seconds": 600,
+        "tokens": 24000,
+        "dollars": 0.25
+      },
+      "tool_calls": 1,
+      "fault_triggered": false,
+      "seconds": 3.4219999999913853,
+      "verification": null,
+      "verified_completion": false
+    },
+    {
+      "status": "submitted",
+      "tokens": 3866,
+      "dollars": 0.0,
+      "known_dollars": 0.0,
+      "usage_complete": true,
+      "uncertain_reserved_tokens": 0,
+      "model_requests": 4,
+      "execution_policy": "bounded-actions-v1",
+      "cached_test_calls": 0,
+      "backend": "docker",
+      "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+      "id": "76bd8330840f4cfeb196c776634f1f64",
+      "task": "pagination-offset",
+      "architecture": "team",
+      "condition": "clean",
+      "fixture": false,
+      "provider": {
+        "provider": "ollama",
+        "model": "qwen2.5-coder:7b",
+        "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "completion_version": "completion-v4",
+        "context_policy": "visible-history-v1",
+        "admission_policy": "message-bytes-v2",
+        "prompt_sha256": "2abcbbb59d5630c1bb14072f90466204e86cfa357bf2fb2148f3125c8101ab0e",
+        "stage_prompt_sha256": {
+          "agent": "86aa1e2884df6c3918e180dee951cd4ec54ad0d17a66a8566b4ff8008f83199d",
+          "inspect": "24d44fa327bcb889966be6ecd7938a94b3e9e84b00cbd4b2a0cd2f72ea15f8c2",
+          "patch": "2f81ae46c7e81ec4eae103e9a171c9748cc03d2aa84bb8d96290b13a9521c7d5",
+          "planner": "51fca2dbe27fe91fab77af89f687ecde5fffd4b62a502accf697e13eed99ea4e",
+          "writer": "e68b933cb205930fc83af900ad0c4c5e0baa0777400283fd9df7c500bb45cc65",
+          "reviewer": "2c943482aea7ff0ac812c983ee2ea7cb464ef2851da0964e0fd69c18c5b12f59",
+          "revision": "7034aa549c8fb91c0f62790338cae1cc65755bbea96b30844d2ae18c50a44354"
+        },
+        "endpoint": "http://127.0.0.1:11434",
+        "num_ctx": 8192,
+        "max_output_tokens": 1024,
+        "temperature": 0,
+        "seed": 20261030,
+        "cost_basis": "local inference; API fees only, excludes hardware/electricity"
+      },
+      "budget": {
+        "tool_calls": 20,
+        "seconds": 600,
+        "tokens": 24000,
+        "dollars": 0.25
+      },
+      "tool_calls": 4,
+      "fault_triggered": false,
+      "seconds": 11.702999999979511,
+      "verification": {
+        "verifier": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "verified_completion": true
+    },
+    {
+      "status": "submitted",
+      "tokens": 2574,
+      "dollars": 0.0,
+      "known_dollars": 0.0,
+      "usage_complete": true,
+      "uncertain_reserved_tokens": 0,
+      "model_requests": 3,
+      "execution_policy": "bounded-actions-v1",
+      "cached_test_calls": 0,
+      "backend": "docker",
+      "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+      "id": "9b87771d7b5d4715abde0efd98067a71",
+      "task": "request-conflict",
+      "architecture": "fixed",
+      "condition": "clean",
+      "fixture": false,
+      "provider": {
+        "provider": "ollama",
+        "model": "qwen2.5-coder:7b",
+        "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "completion_version": "completion-v4",
+        "context_policy": "visible-history-v1",
+        "admission_policy": "message-bytes-v2",
+        "prompt_sha256": "2abcbbb59d5630c1bb14072f90466204e86cfa357bf2fb2148f3125c8101ab0e",
+        "stage_prompt_sha256": {
+          "agent": "86aa1e2884df6c3918e180dee951cd4ec54ad0d17a66a8566b4ff8008f83199d",
+          "inspect": "24d44fa327bcb889966be6ecd7938a94b3e9e84b00cbd4b2a0cd2f72ea15f8c2",
+          "patch": "2f81ae46c7e81ec4eae103e9a171c9748cc03d2aa84bb8d96290b13a9521c7d5",
+          "planner": "51fca2dbe27fe91fab77af89f687ecde5fffd4b62a502accf697e13eed99ea4e",
+          "writer": "e68b933cb205930fc83af900ad0c4c5e0baa0777400283fd9df7c500bb45cc65",
+          "reviewer": "2c943482aea7ff0ac812c983ee2ea7cb464ef2851da0964e0fd69c18c5b12f59",
+          "revision": "7034aa549c8fb91c0f62790338cae1cc65755bbea96b30844d2ae18c50a44354"
+        },
+        "endpoint": "http://127.0.0.1:11434",
+        "num_ctx": 8192,
+        "max_output_tokens": 1024,
+        "temperature": 0,
+        "seed": 20261030,
+        "cost_basis": "local inference; API fees only, excludes hardware/electricity"
+      },
+      "budget": {
+        "tool_calls": 20,
+        "seconds": 600,
+        "tokens": 24000,
+        "dollars": 0.25
+      },
+      "tool_calls": 4,
+      "fault_triggered": false,
+      "seconds": 12.39100000000326,
+      "verification": {
+        "verifier": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "verified_completion": true
+    },
+    {
+      "status": "submitted",
+      "tokens": 8993,
+      "dollars": 0.0,
+      "known_dollars": 0.0,
+      "usage_complete": true,
+      "uncertain_reserved_tokens": 0,
+      "model_requests": 7,
+      "execution_policy": "bounded-actions-v1",
+      "cached_test_calls": 0,
+      "backend": "docker",
+      "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+      "id": "a2bde804bc454c92994e7411847b6b26",
+      "task": "request-conflict",
+      "architecture": "single",
+      "condition": "clean",
+      "fixture": false,
+      "provider": {
+        "provider": "ollama",
+        "model": "qwen2.5-coder:7b",
+        "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "completion_version": "completion-v4",
+        "context_policy": "visible-history-v1",
+        "admission_policy": "message-bytes-v2",
+        "prompt_sha256": "2abcbbb59d5630c1bb14072f90466204e86cfa357bf2fb2148f3125c8101ab0e",
+        "stage_prompt_sha256": {
+          "agent": "86aa1e2884df6c3918e180dee951cd4ec54ad0d17a66a8566b4ff8008f83199d",
+          "inspect": "24d44fa327bcb889966be6ecd7938a94b3e9e84b00cbd4b2a0cd2f72ea15f8c2",
+          "patch": "2f81ae46c7e81ec4eae103e9a171c9748cc03d2aa84bb8d96290b13a9521c7d5",
+          "planner": "51fca2dbe27fe91fab77af89f687ecde5fffd4b62a502accf697e13eed99ea4e",
+          "writer": "e68b933cb205930fc83af900ad0c4c5e0baa0777400283fd9df7c500bb45cc65",
+          "reviewer": "2c943482aea7ff0ac812c983ee2ea7cb464ef2851da0964e0fd69c18c5b12f59",
+          "revision": "7034aa549c8fb91c0f62790338cae1cc65755bbea96b30844d2ae18c50a44354"
+        },
+        "endpoint": "http://127.0.0.1:11434",
+        "num_ctx": 8192,
+        "max_output_tokens": 1024,
+        "temperature": 0,
+        "seed": 20261030,
+        "cost_basis": "local inference; API fees only, excludes hardware/electricity"
+      },
+      "budget": {
+        "tool_calls": 20,
+        "seconds": 600,
+        "tokens": 24000,
+        "dollars": 0.25
+      },
+      "tool_calls": 7,
+      "fault_triggered": false,
+      "seconds": 15.85899999999674,
+      "verification": {
+        "verifier": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "verified_completion": true
+    },
+    {
+      "status": "budget_exhausted",
+      "tokens": 2762,
+      "dollars": 0.0,
+      "known_dollars": 0.0,
+      "usage_complete": true,
+      "uncertain_reserved_tokens": 0,
+      "model_requests": 3,
+      "execution_policy": "bounded-actions-v1",
+      "cached_test_calls": 2,
+      "error": "Local prompt exceeds conservative token/context allowance",
+      "backend": "docker",
+      "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+      "id": "a8fe004a455949b3ab3ca19371ac83e7",
+      "task": "blank-title",
+      "architecture": "team",
+      "condition": "clean",
+      "fixture": false,
+      "provider": {
+        "provider": "ollama",
+        "model": "qwen2.5-coder:7b",
+        "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "completion_version": "completion-v4",
+        "context_policy": "visible-history-v1",
+        "admission_policy": "message-bytes-v2",
+        "prompt_sha256": "2abcbbb59d5630c1bb14072f90466204e86cfa357bf2fb2148f3125c8101ab0e",
+        "stage_prompt_sha256": {
+          "agent": "86aa1e2884df6c3918e180dee951cd4ec54ad0d17a66a8566b4ff8008f83199d",
+          "inspect": "24d44fa327bcb889966be6ecd7938a94b3e9e84b00cbd4b2a0cd2f72ea15f8c2",
+          "patch": "2f81ae46c7e81ec4eae103e9a171c9748cc03d2aa84bb8d96290b13a9521c7d5",
+          "planner": "51fca2dbe27fe91fab77af89f687ecde5fffd4b62a502accf697e13eed99ea4e",
+          "writer": "e68b933cb205930fc83af900ad0c4c5e0baa0777400283fd9df7c500bb45cc65",
+          "reviewer": "2c943482aea7ff0ac812c983ee2ea7cb464ef2851da0964e0fd69c18c5b12f59",
+          "revision": "7034aa549c8fb91c0f62790338cae1cc65755bbea96b30844d2ae18c50a44354"
+        },
+        "endpoint": "http://127.0.0.1:11434",
+        "num_ctx": 8192,
+        "max_output_tokens": 1024,
+        "temperature": 0,
+        "seed": 20261030,
+        "cost_basis": "local inference; API fees only, excludes hardware/electricity"
+      },
+      "budget": {
+        "tool_calls": 20,
+        "seconds": 600,
+        "tokens": 24000,
+        "dollars": 0.25
+      },
+      "tool_calls": 9,
+      "fault_triggered": false,
+      "seconds": 10.687999999994645,
+      "verification": null,
+      "verified_completion": false
+    },
+    {
+      "status": "submitted",
+      "tokens": 3706,
+      "dollars": 0.0,
+      "known_dollars": 0.0,
+      "usage_complete": true,
+      "uncertain_reserved_tokens": 0,
+      "model_requests": 4,
+      "execution_policy": "bounded-actions-v1",
+      "cached_test_calls": 0,
+      "backend": "docker",
+      "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+      "id": "e9bf8a67108b44008324a50912b436ce",
+      "task": "repeat-close",
+      "architecture": "team",
+      "condition": "clean",
+      "fixture": false,
+      "provider": {
+        "provider": "ollama",
+        "model": "qwen2.5-coder:7b",
+        "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "completion_version": "completion-v4",
+        "context_policy": "visible-history-v1",
+        "admission_policy": "message-bytes-v2",
+        "prompt_sha256": "2abcbbb59d5630c1bb14072f90466204e86cfa357bf2fb2148f3125c8101ab0e",
+        "stage_prompt_sha256": {
+          "agent": "86aa1e2884df6c3918e180dee951cd4ec54ad0d17a66a8566b4ff8008f83199d",
+          "inspect": "24d44fa327bcb889966be6ecd7938a94b3e9e84b00cbd4b2a0cd2f72ea15f8c2",
+          "patch": "2f81ae46c7e81ec4eae103e9a171c9748cc03d2aa84bb8d96290b13a9521c7d5",
+          "planner": "51fca2dbe27fe91fab77af89f687ecde5fffd4b62a502accf697e13eed99ea4e",
+          "writer": "e68b933cb205930fc83af900ad0c4c5e0baa0777400283fd9df7c500bb45cc65",
+          "reviewer": "2c943482aea7ff0ac812c983ee2ea7cb464ef2851da0964e0fd69c18c5b12f59",
+          "revision": "7034aa549c8fb91c0f62790338cae1cc65755bbea96b30844d2ae18c50a44354"
+        },
+        "endpoint": "http://127.0.0.1:11434",
+        "num_ctx": 8192,
+        "max_output_tokens": 1024,
+        "temperature": 0,
+        "seed": 20261030,
+        "cost_basis": "local inference; API fees only, excludes hardware/electricity"
+      },
+      "budget": {
+        "tool_calls": 20,
+        "seconds": 600,
+        "tokens": 24000,
+        "dollars": 0.25
+      },
+      "tool_calls": 3,
+      "fault_triggered": false,
+      "seconds": 10.89000000001397,
+      "verification": {
+        "verifier": {
+          "passed": false,
+          "exit_code": 1,
+          "output": "AssertionError: "
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "verified_completion": false
+    },
+    {
+      "status": "submitted",
+      "tokens": 3820,
+      "dollars": 0.0,
+      "known_dollars": 0.0,
+      "usage_complete": true,
+      "uncertain_reserved_tokens": 0,
+      "model_requests": 4,
+      "execution_policy": "bounded-actions-v1",
+      "cached_test_calls": 0,
+      "backend": "docker",
+      "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+      "id": "f7bd1c6c4fdd42f4b7b519a72ab4d988",
+      "task": "request-conflict",
+      "architecture": "team",
+      "condition": "clean",
+      "fixture": false,
+      "provider": {
+        "provider": "ollama",
+        "model": "qwen2.5-coder:7b",
+        "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "completion_version": "completion-v4",
+        "context_policy": "visible-history-v1",
+        "admission_policy": "message-bytes-v2",
+        "prompt_sha256": "2abcbbb59d5630c1bb14072f90466204e86cfa357bf2fb2148f3125c8101ab0e",
+        "stage_prompt_sha256": {
+          "agent": "86aa1e2884df6c3918e180dee951cd4ec54ad0d17a66a8566b4ff8008f83199d",
+          "inspect": "24d44fa327bcb889966be6ecd7938a94b3e9e84b00cbd4b2a0cd2f72ea15f8c2",
+          "patch": "2f81ae46c7e81ec4eae103e9a171c9748cc03d2aa84bb8d96290b13a9521c7d5",
+          "planner": "51fca2dbe27fe91fab77af89f687ecde5fffd4b62a502accf697e13eed99ea4e",
+          "writer": "e68b933cb205930fc83af900ad0c4c5e0baa0777400283fd9df7c500bb45cc65",
+          "reviewer": "2c943482aea7ff0ac812c983ee2ea7cb464ef2851da0964e0fd69c18c5b12f59",
+          "revision": "7034aa549c8fb91c0f62790338cae1cc65755bbea96b30844d2ae18c50a44354"
+        },
+        "endpoint": "http://127.0.0.1:11434",
+        "num_ctx": 8192,
+        "max_output_tokens": 1024,
+        "temperature": 0,
+        "seed": 20261030,
+        "cost_basis": "local inference; API fees only, excludes hardware/electricity"
+      },
+      "budget": {
+        "tool_calls": 20,
+        "seconds": 600,
+        "tokens": 24000,
+        "dollars": 0.25
+      },
+      "tool_calls": 4,
+      "fault_triggered": false,
+      "seconds": 12.35899999999674,
+      "verification": {
+        "verifier": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "verified_completion": true
+    },
+    {
+      "status": "submitted",
+      "tokens": 2680,
+      "dollars": 0.0,
+      "known_dollars": 0.0,
+      "usage_complete": true,
+      "uncertain_reserved_tokens": 0,
+      "model_requests": 3,
+      "execution_policy": "bounded-actions-v1",
+      "cached_test_calls": 0,
+      "backend": "docker",
+      "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+      "id": "fdec75bb8f2c44cdbf14531601154bdb",
+      "task": "repeat-close",
+      "architecture": "fixed",
+      "condition": "clean",
+      "fixture": false,
+      "provider": {
+        "provider": "ollama",
+        "model": "qwen2.5-coder:7b",
+        "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "completion_version": "completion-v4",
+        "context_policy": "visible-history-v1",
+        "admission_policy": "message-bytes-v2",
+        "prompt_sha256": "2abcbbb59d5630c1bb14072f90466204e86cfa357bf2fb2148f3125c8101ab0e",
+        "stage_prompt_sha256": {
+          "agent": "86aa1e2884df6c3918e180dee951cd4ec54ad0d17a66a8566b4ff8008f83199d",
+          "inspect": "24d44fa327bcb889966be6ecd7938a94b3e9e84b00cbd4b2a0cd2f72ea15f8c2",
+          "patch": "2f81ae46c7e81ec4eae103e9a171c9748cc03d2aa84bb8d96290b13a9521c7d5",
+          "planner": "51fca2dbe27fe91fab77af89f687ecde5fffd4b62a502accf697e13eed99ea4e",
+          "writer": "e68b933cb205930fc83af900ad0c4c5e0baa0777400283fd9df7c500bb45cc65",
+          "reviewer": "2c943482aea7ff0ac812c983ee2ea7cb464ef2851da0964e0fd69c18c5b12f59",
+          "revision": "7034aa549c8fb91c0f62790338cae1cc65755bbea96b30844d2ae18c50a44354"
+        },
+        "endpoint": "http://127.0.0.1:11434",
+        "num_ctx": 8192,
+        "max_output_tokens": 1024,
+        "temperature": 0,
+        "seed": 20261030,
+        "cost_basis": "local inference; API fees only, excludes hardware/electricity"
+      },
+      "budget": {
+        "tool_calls": 20,
+        "seconds": 600,
+        "tokens": 24000,
+        "dollars": 0.25
+      },
+      "tool_calls": 4,
+      "fault_triggered": false,
+      "seconds": 10.796999999991385,
+      "verification": {
+        "verifier": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "verified_completion": true
+    }
+  ],
+  "complete": true,
+  "context_observations": {
+    "samples": 48,
+    "median_bound_to_actual_ratio": 4.496078708986072
+  },
+  "notes": [
+    "Development-only; no held-out claims."
+  ],
+  "diagnostics": [
+    {
+      "scope": "outside scheduled outcomes",
+      "description": "One local HTTP diagnostic reconstruction returned 200 while the pilot was active; do not treat durations as an uncontended timing comparison."
+    }
+  ]
+}
