@@ -110,3 +110,13 @@ def test_injected_schedule_matches_clean_order_and_assigns_four_tasks_each():
     assert sum(row['condition']=='timeout' for row in injected)==36
     assert sum(row['condition']=='malformed' for row in injected)==36
     assert len({row['condition'] for row in injected if row['task']=='pagination-final'})==1
+
+
+def test_fixed_only_consistency_schedule_covers_all_ten_tasks():
+    from lab.pilot import schedule
+    rows=schedule([task.id for task in TASKS],3,42,'injected',['fixed'])
+    assert len(rows)==30
+    assert {row['architecture'] for row in rows}=={'fixed'}
+    assert all(sum(row['task']==task.id for row in rows)==3 for task in TASKS)
+    assert sum(row['condition']=='timeout' for row in rows)==12
+    assert sum(row['condition']=='malformed' for row in rows)==18

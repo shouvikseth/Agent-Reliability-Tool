@@ -16,15 +16,15 @@ from lab.policies import EXECUTION_POLICY, CONTEXT_POLICY
 from lab.tasks import TASKS
 
 
-def schedule(task_ids, repetitions, seed, condition='clean'):
+def schedule(task_ids, repetitions, seed, condition='clean', architectures=None):
     rng = random.Random(seed)
     rows = []
     for task_id in task_ids:
         for repetition in range(1, repetitions+1):
-            architectures = ['fixed', 'single', 'team']
-            rng.shuffle(architectures)
+            order = list(architectures or ['fixed', 'single', 'team'])
+            rng.shuffle(order)
             fault = 'clean' if condition == 'clean' else ('timeout' if next(i for i,t in enumerate(TASKS) if t.id == task_id) < 4 else 'malformed')
-            rows.extend({'task': task_id, 'repetition': repetition, 'architecture': architecture, 'condition': fault} for architecture in architectures)
+            rows.extend({'task': task_id, 'repetition': repetition, 'architecture': architecture, 'condition': fault} for architecture in order)
     return rows
 
 
@@ -37,15 +37,18 @@ def main():
     parser.add_argument('--output', type=Path, default=Path('runs'))
     parser.add_argument('--tokenizer-file', type=Path)
     parser.add_argument('--condition', choices=['clean', 'injected'], default='clean')
+    parser.add_argument('--architectures', nargs='+', choices=['fixed','single','team'], default=['fixed','single','team'])
     args = parser.parse_args()
     if not 1 <= args.repetitions <= 3 or len(set(args.tasks)) != len(args.tasks):
         parser.error('Use 1–3 repetitions and unique development task IDs')
+    if len(set(args.architectures)) != len(args.architectures):
+        parser.error('Architecture names must be unique')
     # Validate local assets before allocating a pilot directory.
     OllamaModel(tokenizer_file=args.tokenizer_file)
     backend = DockerBackend()
     directory = args.output / ('pilot-' + uuid.uuid4().hex)
     directory.mkdir(parents=True)
-    rows = schedule(args.tasks, args.repetitions, args.seed, args.condition)
+    rows = schedule(args.tasks, args.repetitions, args.seed, args.condition, args.architectures)
     commit = subprocess.run(['git', 'rev-parse', 'HEAD'], capture_output=True, text=True)
     manifest = {'completion_version': COMPLETION_VERSION, 'commit': commit.stdout.strip(),
                 'execution_policy': EXECUTION_POLICY, 'context_policy': CONTEXT_POLICY,
