@@ -45,6 +45,6 @@ The existing `lab.cli schedule` is retained as the historical placeholder design
 
 ## Remaining gate before model evaluation
 
-This milestone does not enable execution of the 216 slots. Before evaluating, add an append-only attempt ledger with durable starts/outcomes, interruption reconciliation, and resume behavior that preserves failed attempts. Preflight the model/template/tokenizer and Docker fingerprints against the selected configuration, record environment versions and configuration hashes, and verify exclusion accounting without removing candidate failures. Freeze the runnable study manifest after those controls pass their tests.
+The validation artifact alone does not enable execution of the 216 slots. The subsequent [study runner](STUDY_RUNNER.md) adds an append-only attempt ledger, durable starts/outcomes, interruption reconciliation, pending-only resume, and live preflight. Prepare a separate runnable manifest from a clean committed checkout after those controls pass their tests. The original validation artifact retains its historical `execution_ready: false` value. No model requests are needed for preparation.
 
 Once held-out generations start, do not change prompts, architecture rules, model, budgets, or tasks based on their outcomes. Report every scheduled slot, fault assignment and actual triggering separately, regressions, incomplete usage, and infrastructure exclusions. Keep development evidence separate. Repetitions share tasks and seeds; avoid treating 216 runs as independent task samples.

@@ -10,7 +10,9 @@ Current fixed workflow: [bounded context acquisition](docs/FIXED_CONTEXT_PILOT.m
 
 The [60-trial fixed-workflow consistency check](docs/FIXED_CONSISTENCY_60.md) is complete across all ten development tasks: 23/30 verified clean and 23/30 with assigned faults. All 30 faults triggered, and all 18 malformed-log runs regained valid context with one retry. One faulted patch failed regression checks. All 83 automated tests passed at that milestone. This development result does not establish held-out performance.
 
-The [held-out design](docs/HELDOUT_DESIGN.md) now contains twelve new cases across four categories. All twelve seeds and reference fixes passed mechanical Docker validation, and the full suite passes **85 tests**. The separate artifact records task/test fingerprints, expected study settings, and 216 scheduled slots. No held-out model evaluation has run. Attempt persistence, safe resumption, and provider preflight are the next gate; the trace viewer also remains future work.
+The [held-out design](docs/HELDOUT_DESIGN.md) now contains twelve new cases across four categories. All twelve seeds and reference fixes passed mechanical Docker validation; that milestone passed 85 tests. The separate artifact records task/test fingerprints, expected study settings, and 216 scheduled slots. The [study runner](docs/STUDY_RUNNER.md) now adds durable starts/outcomes, bounded resume, crash reconciliation, a single-runner lock, and model/tokenizer/Docker preflight. Preparation makes no model generation requests. The trace viewer and completed held-out evaluation remain future work.
+
+The complete suite now passes **100 tests**, including Docker integration and fifteen study-accounting/preflight cases. Failed and interrupted attempts are preserved; resume starts only previously unstarted slots.
 
 ## Run on Windows
 
