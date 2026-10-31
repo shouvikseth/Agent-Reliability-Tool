@@ -1,7 +1,9 @@
 """Versioned shared completion rules for every provider and architecture."""
-COMPLETION_VERSION = 'completion-v3'
+COMPLETION_VERSION = 'completion-v4'
 COMPLETION_RULES = '''Completion rules:
 Actions are optional. Never repeat an action just to fill the array.
+Return at most six actions per response. Every requested tool call counts,
+including cached results. Passing tests on unchanged source may return cached results.
 Do not rerun a passed test unless you made another edit or have new evidence.
 '''
 

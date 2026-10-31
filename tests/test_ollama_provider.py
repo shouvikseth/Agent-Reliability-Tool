@@ -111,3 +111,15 @@ def test_provider_sends_only_current_stage_completion_rules(tools):
     assert 'An empty action list does not finish' in prompts[0]
     assert 'No further changes needed' in prompts[1]
     assert 'Ready to grade' not in prompts[1]
+
+
+def test_grammar_size_does_not_consume_local_prompt_reservation(tools):
+    model = OllamaModel(transport=transport_for())
+    model.bind(tools)
+    model.respond('agent', 'issue', [], allowed={'list','read','logs','replace','test','submit'})
+    events = [json.loads(line) for line in tools.events.read_text().splitlines()]
+    accounting = next(event for event in events if event['kind'] == 'context_accounting')
+    measurement = next(event for event in events if event['kind'] == 'context_measurement')
+    assert accounting['input_token_bound'] < 3000
+    assert measurement['actual_input_tokens'] == 100
+    assert accounting['output_limit'] == model.max_output_tokens

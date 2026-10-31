@@ -7,6 +7,7 @@ from decimal import Decimal
 
 from lab.runtime import BudgetExceeded
 from lab.prompts import COMPLETION_VERSION, completion_for
+from lab.policies import MAX_ACTIONS, CONTEXT_POLICY, visible_history
 
 DEFAULT_MODEL = 'gpt-5.4-mini-2026-03-17'
 PRICES = {DEFAULT_MODEL: ('0.75', '0.075', '4.50')}
@@ -71,7 +72,7 @@ def action_tool(allowed):
             'type': 'object', 'additionalProperties': False,
             'properties': {
                 'text': {'type': 'string'},
-                'actions': {'type': 'array', 'maxItems': 20, 'items': {'anyOf': variants}},
+                'actions': {'type': 'array', 'maxItems': MAX_ACTIONS, 'items': {'anyOf': variants}},
             }, 'required': ['text', 'actions'],
         },
     }
@@ -124,6 +125,7 @@ class OpenAIModel:
     def metadata(self):
         return {'provider': 'openai', 'model': self.model, 'max_output_tokens': self.max_output_tokens,
                 'completion_version': COMPLETION_VERSION,
+                'context_policy': CONTEXT_POLICY,
                 'prompt_sha256': hashlib.sha256(INSTRUCTIONS.encode()).hexdigest(),
                 'stage_prompt_sha256': {role: hashlib.sha256((INSTRUCTIONS + completion_for(role)).encode()).hexdigest()
                                         for role in ('agent', 'inspect', 'patch', 'planner', 'writer', 'reviewer', 'revision')},
@@ -151,13 +153,7 @@ class OpenAIModel:
         else:
             factory = self.client_factory
         # Resend visible history only. Do not forward provider reasoning items.
-        visible = []
-        for item in history:
-            if 'response' in item:
-                response = item['response']
-                visible.append({'role': item['role'], 'text': response['text'], 'actions': response['actions']})
-            else:
-                visible.append(item)
+        visible = visible_history(history)
         payload = {
             'model': self.model,
             'instructions': INSTRUCTIONS + completion_for(role) + '\nCurrent stage: ' + role + '. Allowed tools: ' + ', '.join(sorted(allowed)),
@@ -234,7 +230,7 @@ def decode_actions(arguments, allowed):
         if set(payload) != {'text', 'actions'} or not isinstance(payload['text'], str):
             raise ValueError()
         actions = payload['actions']
-        if not isinstance(actions, list) or len(actions) > 20:
+        if not isinstance(actions, list) or len(actions) > MAX_ACTIONS:
             raise ValueError()
         decoded = []
         for index, action in enumerate(actions):

@@ -6,6 +6,7 @@ import httpx
 from lab.openai_provider import ProviderError, ModelOutputError, action_tool, decode_actions
 from lab.runtime import BudgetExceeded
 from lab.prompts import COMPLETION_VERSION, completion_for
+from lab.policies import CONTEXT_POLICY, visible_history, history_size
 
 DEFAULT_MODEL = 'qwen2.5-coder:7b'
 LOCAL_MODELS = {DEFAULT_MODEL, 'qwen2.5-coder:3b'}
@@ -38,6 +39,7 @@ class OllamaModel:
     def metadata(self):
         return {'provider': 'ollama', 'model': self.model, 'model_digest': self.digest,
                 'completion_version': COMPLETION_VERSION,
+                'context_policy': CONTEXT_POLICY, 'admission_policy': 'message-bytes-v2',
                 'prompt_sha256': hashlib.sha256(PROMPT.encode()).hexdigest(),
                 'stage_prompt_sha256': {role: hashlib.sha256((PROMPT + completion_for(role)).encode()).hexdigest()
                                         for role in ('agent', 'inspect', 'patch', 'planner', 'writer', 'reviewer', 'revision')},
@@ -61,24 +63,24 @@ class OllamaModel:
             raise BudgetExceeded('Local model deadline exceeded; server may still be computing') from None
 
     async def _request(self, role, issue, history, allowed):
-        visible = []
-        for item in history:
-            if 'response' in item:
-                visible.append({'role': item['role'], 'text': item['response']['text'], 'actions': item['response']['actions']})
-            else:
-                visible.append(item)
+        visible = visible_history(history)
         schema = action_tool(allowed)['parameters']
         messages = [
             {'role': 'system', 'content': PROMPT + completion_for(role) + '\nStage: ' + role + '\nAllowed: ' + ','.join(sorted(allowed))},
-            {'role': 'user', 'content': json.dumps({'issue': issue, 'history': visible}, ensure_ascii=False)},
+            {'role': 'user', 'content': json.dumps({'issue': issue, 'history': visible}, ensure_ascii=False, separators=(',', ':'))},
         ]
         # No tokenizer endpoint: reserve a conservative UTF-8-byte allowance plus
         # template overhead. Stop rather than silently truncate a long context.
-        input_bound = len(json.dumps({'messages': messages, 'format': schema}, ensure_ascii=False, separators=(',', ':')).encode('utf-8')) + 512
+        # format is a decoding grammar, not prompt text. Count only the actual
+        # message content plus template allowance, without JSON-escaping it twice.
+        input_bound = sum(len(message['content'].encode('utf-8')) for message in messages) + 512
         output_limit = min(self.max_output_tokens, self.tools.budget.tokens-self.tokens-self.uncertain-input_bound,
                            self.num_ctx-input_bound)
         if output_limit < 16:
             raise BudgetExceeded('Local prompt exceeds conservative token/context allowance')
+        self.tools.event('context_accounting', role=role, policy='message-bytes-v2',
+                         original_history_bytes=history_size(history), visible_history_bytes=history_size(visible),
+                         input_token_bound=input_bound, output_limit=output_limit)
         payload = {'model': self.model, 'messages': messages, 'format': schema, 'stream': False,
                    'keep_alive': '5m', 'options': {'num_ctx': self.num_ctx, 'num_predict': output_limit,
                                                'temperature': 0, 'seed': self.seed}}
@@ -110,6 +112,8 @@ class OllamaModel:
                 self.tokens += incoming+outgoing
                 usage = {'tokens': incoming+outgoing, 'input_tokens': incoming, 'output_tokens': outgoing, 'dollars': 0.0}
                 self.tools.event('model_usage', role=role, model=self.model, usage=usage)
+                self.tools.event('context_measurement', role=role, input_token_bound=input_bound,
+                                 actual_input_tokens=incoming, unused_reservation=input_bound-incoming)
                 content = data.get('message', {}).get('content', '')
                 self.tools.event('model_output', role=role, text=content)
                 if self.tokens > self.tools.budget.tokens or incoming > input_bound or outgoing > output_limit:

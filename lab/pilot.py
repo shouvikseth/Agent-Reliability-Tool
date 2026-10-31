@@ -12,6 +12,7 @@ from lab.docker_backend import DockerBackend
 from lab.ollama_provider import OllamaModel
 from lab.prompts import COMPLETION_VERSION
 from lab.runtime import Budget
+from lab.policies import EXECUTION_POLICY, CONTEXT_POLICY
 from lab.tasks import TASKS
 
 
@@ -42,6 +43,7 @@ def main():
     rows = schedule(args.tasks, args.repetitions, args.seed)
     commit = subprocess.run(['git', 'rev-parse', 'HEAD'], capture_output=True, text=True)
     manifest = {'completion_version': COMPLETION_VERSION, 'commit': commit.stdout.strip(),
+                'execution_policy': EXECUTION_POLICY, 'context_policy': CONTEXT_POLICY,
                 'seed': args.seed, 'condition': 'clean', 'study': 'development_only',
                 'image': backend.image, 'schedule': rows}
     (directory / 'schedule.json').write_text(json.dumps(manifest, indent=2), encoding='utf-8')

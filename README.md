@@ -27,7 +27,7 @@ To run the balanced local development pilot (four development tasks, all three a
 .\.venv\Scripts\python -u -m lab.pilot
 ```
 
-This runs 12 sequential GPU trials with identical budgets. It freezes a seeded architecture order in `schedule.json`, records the source commit, and appends outcomes to `summary.jsonl` under a new `runs/pilot-*` directory. Per-run manifests, traces, diffs, grading, and SQLite results are preserved. It never uses a paid provider or held-out tasks. `--repetitions 2` or `3` broadens development consistency checks; it does not make this a held-out study. The current completion rules are `completion-v3`, with stage-specific instruction hashes in every manifest.
+This runs 12 sequential GPU trials with identical budgets. It freezes a seeded architecture order in `schedule.json`, records the source commit, and appends outcomes to `summary.jsonl` under a new `runs/pilot-*` directory. Per-run manifests, traces, diffs, grading, and SQLite results are preserved. It never uses a paid provider or held-out tasks. `--repetitions 2` or `3` broadens development consistency checks; it does not make this a held-out study. Current rules are `completion-v4`, with stage-specific instruction hashes, bounded actions, passed-test caching, empty-turn feedback, and revised local context admission. See [execution policies](docs/POLICIES.md); v3 reports describe the prior baseline.
 
 Install the optional SDK dependency once:
 

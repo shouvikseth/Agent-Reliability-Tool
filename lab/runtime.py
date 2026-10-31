@@ -5,6 +5,8 @@ import subprocess
 import sys
 import time
 import math
+import hashlib
+from lab.policies import EXECUTION_POLICY, MAX_ACTIONS
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Protocol
@@ -38,6 +40,8 @@ class Tools:
         self.injected = False
         self.submitted = False
         self.original = (workspace / "app.py").read_text()
+        self.passed_tests = {}
+        self.cached_tests = 0
 
     def event(self, kind, **data):
         with self.events.open("a", encoding="utf-8") as stream:
@@ -76,11 +80,18 @@ class Tools:
                 path.write_text(source.replace(args["old"], args["new"]))
                 result = {"edited": args["path"]}
             elif name == "test":
-                if self.backend is not None:
-                    result = self.backend.test(self.workspace, self.remaining())
+                key = hashlib.sha256((self.workspace / 'app.py').read_bytes()).hexdigest()
+                if key in self.passed_tests:
+                    self.cached_tests += 1
+                    result = {**self.passed_tests[key], 'cached': True, 'source_sha256': key}
                 else:
-                    process = subprocess.run([sys.executable, "-m", "pytest", "-q", "test_public.py"], cwd=self.workspace, capture_output=True, text=True, timeout=max(.01, self.remaining()))
-                    result = {"exit_code": process.returncode, "output": (process.stdout + process.stderr)[-10000:]}
+                    if self.backend is not None:
+                        result = self.backend.test(self.workspace, self.remaining())
+                    else:
+                        process = subprocess.run([sys.executable, "-m", "pytest", "-q", "test_public.py"], cwd=self.workspace, capture_output=True, text=True, timeout=max(.01, self.remaining()))
+                        result = {"exit_code": process.returncode, "output": (process.stdout + process.stderr)[-10000:]}
+                    if result.get('exit_code') == 0:
+                        self.passed_tests[key] = dict(result)
             elif name == "submit":
                 self.submitted = True
                 result = {"submitted": True}
@@ -104,15 +115,17 @@ class Model(Protocol):
 def execute(architecture: str, model: Model, issue: str, tools: Tools):
     history = []
     tokens, dollars = 0, 0.0
+    empty_turns = 0
     if hasattr(model, 'bind'):
         model.bind(tools)
 
     def outcome(status, **extra):
         usage = model.snapshot() if hasattr(model, 'snapshot') else {'tokens': tokens, 'dollars': dollars}
-        return {'status': status, **usage, **extra}
+        return {'status': status, **usage, 'execution_policy': EXECUTION_POLICY,
+                'cached_test_calls': tools.cached_tests, **extra}
 
     def step(role, allowed):
-        nonlocal tokens, dollars
+        nonlocal tokens, dollars, empty_turns
         if tools.remaining() <= 0:
             raise BudgetExceeded("Wall-clock budget exhausted")
         response = model.respond(role, issue, history, allowed=allowed)
@@ -123,14 +136,26 @@ def execute(architecture: str, model: Model, issue: str, tools: Tools):
         if tokens > tools.budget.tokens or dollars > tools.budget.dollars or tools.remaining() <= 0:
             raise BudgetExceeded("Model budget exhausted")
         history.append({"role": role, "response": response})
-        for action in response.get("actions", []):
+        actions = response.get('actions', [])
+        if len(actions) > MAX_ACTIONS:
+            raise ValueError('Response exceeds six-action limit')
+        if role == 'agent' and not actions:
+            empty_turns += 1
+            if empty_turns >= 2:
+                raise ValueError('Two consecutive empty agent turns without submission')
+            feedback = {'error': 'No actions executed. Use tools to continue, or submit explicitly when ready.'}
+            history.append({'tool': 'runtime_feedback', 'result': feedback})
+            tools.event('runtime_feedback', result=feedback)
+        else:
+            empty_turns = 0
+        for action in actions:
             if action["name"] not in allowed:
                 raise ValueError(f"Tool forbidden in {role}: {action['name']}")
             try:
                 result = tools.call(action["name"], **action.get("arguments", {}))
             except (ValueError, FileNotFoundError) as error:
                 result = {'error': str(error)}
-            history.append({"tool": action["name"], "result": result})
+            history.append({"tool": action["name"], 'arguments': action.get('arguments', {}), "result": result})
         return response
 
     read = {"list", "read", "logs"}
