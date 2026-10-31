@@ -21,6 +21,14 @@ python -m venv .venv
 
 For a local model without API fees, see [the Ollama setup guide](docs/OLLAMA.md). Both providers use the same restricted tools and Docker grader. Report provider-specific experiments separately.
 
+To run the balanced local development pilot (four development tasks, all three architectures, clean tools, one repetition each):
+
+```powershell
+.\.venv\Scripts\python -u -m lab.pilot
+```
+
+This runs 12 sequential GPU trials with identical budgets. It freezes a seeded architecture order in `schedule.json`, records the source commit, and appends outcomes to `summary.jsonl` under a new `runs/pilot-*` directory. Per-run manifests, traces, diffs, grading, and SQLite results are preserved. It never uses a paid provider or held-out tasks. `--repetitions 2` or `3` broadens development consistency checks; it does not make this a held-out study. The current completion rules are `completion-v3`, with stage-specific instruction hashes in every manifest.
+
 Install the optional SDK dependency once:
 
 ```powershell
