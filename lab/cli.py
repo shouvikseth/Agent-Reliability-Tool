@@ -77,6 +77,10 @@ def smoke(output: Path, architecture, fault, backend=None, *, model=None, task=N
         manifest['provider'] = metadata
         manifest_path.write_text(json.dumps(manifest, indent=2), encoding='utf-8')
     (run / "patch.diff").write_text(tools.diff())
+    # Durable evidence survives a grader/control-plane crash. This is not a grade.
+    (run / 'execution.json').write_text(json.dumps({**result, 'provider': metadata,
+        'task': task.id, 'architecture': architecture, 'condition': fault,
+        'submitted': tools.submitted, 'verified_completion': False}, indent=2), encoding='utf-8')
     try:
         verification = grade(task, workspace / "app.py", backend) if tools.submitted else None
     except Exception as error:

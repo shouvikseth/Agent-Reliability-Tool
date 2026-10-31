@@ -125,6 +125,13 @@ class OllamaModel:
                 return result
         except (BudgetExceeded, ProviderError, ModelOutputError, asyncio.CancelledError):
             raise
+        except httpx.HTTPStatusError as error:
+            status = error.response.status_code
+            text = error.response.text.lower()
+            category = next((phrase for phrase in ('out of memory', 'context length', 'input length',
+                'runner', 'grammar', 'connection') if phrase in text), 'unclassified')
+            self.tools.event('local_http_error', status=status, category=category)
+            raise ProviderError(f'Local Ollama HTTP {status} ({category}); reservation retained') from None
         except httpx.ConnectError:
             raise ProviderError('Ollama is not reachable at localhost:11434. Install and start Ollama for Windows.') from None
         except Exception as error:

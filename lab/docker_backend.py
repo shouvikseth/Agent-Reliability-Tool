@@ -29,6 +29,24 @@ def docker(*args, timeout=30):
     return result.stdout.strip()
 
 
+def stop_attached(process, name):
+    """Always reap the local attach process, even when the daemon times out."""
+    failure = None
+    try:
+        subprocess.run(['docker', 'kill', name], capture_output=True, timeout=10)
+    except (OSError, subprocess.TimeoutExpired) as error:
+        failure = InfrastructureError('Docker kill failed: ' + type(error).__name__)
+    finally:
+        if process.poll() is None:
+            process.kill()
+        try:
+            process.wait(timeout=5)
+        except (OSError, subprocess.TimeoutExpired) as error:
+            failure = InfrastructureError('Docker attach cleanup failed: ' + type(error).__name__)
+    if failure:
+        raise failure
+
+
 class DockerBackend:
     def __init__(self, image=IMAGE):
         # Resolve a mutable tag once; all containers use the same immutable local ID.
@@ -85,12 +103,12 @@ class DockerBackend:
             except subprocess.TimeoutExpired:
                 timed_out = True
             finally:
-                if process.poll() is None:
-                    subprocess.run(['docker', 'kill', name], capture_output=True, timeout=10)
-                    process.kill()
-                    process.wait(timeout=5)
-                reader.join(timeout=2)
-                process.stdout.close()
+                try:
+                    if process.poll() is None:
+                        stop_attached(process, name)
+                finally:
+                    reader.join(timeout=2)
+                    process.stdout.close()
             if timed_out:
                 return {'exit_code': -1, 'output': 'Candidate test timed out', 'timed_out': True}
             text = b''.join(tail)[-10000:].decode('utf-8', errors='replace')
@@ -128,12 +146,12 @@ class DockerBackend:
                 yield client
             finally:
                 stop.set()
-                subprocess.run(['docker', 'kill', name], capture_output=True, timeout=10)
-                process.kill() if process.poll() is None else None
-                process.wait(timeout=5)
-                reader.join(timeout=2)
-                process.stdin.close()
-                process.stdout.close()
+                try:
+                    stop_attached(process, name)
+                finally:
+                    reader.join(timeout=2)
+                    process.stdin.close()
+                    process.stdout.close()
 
 
 class RemoteClient:

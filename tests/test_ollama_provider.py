@@ -123,3 +123,16 @@ def test_grammar_size_does_not_consume_local_prompt_reservation(tools):
     assert accounting['input_token_bound'] < 3000
     assert measurement['actual_input_tokens'] == 100
     assert accounting['output_limit'] == model.max_output_tokens
+
+
+def test_local_http_diagnostic_is_bounded_and_retains_usage_uncertainty(tools):
+    base = transport_for()
+    def handler(request):
+        if request.url.path == '/api/chat':
+            return httpx.Response(500, json={'error': 'runner crashed; private text must not be logged'})
+        return base.handle_request(request)
+    result = execute('single', OllamaModel(transport=httpx.MockTransport(handler)), 'issue', tools)
+    assert result['status'] == 'infrastructure_invalid'
+    assert 'HTTP 500 (runner)' in result['error']
+    assert not result['usage_complete']
+    assert 'private text' not in tools.events.read_text()

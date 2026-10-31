@@ -71,3 +71,30 @@ def test_seven_action_batch_is_rejected_before_any_execution(tools):
     assert tools.calls == 0
     with pytest.raises(ModelOutputError):
         decode_actions(json.dumps({'text': '', 'actions': [{}]*(MAX_ACTIONS+1)}), {'test'})
+
+
+def test_cleanup_timeout_reaps_attach_and_becomes_infrastructure_error(monkeypatch):
+    import subprocess
+    from lab.docker_backend import stop_attached, InfrastructureError
+    calls = []
+    process = SimpleNamespace(poll=lambda: None, kill=lambda: calls.append('kill'), wait=lambda **kwargs: calls.append('wait'))
+    def timeout(*args, **kwargs):
+        raise subprocess.TimeoutExpired('docker kill', 10)
+    monkeypatch.setattr('lab.docker_backend.subprocess.run', timeout)
+    with pytest.raises(InfrastructureError, match='Docker kill failed'):
+        stop_attached(process, 'project-test-container')
+    assert calls == ['kill', 'wait']
+
+
+def test_grader_infrastructure_failure_still_saves_execution_and_result(tmp_path, monkeypatch):
+    from lab.cli import smoke
+    from lab.docker_backend import InfrastructureError
+    def broken_grade(*args, **kwargs):
+        raise InfrastructureError('Docker cleanup timed out')
+    monkeypatch.setattr('lab.cli.grade', broken_grade)
+    result = smoke(tmp_path, 'single', 'clean')
+    run = tmp_path / result['id']
+    assert result['status'] == 'infrastructure_invalid'
+    assert not result['verified_completion']
+    assert json.loads((run/'execution.json').read_text())['submitted']
+    assert json.loads((run/'result.json').read_text())['status'] == 'infrastructure_invalid'
