@@ -8,7 +8,9 @@ The new [typed-log pilot](docs/LOG_CONTRACT_PILOT.md) uses a validated `logs-v2`
 
 Current fixed workflow: [bounded context acquisition](docs/FIXED_CONTEXT_PILOT.md) reads source and logs deterministically, retries one eligible log-decoding error, then uses patch and revision model stages. All 82 tests passed. Its separate four-run smoke check verified 1/2 clean and 1/2 faulted repairs; the old datasets are preserved under their original policy versions.
 
-The [60-trial fixed-workflow consistency check](docs/FIXED_CONSISTENCY_60.md) is complete across all ten development tasks: 23/30 verified clean and 23/30 with assigned faults. All 30 faults triggered, and all 18 malformed-log runs regained valid context with one retry. One faulted patch failed regression checks. All 83 automated tests passed, including Docker integration. This development result does not establish held-out performance; held-out tasks and the trace viewer remain future work.
+The [60-trial fixed-workflow consistency check](docs/FIXED_CONSISTENCY_60.md) is complete across all ten development tasks: 23/30 verified clean and 23/30 with assigned faults. All 30 faults triggered, and all 18 malformed-log runs regained valid context with one retry. One faulted patch failed regression checks. All 83 automated tests passed at that milestone. This development result does not establish held-out performance.
+
+The [held-out design](docs/HELDOUT_DESIGN.md) now contains twelve new cases across four categories. All twelve seeds and reference fixes passed mechanical Docker validation, and the full suite passes **85 tests**. The separate artifact records task/test fingerprints, expected study settings, and 216 scheduled slots. No held-out model evaluation has run. Attempt persistence, safe resumption, and provider preflight are the next gate; the trace viewer also remains future work.
 
 ## Run on Windows
 
@@ -21,7 +23,7 @@ python -m venv .venv
 .\.venv\Scripts\python -m lab.cli schedule > schedule.json
 ```
 
-`validate` checks that each seeded task fails its independent defect test, passes its public regression test, and passes both after applying the reference fix. `smoke` persists `events.jsonl`, `patch.diff`, `result.json`, and a SQLite row beneath `runs/`. `schedule` produces a design with placeholder held-out IDs; those tasks do not exist yet.
+`validate` checks that each seeded development task fails its independent defect test, passes its public regression test, and passes both after applying the reference fix. `smoke` persists `events.jsonl`, `patch.diff`, `result.json`, and a SQLite row beneath `runs/`. `schedule` retains the historical placeholder design. Use the separate `python -m lab.heldout --output <new-json-file>` command for Docker validation and the current held-out design; it does not execute model trials.
 
 ## Real OpenAI pilot
 

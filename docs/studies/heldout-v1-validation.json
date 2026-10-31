@@ -1,0 +1,1985 @@
+{
+  "status": "mechanically_validated_design",
+  "execution_ready": false,
+  "model_evaluation_runs": 0,
+  "source_commit": "34a026f5864025482dffdaa62ed4731b13206a4b",
+  "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+  "tasks": [
+    {
+      "task": "heldout-01",
+      "category": "pagination",
+      "valid": true,
+      "definition_sha256": "56cb3f8f6222adb1b19b938bdd6ec6bfa8c9885dd87d4be24b8dd357d0cc8784",
+      "seed_sha256": "ff318d399b6852b61b55368d3999e3d4b2439d65318969661cc77186a9363032",
+      "reference_sha256": "5430d708b712bf133e3eec2d4e5df0a5ba604f201af16d0f6fa10b5be895d28b",
+      "verifier_sha256": "b422940050a17f4f80ba862a1d1fe082380c33a2b3890e8553487e81bc14b27b",
+      "public_test_sha256": "3774b1836d786a5a6616923095351dbb5c722f027a36f0f795519d81b1904886",
+      "broken": {
+        "verifier": {
+          "passed": false,
+          "exit_code": 1,
+          "output": "AssertionError: "
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "reference": {
+        "verifier": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      }
+    },
+    {
+      "task": "heldout-02",
+      "category": "pagination",
+      "valid": true,
+      "definition_sha256": "1d010d624ff910ae3b6dec84b96f6dc2b094fe730851ef34beee01229947b3e4",
+      "seed_sha256": "51f58f8a3e461c0e8e86b36658fd2c7298a3badd762e6fd9971f929b8a0a6bc7",
+      "reference_sha256": "5430d708b712bf133e3eec2d4e5df0a5ba604f201af16d0f6fa10b5be895d28b",
+      "verifier_sha256": "92f3e4fa058232853d8189d6ad05b4a87ff55d99ce133d38413f0fa9fdec36cc",
+      "public_test_sha256": "3774b1836d786a5a6616923095351dbb5c722f027a36f0f795519d81b1904886",
+      "broken": {
+        "verifier": {
+          "passed": false,
+          "exit_code": 1,
+          "output": "AssertionError: "
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "reference": {
+        "verifier": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      }
+    },
+    {
+      "task": "heldout-03",
+      "category": "pagination",
+      "valid": true,
+      "definition_sha256": "7a6249fa3bf02be360e64dc74d45c61430729640e54228783a51ab2595fc4be6",
+      "seed_sha256": "58d9d5c781930ac2b15eeae2637fdfd44bf5ffd353e5619c137dd65cdbc3d0aa",
+      "reference_sha256": "5430d708b712bf133e3eec2d4e5df0a5ba604f201af16d0f6fa10b5be895d28b",
+      "verifier_sha256": "3d3695062c93901d63bc389560d67e78a5bff0997ecf167d5576d5c3a1355096",
+      "public_test_sha256": "3774b1836d786a5a6616923095351dbb5c722f027a36f0f795519d81b1904886",
+      "broken": {
+        "verifier": {
+          "passed": false,
+          "exit_code": 1,
+          "output": "AssertionError: "
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "reference": {
+        "verifier": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      }
+    },
+    {
+      "task": "heldout-04",
+      "category": "validation",
+      "valid": true,
+      "definition_sha256": "633331092f8d9ef1bab0ab22ba900949dd2afdc5143396f9e62f4c0d3d72a25c",
+      "seed_sha256": "7f12bbbcc3e11cc3be995ac21f15fb64b838ec7b32a9cfe01b473b0ffc413f05",
+      "reference_sha256": "5430d708b712bf133e3eec2d4e5df0a5ba604f201af16d0f6fa10b5be895d28b",
+      "verifier_sha256": "b184f62c77401f68c7521983181e796cc7807f3a5fd63e5c19a4a0646c61aa82",
+      "public_test_sha256": "3774b1836d786a5a6616923095351dbb5c722f027a36f0f795519d81b1904886",
+      "broken": {
+        "verifier": {
+          "passed": false,
+          "exit_code": 1,
+          "output": "AssertionError: "
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "reference": {
+        "verifier": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      }
+    },
+    {
+      "task": "heldout-05",
+      "category": "validation",
+      "valid": true,
+      "definition_sha256": "b088efca3bbec19383254a55ef8e316af2b09ff5933588982df02c88ed245676",
+      "seed_sha256": "6d9d08eb2d9c266ab13b002f95bc4affe37f44baa166122e0156803e7e274d06",
+      "reference_sha256": "5430d708b712bf133e3eec2d4e5df0a5ba604f201af16d0f6fa10b5be895d28b",
+      "verifier_sha256": "d1a836e63bdac0e5c9b4dab8c5e1494ef277d9c66684035eefeb8a9e2b60d89c",
+      "public_test_sha256": "3774b1836d786a5a6616923095351dbb5c722f027a36f0f795519d81b1904886",
+      "broken": {
+        "verifier": {
+          "passed": false,
+          "exit_code": 1,
+          "output": "AssertionError: "
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "reference": {
+        "verifier": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      }
+    },
+    {
+      "task": "heldout-06",
+      "category": "validation",
+      "valid": true,
+      "definition_sha256": "8b68bb432bac5a6d512bf99e466df3555bb9eb6695718c54d7e286cf31ab796f",
+      "seed_sha256": "9d7332f58c1a8be5b874ba5da29c488d0d761e530fc9eb90096e88eb57b83356",
+      "reference_sha256": "5430d708b712bf133e3eec2d4e5df0a5ba604f201af16d0f6fa10b5be895d28b",
+      "verifier_sha256": "4a849d4136413ff8997b8edc447ae448f8ddb92ef357253db04be41722fff90a",
+      "public_test_sha256": "3774b1836d786a5a6616923095351dbb5c722f027a36f0f795519d81b1904886",
+      "broken": {
+        "verifier": {
+          "passed": false,
+          "exit_code": 1,
+          "output": "AssertionError: "
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "reference": {
+        "verifier": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      }
+    },
+    {
+      "task": "heldout-07",
+      "category": "transitions",
+      "valid": true,
+      "definition_sha256": "76179de134d1e15c01b6841e1203063e320b06e163a9fe8eb113c91ef6392afb",
+      "seed_sha256": "d127597e9935f214fb9ac1b18bd52bbde80db1f8fe1fb393821f31e8c4b97b28",
+      "reference_sha256": "5430d708b712bf133e3eec2d4e5df0a5ba604f201af16d0f6fa10b5be895d28b",
+      "verifier_sha256": "f001077c3ddf759c707905985b618006595c0274bddd442d0aa4790e45cd8433",
+      "public_test_sha256": "3774b1836d786a5a6616923095351dbb5c722f027a36f0f795519d81b1904886",
+      "broken": {
+        "verifier": {
+          "passed": false,
+          "exit_code": 1,
+          "output": "AssertionError: "
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "reference": {
+        "verifier": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      }
+    },
+    {
+      "task": "heldout-08",
+      "category": "transitions",
+      "valid": true,
+      "definition_sha256": "9e6453b2aca81ae30350fcd3c03504d52ef5ed0fa58a51be95a22b7d971497f6",
+      "seed_sha256": "46d6d1200078a2a62b37261946dcf1ae0ed98c3930a406d083766951f6f6c0d3",
+      "reference_sha256": "5430d708b712bf133e3eec2d4e5df0a5ba604f201af16d0f6fa10b5be895d28b",
+      "verifier_sha256": "08a5b6f6849a0380f728496ab1f8342ad1eb2b0674a3b05c0599f3a986728bab",
+      "public_test_sha256": "3774b1836d786a5a6616923095351dbb5c722f027a36f0f795519d81b1904886",
+      "broken": {
+        "verifier": {
+          "passed": false,
+          "exit_code": 1,
+          "output": "AssertionError: "
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "reference": {
+        "verifier": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      }
+    },
+    {
+      "task": "heldout-09",
+      "category": "transitions",
+      "valid": true,
+      "definition_sha256": "19fd9da82cd86d1dde2ca871bbcf5024afd3bbefd44a94e72dc67432487aa7a9",
+      "seed_sha256": "0e99d8665d54f39ba1ddcb5bd3849d1f34df72222bacfd0800e86870c1a22ec1",
+      "reference_sha256": "5430d708b712bf133e3eec2d4e5df0a5ba604f201af16d0f6fa10b5be895d28b",
+      "verifier_sha256": "152503241f4c25588bb81604f535f161980447cdeb025f6ab8b4b26270c73dcb",
+      "public_test_sha256": "3774b1836d786a5a6616923095351dbb5c722f027a36f0f795519d81b1904886",
+      "broken": {
+        "verifier": {
+          "passed": false,
+          "exit_code": 1,
+          "output": "AssertionError: "
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "reference": {
+        "verifier": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      }
+    },
+    {
+      "task": "heldout-10",
+      "category": "duplicates",
+      "valid": true,
+      "definition_sha256": "e9b7400d20fe8d872f139112891fadfad24f46928a45e919bd2780e1de45bc52",
+      "seed_sha256": "f5f06f2d8cca34e5a83119ccb7aa1d18fbe43e1c76110b9effa537da2a1ccdb2",
+      "reference_sha256": "5430d708b712bf133e3eec2d4e5df0a5ba604f201af16d0f6fa10b5be895d28b",
+      "verifier_sha256": "57c51f6553730aae3cccdbf7e1c34fb2936061c4299a8ba8abafe2075e9612a4",
+      "public_test_sha256": "3774b1836d786a5a6616923095351dbb5c722f027a36f0f795519d81b1904886",
+      "broken": {
+        "verifier": {
+          "passed": false,
+          "exit_code": 1,
+          "output": "AssertionError: "
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "reference": {
+        "verifier": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      }
+    },
+    {
+      "task": "heldout-11",
+      "category": "duplicates",
+      "valid": true,
+      "definition_sha256": "3c60cfced2f158d8db797e997fda95cd94d7cf3b085d53dda19dd226a5301aad",
+      "seed_sha256": "760d11cda35b539341fafeb9e4328d63d312d35dffe865fc511570dd30254598",
+      "reference_sha256": "5430d708b712bf133e3eec2d4e5df0a5ba604f201af16d0f6fa10b5be895d28b",
+      "verifier_sha256": "dd7db63aab12cc761f71bc55ee9c31cce572dcf63ea196ea993876032a3a8efc",
+      "public_test_sha256": "3774b1836d786a5a6616923095351dbb5c722f027a36f0f795519d81b1904886",
+      "broken": {
+        "verifier": {
+          "passed": false,
+          "exit_code": 1,
+          "output": "AssertionError: "
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "reference": {
+        "verifier": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      }
+    },
+    {
+      "task": "heldout-12",
+      "category": "duplicates",
+      "valid": true,
+      "definition_sha256": "39341bcf8bfa705c53079bd82e07aeac72832b339d19c8cdbb3941e5dbe5341d",
+      "seed_sha256": "07890801ac296644b4dc9559ff37e9256d6301b17917393244777dc1ed36b46f",
+      "reference_sha256": "5430d708b712bf133e3eec2d4e5df0a5ba604f201af16d0f6fa10b5be895d28b",
+      "verifier_sha256": "6658182afec648a8b141eda406e1e557a6926c00131a5d9c9f2a690f50072912",
+      "public_test_sha256": "3774b1836d786a5a6616923095351dbb5c722f027a36f0f795519d81b1904886",
+      "broken": {
+        "verifier": {
+          "passed": false,
+          "exit_code": 1,
+          "output": "AssertionError: "
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "reference": {
+        "verifier": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      }
+    }
+  ],
+  "configuration": {
+    "provider_expected": {
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+      "completion_version": "completion-v5",
+      "context_policy": "visible-history-v1",
+      "admission_policy": "qwen-tokenizer-v1",
+      "tokenizer": {
+        "tokenizer_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+        "tokenizer_revision": "c03e6d358207e414f1eca0bb1891e29f1db0e242",
+        "template_sha256": "1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320",
+        "safety_margin_tokens": 64
+      },
+      "non_ascii_admission": "message-bytes-v2",
+      "prompt_sha256": "2abcbbb59d5630c1bb14072f90466204e86cfa357bf2fb2148f3125c8101ab0e",
+      "stage_prompt_sha256": {
+        "agent": "ff273c7350529cf3f43e5e66d0988b8a277ff8b8ee1746865dae1692329d8106",
+        "inspect": "398437c50e5fc20a247c00fdc54a337c3d7474b3d1c4ac5ac3f0dc30e4f4688e",
+        "patch": "b1ad0e1be7880ee4bb43b8f85459719e815c0560667de1dcecffa8bc412964f3",
+        "planner": "f6f20d97b912919342aac7b736cc43302ba907fc546e61a93753a3271a574da4",
+        "writer": "6f87787ae1606ec8bfc5943a7858312dc33beb8894e06f45bf39f5f8254022ca",
+        "reviewer": "68f055d51678922f674c55c2031ba41c381414584b93523898739e4d21b1f0b4",
+        "revision": "c580eac66adfad5dacc65c4a6e25f25cd7c9df2a1492962bff1022e7a9a183d6"
+      },
+      "endpoint": "http://127.0.0.1:11434",
+      "num_ctx": 8192,
+      "max_output_tokens": 1024,
+      "temperature": 0,
+      "seed": 20261030,
+      "cost_basis": "local inference; API fees only, excludes hardware/electricity"
+    },
+    "execution_policy": "bounded-actions-v4/fixed-context-v1/logs-v2",
+    "budget": {
+      "tool_calls": 20,
+      "seconds": 600,
+      "tokens": 24000,
+      "dollars": 0.25
+    },
+    "seed": 20261030,
+    "architectures": [
+      "fixed",
+      "single",
+      "team"
+    ],
+    "model_preflight_required": true
+  },
+  "fingerprint_encoding": "UTF-8 text normalized to LF",
+  "category_counts": {
+    "pagination": 3,
+    "validation": 3,
+    "transitions": 3,
+    "duplicates": 3
+  },
+  "schedule": [
+    {
+      "attempt_id": "4a77a4ab698b5fc5b91e60abb5dd32e9",
+      "task": "heldout-01",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "15c3e49504e950a9bef051d6e81250fd",
+      "task": "heldout-01",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "f39ae0fe807d5bf0a6c98901bf75130f",
+      "task": "heldout-01",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "cbb1dde7d5a05aba8fe0c42da60eabf2",
+      "task": "heldout-01",
+      "repetition": 1,
+      "condition": "timeout",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "6e962c57bd6256298fe7e8b82db4a892",
+      "task": "heldout-01",
+      "repetition": 1,
+      "condition": "timeout",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "3ed81d3cc6895ea9a8dee9307276319b",
+      "task": "heldout-01",
+      "repetition": 1,
+      "condition": "timeout",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "9fe77d4686b55c6088ee9bec2b44b88b",
+      "task": "heldout-01",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "2400369a126c5208bf12ffa14af8c6ff",
+      "task": "heldout-01",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "555a39bd8b525a8b87b75a71989125fe",
+      "task": "heldout-01",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "b67d191256035b52b21467f3d2ca2ab7",
+      "task": "heldout-01",
+      "repetition": 2,
+      "condition": "timeout",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "f0f6c687f38c555ba1743a8a53923a77",
+      "task": "heldout-01",
+      "repetition": 2,
+      "condition": "timeout",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "550b1306743353f3ad04e524de00a0f3",
+      "task": "heldout-01",
+      "repetition": 2,
+      "condition": "timeout",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "5234f85911d45d4fb6be6266419fa891",
+      "task": "heldout-01",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "b7a681d0b3d85837b91e7c1b4bbcb69a",
+      "task": "heldout-01",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "5a25e8e5aa5051348bc02af35c94cfd5",
+      "task": "heldout-01",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "b1c0a608bae15eccbcc0ed7606e6e4f0",
+      "task": "heldout-01",
+      "repetition": 3,
+      "condition": "timeout",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "ae8f17de747b5e3aaf3f1cfa178e2101",
+      "task": "heldout-01",
+      "repetition": 3,
+      "condition": "timeout",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "1971f5077c4f5a88a533d390efc76db8",
+      "task": "heldout-01",
+      "repetition": 3,
+      "condition": "timeout",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "2010dec179b65fc4b707df7fb27d59a8",
+      "task": "heldout-02",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "250fdca7da87593687e5fbb9f4aad463",
+      "task": "heldout-02",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "246e908ed0ca55bf807f63922a652357",
+      "task": "heldout-02",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "a0a29822aaa95a099f38c8b9170f65e9",
+      "task": "heldout-02",
+      "repetition": 1,
+      "condition": "timeout",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "f1645f91581d5e3f90a3f08e059aa972",
+      "task": "heldout-02",
+      "repetition": 1,
+      "condition": "timeout",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "fbb27794168659cf916fc5fcf467b4aa",
+      "task": "heldout-02",
+      "repetition": 1,
+      "condition": "timeout",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "90aa6bd70c8e5528bc7d494c88a9bf51",
+      "task": "heldout-02",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "2fbabdb09c2456888c6b813ce7dc9d64",
+      "task": "heldout-02",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "f366beb928e951329a39f35458997f0a",
+      "task": "heldout-02",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "5c6e695e40375f28b15d671cec2b3d18",
+      "task": "heldout-02",
+      "repetition": 2,
+      "condition": "timeout",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "5a226c4e3b5f5255964279975e6421fb",
+      "task": "heldout-02",
+      "repetition": 2,
+      "condition": "timeout",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "51a4867e2dbe5efdbad7035d13a13c65",
+      "task": "heldout-02",
+      "repetition": 2,
+      "condition": "timeout",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "30d3741104c1578198bb36c24c2eaa09",
+      "task": "heldout-02",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "469224510f6751c59bec9e904c8385e7",
+      "task": "heldout-02",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "2b4f02ec5bfb55bb9d90fde353d7198e",
+      "task": "heldout-02",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "eb667e371b88537bac1cb0bb18c3f4aa",
+      "task": "heldout-02",
+      "repetition": 3,
+      "condition": "timeout",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "6cfb75f20f2d5acfac58bc1551ee52a7",
+      "task": "heldout-02",
+      "repetition": 3,
+      "condition": "timeout",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "e9cbd268161b5053b95ae67b46e73a48",
+      "task": "heldout-02",
+      "repetition": 3,
+      "condition": "timeout",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "915d0a54261f540b9d9438c24ff9fdfa",
+      "task": "heldout-03",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "953ab78f85ea51c8993e9f38f0b95021",
+      "task": "heldout-03",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "ca4001b84bc15666a5515f69553e7a8a",
+      "task": "heldout-03",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "ebcb5e2fcb1e5dc5811cce0387c1f21a",
+      "task": "heldout-03",
+      "repetition": 1,
+      "condition": "malformed",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "11ed80cf4c9958e7a28973986ed1989b",
+      "task": "heldout-03",
+      "repetition": 1,
+      "condition": "malformed",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "8a622dc10ecf56d6bfe3824001585e5d",
+      "task": "heldout-03",
+      "repetition": 1,
+      "condition": "malformed",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "7b8a2440c5da5f23ad7c80df0155ae9d",
+      "task": "heldout-03",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "e1f05b4088815515b3c9d0bf753bef3a",
+      "task": "heldout-03",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "198ccfd5a1175b3bbfda8df530794fd0",
+      "task": "heldout-03",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "8146e14db5065fa99e1b0322988cab8c",
+      "task": "heldout-03",
+      "repetition": 2,
+      "condition": "malformed",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "bed50f6201bd561d9463382e29952ff1",
+      "task": "heldout-03",
+      "repetition": 2,
+      "condition": "malformed",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "ddf66006f4405663a5dfbc3943b5e146",
+      "task": "heldout-03",
+      "repetition": 2,
+      "condition": "malformed",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "0ae76480d94e55d5971ca7eb9589b54a",
+      "task": "heldout-03",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "4467314ae34751adae702ce80b8d6f03",
+      "task": "heldout-03",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "8f10484599825674b7644f1ee9f6068a",
+      "task": "heldout-03",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "d30d0ded108454a2ac721babde9f17ed",
+      "task": "heldout-03",
+      "repetition": 3,
+      "condition": "malformed",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "174fe324aa8e55a98df521cdbc429a04",
+      "task": "heldout-03",
+      "repetition": 3,
+      "condition": "malformed",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "5294156011635f899d0c2f10a526ebc3",
+      "task": "heldout-03",
+      "repetition": 3,
+      "condition": "malformed",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "804fcbe269a65078a959dd013563854b",
+      "task": "heldout-04",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "f12f59d3bb4f5fd99eba978ef0e227fb",
+      "task": "heldout-04",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "13c5a6947da5568a9d74573a85c25821",
+      "task": "heldout-04",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "0c357bf0e8585fd4ab14238b0ff1a7bc",
+      "task": "heldout-04",
+      "repetition": 1,
+      "condition": "timeout",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "193d642d87d9533dab9f72adbc5f57a5",
+      "task": "heldout-04",
+      "repetition": 1,
+      "condition": "timeout",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "be5afc92d9005de3866308e1265c704c",
+      "task": "heldout-04",
+      "repetition": 1,
+      "condition": "timeout",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "02508cebe56a5f84bcdf90240f86c826",
+      "task": "heldout-04",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "0983c1ed81ac5081bd54c435bf0a9cc1",
+      "task": "heldout-04",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "b33979a0ee875e0cac3d16e5805232f2",
+      "task": "heldout-04",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "546ba716c4c157b981f6693d692a6e52",
+      "task": "heldout-04",
+      "repetition": 2,
+      "condition": "timeout",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "2f3aa46afab455e9828c8ff054f9b37c",
+      "task": "heldout-04",
+      "repetition": 2,
+      "condition": "timeout",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "a5425ed74dcc572da68a0152b64fc812",
+      "task": "heldout-04",
+      "repetition": 2,
+      "condition": "timeout",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "6a4cf738b04d54b28691c708eee7060c",
+      "task": "heldout-04",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "28e17e5450115a51b6e6159aca1b90cc",
+      "task": "heldout-04",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "35605afaad6e5fb7ac76d8438b26f4db",
+      "task": "heldout-04",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "80e53f553b3e506884ba3f030ee25227",
+      "task": "heldout-04",
+      "repetition": 3,
+      "condition": "timeout",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "b2cab7d1b4c35b2e8397ef645a3ec66a",
+      "task": "heldout-04",
+      "repetition": 3,
+      "condition": "timeout",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "37f67572f89158ff85c76bb8a63e1a52",
+      "task": "heldout-04",
+      "repetition": 3,
+      "condition": "timeout",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "3c0fe43aafc05ec989f25d467e1b796e",
+      "task": "heldout-05",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "e87ab7af57505d91a170b2f780582dc5",
+      "task": "heldout-05",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "14c41c287d46596d97d8ee04c699e6be",
+      "task": "heldout-05",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "96b63f85b87a56a0b3b803dbc45a2498",
+      "task": "heldout-05",
+      "repetition": 1,
+      "condition": "malformed",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "aa00afd5a81e56e78346f7092b1b013a",
+      "task": "heldout-05",
+      "repetition": 1,
+      "condition": "malformed",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "110d98a1bb1b52c19162cd92568cc673",
+      "task": "heldout-05",
+      "repetition": 1,
+      "condition": "malformed",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "a138d21734dd5468924654df2214cf20",
+      "task": "heldout-05",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "80b944f3bb42574eae2f4522b8d6853e",
+      "task": "heldout-05",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "8dfed1d7b23851a29d594c74af61c2d4",
+      "task": "heldout-05",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "22fb5838b7695e14be0393d286c888ed",
+      "task": "heldout-05",
+      "repetition": 2,
+      "condition": "malformed",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "eaa18cb0fbd9591fb9f26c02dbf643ea",
+      "task": "heldout-05",
+      "repetition": 2,
+      "condition": "malformed",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "29def85a9e515539955c4bd6734d30c2",
+      "task": "heldout-05",
+      "repetition": 2,
+      "condition": "malformed",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "9cda281626815f5c956f84064c744eea",
+      "task": "heldout-05",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "770f4f25fa445a58a2c8ecaadec26033",
+      "task": "heldout-05",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "fd26b9830f5954d2a8c430554f76964d",
+      "task": "heldout-05",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "8791fc1b1fa2512c921e9d26e163cc38",
+      "task": "heldout-05",
+      "repetition": 3,
+      "condition": "malformed",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "d4f4b344fada5f43b8ce05455ce6c49c",
+      "task": "heldout-05",
+      "repetition": 3,
+      "condition": "malformed",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "1367c54781ae572aab43b6806dd1ac86",
+      "task": "heldout-05",
+      "repetition": 3,
+      "condition": "malformed",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "96ea3d1e6142523a9f8c031419de383a",
+      "task": "heldout-06",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "1321763a0c185e1e9b86718a919922a1",
+      "task": "heldout-06",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "d0f3a74526165d119be22336ba46eba9",
+      "task": "heldout-06",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "dd088b5ab38853468481e9f2a498e952",
+      "task": "heldout-06",
+      "repetition": 1,
+      "condition": "malformed",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "81924201ea1f561db0f516cd90cabbf8",
+      "task": "heldout-06",
+      "repetition": 1,
+      "condition": "malformed",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "e78e4a20286e5e359d8f98fa49db2d36",
+      "task": "heldout-06",
+      "repetition": 1,
+      "condition": "malformed",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "5e888b8b203453ce840d1d1a6e92ba13",
+      "task": "heldout-06",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "0b78bb123f9c50349a6633ad8e1f92c9",
+      "task": "heldout-06",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "d6db6f6870cb5c949f80da8944cac263",
+      "task": "heldout-06",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "4d55221a2b1856ca8f299d61e6a4e6b8",
+      "task": "heldout-06",
+      "repetition": 2,
+      "condition": "malformed",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "f665f1c6977c53bd8ad88ccefa521d57",
+      "task": "heldout-06",
+      "repetition": 2,
+      "condition": "malformed",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "2b27c99190175153af30d839fcce7da7",
+      "task": "heldout-06",
+      "repetition": 2,
+      "condition": "malformed",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "b2cec0cd37e15beebc9d57233e4575ae",
+      "task": "heldout-06",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "97e037939c335c6fb17f20cbb33e89be",
+      "task": "heldout-06",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "c9abec408df5514ca7c9b78c483d59d3",
+      "task": "heldout-06",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "6dbee5120dd5563bba695a72e68c6001",
+      "task": "heldout-06",
+      "repetition": 3,
+      "condition": "malformed",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "ee441ec60626564397f49855257adad6",
+      "task": "heldout-06",
+      "repetition": 3,
+      "condition": "malformed",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "2208173dd281594e95ce397042fd1655",
+      "task": "heldout-06",
+      "repetition": 3,
+      "condition": "malformed",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "ded8d3ebc5995a91af8593794405d51d",
+      "task": "heldout-07",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "9d23a1f4c3855a9e86cc050ffa475f71",
+      "task": "heldout-07",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "6301adc851285b3ba80a6151b9350f0e",
+      "task": "heldout-07",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "6ca84254431d53f8b0cb963211f6c1ac",
+      "task": "heldout-07",
+      "repetition": 1,
+      "condition": "timeout",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "48659d362e655c93bf61306cd9808d0d",
+      "task": "heldout-07",
+      "repetition": 1,
+      "condition": "timeout",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "86e3955f6d58550193c5234d11491943",
+      "task": "heldout-07",
+      "repetition": 1,
+      "condition": "timeout",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "e4b5914a2eda544d9c1123720b819b9c",
+      "task": "heldout-07",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "bd381100320c584da43094e81cba9986",
+      "task": "heldout-07",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "ef85b8b759e65f80aa6117521615c640",
+      "task": "heldout-07",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "78334f5142655091a29e8bd2bbab4b06",
+      "task": "heldout-07",
+      "repetition": 2,
+      "condition": "timeout",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "eda7e096194f58f6a446bb8827dd92cd",
+      "task": "heldout-07",
+      "repetition": 2,
+      "condition": "timeout",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "57ff536940a256b6804bfda42b8f647f",
+      "task": "heldout-07",
+      "repetition": 2,
+      "condition": "timeout",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "b5518067204e5186badf972e3c3a13ef",
+      "task": "heldout-07",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "b168d0022e5c5383b8d2012c445171f6",
+      "task": "heldout-07",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "e71113cf75e55e10b9d40ee3c0e92f92",
+      "task": "heldout-07",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "4fe466d968ad5c89adc864b360bd1f0c",
+      "task": "heldout-07",
+      "repetition": 3,
+      "condition": "timeout",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "3f693dc2f7a05a98b6b80bb28233d77d",
+      "task": "heldout-07",
+      "repetition": 3,
+      "condition": "timeout",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "1223af83a5515de88d717b374611494c",
+      "task": "heldout-07",
+      "repetition": 3,
+      "condition": "timeout",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "db307e38377055c1ae7c96ba2b14f80e",
+      "task": "heldout-08",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "4c17939117795f818d101c43c7b62c18",
+      "task": "heldout-08",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "d461850e40c95e44994b5c4cbd08e3f6",
+      "task": "heldout-08",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "69a644be755951c9a70ef54816b38379",
+      "task": "heldout-08",
+      "repetition": 1,
+      "condition": "timeout",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "aa2bf42035245045a4033f59daf99568",
+      "task": "heldout-08",
+      "repetition": 1,
+      "condition": "timeout",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "c321db89c3385149b377df814e1a4c82",
+      "task": "heldout-08",
+      "repetition": 1,
+      "condition": "timeout",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "c8bfc190121f5eed85f101330f7c723f",
+      "task": "heldout-08",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "80249aaefda357cb8453eb0f3167410e",
+      "task": "heldout-08",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "3bbe3746af07538d9fa51f3514dc4391",
+      "task": "heldout-08",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "f8e9812cf3d5560d926c309ba42c1f4b",
+      "task": "heldout-08",
+      "repetition": 2,
+      "condition": "timeout",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "04d4dba9b4c6558786c6053633aa9197",
+      "task": "heldout-08",
+      "repetition": 2,
+      "condition": "timeout",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "8b5ecd7e8e9a503db21df86959b4b47a",
+      "task": "heldout-08",
+      "repetition": 2,
+      "condition": "timeout",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "0d16f119bb995df79e9e7b49b2908cfc",
+      "task": "heldout-08",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "22b0340a9b2a52a596ea86a6d283e728",
+      "task": "heldout-08",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "dc75944a76a15cf5aaf40e50a70e9899",
+      "task": "heldout-08",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "18c8d09c0b0451259b3b7eff7b579974",
+      "task": "heldout-08",
+      "repetition": 3,
+      "condition": "timeout",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "ad13ac4a392f5de3912785e57e606346",
+      "task": "heldout-08",
+      "repetition": 3,
+      "condition": "timeout",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "75411314971e530ebc1898cfc857fa19",
+      "task": "heldout-08",
+      "repetition": 3,
+      "condition": "timeout",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "7a2927c312b458ae9625e6d2ddcbed9a",
+      "task": "heldout-09",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "801189c890965c1a9da93a7b85566cce",
+      "task": "heldout-09",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "99ea3c5b27e45941b21ca3ec2751e71a",
+      "task": "heldout-09",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "f0a064ab415e59b7882e97357e2791e4",
+      "task": "heldout-09",
+      "repetition": 1,
+      "condition": "malformed",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "eece2f2af3dc5bc6bfa5e310ce24f537",
+      "task": "heldout-09",
+      "repetition": 1,
+      "condition": "malformed",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "fbc2f03f338e5470b59d972ca0565813",
+      "task": "heldout-09",
+      "repetition": 1,
+      "condition": "malformed",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "27000930afb65ae9a8c3c99164bef318",
+      "task": "heldout-09",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "3204f49129ae5559aefc724b3b38bb06",
+      "task": "heldout-09",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "e7681a51a7f251258cb8156d1eedff9f",
+      "task": "heldout-09",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "c428aeee969953e7a5166459952e84ff",
+      "task": "heldout-09",
+      "repetition": 2,
+      "condition": "malformed",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "c21897b8f9bf5a40aff3751229a34c92",
+      "task": "heldout-09",
+      "repetition": 2,
+      "condition": "malformed",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "71fac5943f8b5687b88932966285d3e7",
+      "task": "heldout-09",
+      "repetition": 2,
+      "condition": "malformed",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "670810a3e1c953f688fdcf503d53148a",
+      "task": "heldout-09",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "4af76acc96835e2b84e86e9a8a73ae0e",
+      "task": "heldout-09",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "d76956e6fe52585e8182eba228a544ef",
+      "task": "heldout-09",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "e7e273732e005ca98d14d5fac95d642d",
+      "task": "heldout-09",
+      "repetition": 3,
+      "condition": "malformed",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "1bf19abad1265e82acee397a1d00a98d",
+      "task": "heldout-09",
+      "repetition": 3,
+      "condition": "malformed",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "bf53730f3504566989b12f512af970cd",
+      "task": "heldout-09",
+      "repetition": 3,
+      "condition": "malformed",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "f59241fa00cc50a78736ce1b99339624",
+      "task": "heldout-10",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "c163ebe669eb58a2928dcb0c89262ddb",
+      "task": "heldout-10",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "edd6131c53ce56d7868b154ca1a49e89",
+      "task": "heldout-10",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "990196016441562fbdd1603cf7e01fd9",
+      "task": "heldout-10",
+      "repetition": 1,
+      "condition": "timeout",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "071feb8ea85953319fce0c6a3fd3d49b",
+      "task": "heldout-10",
+      "repetition": 1,
+      "condition": "timeout",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "dd1c7c73ae5857ccba8441866863bb49",
+      "task": "heldout-10",
+      "repetition": 1,
+      "condition": "timeout",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "1408e00e1bac54db932a6ba79de24f95",
+      "task": "heldout-10",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "5212b204e8cc53ba9af9fa5e3e82d55a",
+      "task": "heldout-10",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "11ab8d3c4bd75f7c992e85cc841f414a",
+      "task": "heldout-10",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "994939a4720750b08e4be8483eb32af6",
+      "task": "heldout-10",
+      "repetition": 2,
+      "condition": "timeout",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "75dffd46ef0e52d795b6c75ac2d19581",
+      "task": "heldout-10",
+      "repetition": 2,
+      "condition": "timeout",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "2a927f14e1465d03a38f1963fbbdefb6",
+      "task": "heldout-10",
+      "repetition": 2,
+      "condition": "timeout",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "27eb545a6fdb5fdf987178e610ca36d3",
+      "task": "heldout-10",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "37e07c199faf5ec78f8c935832274d0d",
+      "task": "heldout-10",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "44ead607105158d48f8e59b68396e855",
+      "task": "heldout-10",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "a4efd4dc00a0538abecac8817cf59c2b",
+      "task": "heldout-10",
+      "repetition": 3,
+      "condition": "timeout",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "e40024e427af5641b405b98a69821dfe",
+      "task": "heldout-10",
+      "repetition": 3,
+      "condition": "timeout",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "2f37ad93b70b503ba612ce06dde31e4e",
+      "task": "heldout-10",
+      "repetition": 3,
+      "condition": "timeout",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "8b28f7e12356560c80bcd8dead710007",
+      "task": "heldout-11",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "2d47e897e56a5508b21e1d47342f2bab",
+      "task": "heldout-11",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "6b193f8cdc665f7680cb8dbf98d76575",
+      "task": "heldout-11",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "a2eb0d1c6bfb5b8bbcbfbf697fb10f51",
+      "task": "heldout-11",
+      "repetition": 1,
+      "condition": "malformed",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "0c39f75efc0957f8be68b744f04139a0",
+      "task": "heldout-11",
+      "repetition": 1,
+      "condition": "malformed",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "eda61e8ed1b059b78452d9bad3a47eaa",
+      "task": "heldout-11",
+      "repetition": 1,
+      "condition": "malformed",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "a89b85fb50435453ba5b689bfbb87566",
+      "task": "heldout-11",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "c1e72ec7366251a6a11b5925499589d0",
+      "task": "heldout-11",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "22d88530b5615042ad6e349696d7d9ab",
+      "task": "heldout-11",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "d8ffdc8fe53d5e249681bb56e08834ad",
+      "task": "heldout-11",
+      "repetition": 2,
+      "condition": "malformed",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "6c374348556c5742aecef59d8c9ff441",
+      "task": "heldout-11",
+      "repetition": 2,
+      "condition": "malformed",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "f20f6a49b1735a79a9c3d9b95df806cf",
+      "task": "heldout-11",
+      "repetition": 2,
+      "condition": "malformed",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "98c9b622d74f5e7d813634b00d8ac446",
+      "task": "heldout-11",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "02449a977ae0584785bb27da4097f7c9",
+      "task": "heldout-11",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "2df1c80f57f85337aa9e1474457abf93",
+      "task": "heldout-11",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "1bbd2244d5005d72b901876dad4cbd72",
+      "task": "heldout-11",
+      "repetition": 3,
+      "condition": "malformed",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "f9db2acd45305b78b4a9cad2433203e9",
+      "task": "heldout-11",
+      "repetition": 3,
+      "condition": "malformed",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "2ae79d8157ae5541a6b0fb60e465f1ee",
+      "task": "heldout-11",
+      "repetition": 3,
+      "condition": "malformed",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "e8c3e05a3f0255489c42ffb8ea6aa381",
+      "task": "heldout-12",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "1673f2be76265e199b902fa93aa24347",
+      "task": "heldout-12",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "bbaa34578b3b503da23f7eb21001c420",
+      "task": "heldout-12",
+      "repetition": 1,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "a83f82728c505084ab4a061e396aa817",
+      "task": "heldout-12",
+      "repetition": 1,
+      "condition": "malformed",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "0fdb667005c9523fb7930b7cbf0505bf",
+      "task": "heldout-12",
+      "repetition": 1,
+      "condition": "malformed",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "16da1d9facc052b29bca64b89a065118",
+      "task": "heldout-12",
+      "repetition": 1,
+      "condition": "malformed",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "b4a22afb8d0d510db20c885fa78f6581",
+      "task": "heldout-12",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "0649e9b856b2503abe3c78d544caea05",
+      "task": "heldout-12",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "870d50f30ee3561d82abcce3bd04b6bd",
+      "task": "heldout-12",
+      "repetition": 2,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "5f50cb13a2905338ba174ac02abae1b4",
+      "task": "heldout-12",
+      "repetition": 2,
+      "condition": "malformed",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "7095b95f19b251f9977434462efcc54a",
+      "task": "heldout-12",
+      "repetition": 2,
+      "condition": "malformed",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "fd5dc322ed9a5c56b59e652344da602c",
+      "task": "heldout-12",
+      "repetition": 2,
+      "condition": "malformed",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "f0bb06c4ae14533a905cf70ba28b0e3e",
+      "task": "heldout-12",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "dde807c9c204547f8693ddbed45945c4",
+      "task": "heldout-12",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "45386809dc76534683f2ebb0da52b935",
+      "task": "heldout-12",
+      "repetition": 3,
+      "condition": "clean",
+      "architecture": "fixed"
+    },
+    {
+      "attempt_id": "19bdd6dd885657fe9ebf34a5db738c73",
+      "task": "heldout-12",
+      "repetition": 3,
+      "condition": "malformed",
+      "architecture": "team"
+    },
+    {
+      "attempt_id": "eb55e610c7225f13be50bbf5164dcf70",
+      "task": "heldout-12",
+      "repetition": 3,
+      "condition": "malformed",
+      "architecture": "single"
+    },
+    {
+      "attempt_id": "d562dd490a3557d09cd1ecbf67ef3960",
+      "task": "heldout-12",
+      "repetition": 3,
+      "condition": "malformed",
+      "architecture": "fixed"
+    }
+  ]
+}

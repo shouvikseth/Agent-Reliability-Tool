@@ -18,9 +18,9 @@ Remaining: paid pilot evidence, reconciliation against provider billing, broader
 
 ## Week 3 — freeze and evaluation (12–17 hours)
 
-Pilot only on development tasks. Choose budgets and prompts from pilot evidence. Author twelve held-out defects across the four categories, validate them mechanically, then freeze the study manifest. The schedule generator currently produces 216 balanced placeholder assignments with randomized architecture order inside task/repetition/condition blocks. Add immutable attempt IDs, exclusion records, resume behavior, and environment fingerprints before execution.
+Development pilots and the selected configuration are documented. Twelve new held-out defects across four categories now pass mechanical Docker validation, with seeded/reference source and test hashes, selected provider settings, and 216 balanced design slots recorded in [the held-out design](HELDOUT_DESIGN.md). No held-out model trials have run. The author-only design uses stable slot IDs; the historical CLI schedule remains a placeholder. Next add append-only execution attempts, exclusion records, interruption reconciliation, resume behavior, and live environment/model preflight, then freeze the runnable study manifest.
 
-Acceptance: 216 scheduled outcomes accounted for, exclusions and reruns auditable, no tuning from inspected held-out outcomes. Actual model evaluation needs a configured provider, credentials, explicit spend budget, and working isolation.
+Acceptance: 216 scheduled outcomes accounted for, exclusions and reruns auditable, no tuning from inspected held-out outcomes. Actual model evaluation needs a configured provider, shared resource limits, working isolation, and matching fingerprints. The selected local Ollama provider requires no paid API credentials; paid provider evaluation would require a separate explicit spend budget.
 
 ## Week 4 — reporting and trace viewer (11–15 hours)
 
