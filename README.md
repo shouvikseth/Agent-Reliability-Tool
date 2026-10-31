@@ -1,5 +1,7 @@
 # Agent Reliability Lab
 
+The [frozen 216-trial held-out evaluation](docs/HELDOUT_EVALUATION.md) is complete: **fixed 63/72, single 12/72, team 36/72** verified repairs. Every scheduled trial is accounted for, with no retries, exclusions, infrastructure failures, or interruptions. Only 63/108 assigned faults triggered; six single-agent usage records remain incomplete. All **109 tests passed**, including Docker integration. This is evidence from twelve mutations in one small application, not a general architecture ranking. The read-only trace viewer is next.
+
 A reproducible study of fixed workflows, single agents, and planner/writer/reviewer orchestration for software repair.
 
 **Current state: development pilot, not a completed benchmark.** Ten development defects, an SQLite-backed FastAPI target, three orchestration contracts, narrow tools, fault injection, Docker execution, external API verification, model adapters, JSONL traces, SQLite results, and a deterministic 216-run schedule design are implemented. `smoke` uses a scripted no-op fixture; `run` uses a real provider. Smoke failures are expected and are not experimental results.
@@ -10,11 +12,11 @@ Current fixed workflow: [bounded context acquisition](docs/FIXED_CONTEXT_PILOT.m
 
 The [60-trial fixed-workflow consistency check](docs/FIXED_CONSISTENCY_60.md) is complete across all ten development tasks: 23/30 verified clean and 23/30 with assigned faults. All 30 faults triggered, and all 18 malformed-log runs regained valid context with one retry. One faulted patch failed regression checks. All 83 automated tests passed at that milestone. This development result does not establish held-out performance.
 
-The [held-out design](docs/HELDOUT_DESIGN.md) now contains twelve new cases across four categories. All twelve seeds and reference fixes passed mechanical Docker validation; that milestone passed 85 tests. The separate artifact records task/test fingerprints, expected study settings, and 216 scheduled slots. The [study runner](docs/STUDY_RUNNER.md) now adds durable starts/outcomes, bounded resume, crash reconciliation, a single-runner lock, and model/tokenizer/Docker preflight. Preparation makes no model generation requests. The trace viewer and completed held-out evaluation remain future work.
+The [held-out design](docs/HELDOUT_DESIGN.md) contains twelve new cases across four categories. All twelve seeds and reference fixes passed mechanical Docker validation; that milestone passed 85 tests. The separate artifact records task/test fingerprints, expected study settings, and 216 scheduled slots. The [study runner](docs/STUDY_RUNNER.md) adds durable starts/outcomes, bounded resume, crash reconciliation, a single-runner lock, and model/tokenizer/Docker preflight. Preparation makes no model generation requests. The trace viewer remains future work.
 
-The complete suite now passes **100 tests**, including Docker integration and fifteen study-accounting/preflight cases. Failed and interrupted attempts are preserved; resume starts only previously unstarted slots.
+The runner milestone passed **100 tests**, including Docker integration and fifteen study-accounting/preflight cases. Failed and interrupted attempts are preserved; resume starts only previously unstarted slots.
 
-The first frozen study preparation passed live metadata and Docker health checks. [Preparation evidence](docs/studies/heldout-v1-preparation.json) records **216 pending slots, zero started attempts**, and the observed runtime fingerprints. No held-out model generation has run; executing the frozen study is the next step.
+The first frozen study preparation passed live metadata and Docker health checks. [Preparation evidence](docs/studies/heldout-v1-preparation.json) preserves **216 pending slots, zero started attempts** at that stage and the observed runtime fingerprints. The subsequent [complete evaluation export](docs/studies/heldout-v1-results.json) preserves all 216 outcomes under that same frozen manifest.
 
 ## Run on Windows
 

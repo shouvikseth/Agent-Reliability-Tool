@@ -18,11 +18,13 @@ Remaining: paid pilot evidence, reconciliation against provider billing, broader
 
 ## Week 3 — freeze and evaluation (12–17 hours)
 
-Development pilots and the selected configuration are documented. Twelve new held-out defects across four categories now pass mechanical Docker validation, with seeded/reference source and test hashes, selected provider settings, and 216 balanced design slots recorded in [the held-out design](HELDOUT_DESIGN.md). No held-out model trials have run. The [study runner](STUDY_RUNNER.md) now records durable append-only attempts, reconciles interruptions, resumes only unstarted slots, prevents concurrent runners, and freezes/checks runtime and environment fingerprints. All 100 tests pass. There is no exclusion or automatic replacement command: all original outcomes remain in the planned denominator. Prepare the runnable manifest before executing the held-out study; keep the historical CLI schedule as a placeholder.
+Development pilots, the selected configuration, and the separately validated twelve-task catalog are documented. The [study runner](STUDY_RUNNER.md) records durable append-only attempts, reconciles interruptions, resumes only unstarted slots, prevents concurrent runners, and freezes/checks runtime and environment fingerprints. The [216-trial frozen evaluation](HELDOUT_EVALUATION.md) is complete: fixed 63/72, single 12/72, team 36/72 verified. All scheduled outcomes remain in the denominator; there were no exclusions, replacement attempts, infrastructure failures, or interruptions. Six single-agent usage records retain uncertainty. All 109 tests pass. Keep the historical CLI schedule as a placeholder and preserve the completed study rather than retuning on its outcomes.
 
 Acceptance: 216 scheduled outcomes accounted for, exclusions and reruns auditable, no tuning from inspected held-out outcomes. Actual model evaluation needs a configured provider, shared resource limits, working isolation, and matching fingerprints. The selected local Ollama provider requires no paid API credentials; paid provider evaluation would require a separate explicit spend budget.
 
 ## Week 4 — reporting and trace viewer (11–15 hours)
+
+Implemented reporting: complete held-out export, raw counts/percentages, task consistency, fault assignment versus exposure, durations including failures, regression counts, known API fees, and incomplete usage. The read-only trace API and viewer below are the next milestone.
 
 Build a small read-only results API and Next.js viewer from persisted runs: issue, visible model text, tool calls, injection events, patch, verification, and resource usage. Add a separate disposable patch-review checkout only after read-only viewing works.
 

@@ -1,6 +1,6 @@
 # Held-out task design and mechanical validation
 
-The development configuration is selected from the completed development pilots. The new held-out catalog is authored separately in `lab/heldout.py`, outside the development `TASKS` list and live pilot CLI. No held-out model generation has been performed. The catalog is a set of additional defects in the same small application, not a new domain or an independent sample of real software projects.
+The development configuration was selected from the completed development pilots. The held-out catalog was authored separately in `lab/heldout.py`, outside the development `TASKS` list and live pilot CLI. No held-out model generation had been performed at this validation stage; the subsequent [frozen evaluation](HELDOUT_EVALUATION.md) now accounts for all 216 trials. The catalog is a set of additional defects in the same small application, not a new domain or an independent sample of real software projects.
 
 ## New contract cases
 
