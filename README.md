@@ -6,6 +6,8 @@ A reproducible study of fixed workflows, single agents, and planner/writer/revie
 
 The new [typed-log pilot](docs/LOG_CONTRACT_PILOT.md) uses a validated `logs-v2` response envelope and two log-informed development tasks. All six malformed assignments triggered; four runs regained valid log access, but only one verified a repair. This separate pilot does not replace the earlier 144-run baseline. All 77 automated tests passed.
 
+Current fixed workflow: [bounded context acquisition](docs/FIXED_CONTEXT_PILOT.md) reads source and logs deterministically, retries one eligible log-decoding error, then uses patch and revision model stages. All 82 tests passed. Its separate four-run smoke check verified 1/2 clean and 1/2 faulted repairs; the old datasets are preserved under their original policy versions.
+
 ## Run on Windows
 
 ```powershell

@@ -1,0 +1,336 @@
+{
+  "scope": "fixed-workflow development smoke; one repetition per task/condition",
+  "source_commit": "e925e04",
+  "runs": [
+    {
+      "id": "39e80626e6e448268d4bf379739213f6",
+      "task": "log-limit-zero",
+      "condition": "clean",
+      "log_calls": 1,
+      "valid_logs": 1,
+      "verified": false,
+      "model_requests": 2,
+      "tool_calls": 6
+    },
+    {
+      "id": "416e70140c834c00bff69ea5348b2911",
+      "task": "log-title-length",
+      "condition": "clean",
+      "log_calls": 1,
+      "valid_logs": 1,
+      "verified": true,
+      "model_requests": 2,
+      "tool_calls": 5
+    },
+    {
+      "id": "b1f72c60aeca4f5f952f61d2907356d5",
+      "task": "log-limit-zero",
+      "condition": "malformed",
+      "log_calls": 2,
+      "valid_logs": 1,
+      "verified": false,
+      "model_requests": 2,
+      "tool_calls": 7
+    },
+    {
+      "id": "da87049a7729461b9b430b1a1e29add7",
+      "task": "log-title-length",
+      "condition": "malformed",
+      "log_calls": 2,
+      "valid_logs": 1,
+      "verified": true,
+      "model_requests": 2,
+      "tool_calls": 6
+    }
+  ],
+  "results": [
+    {
+      "status": "submitted",
+      "tokens": 2662,
+      "dollars": 0.0,
+      "known_dollars": 0.0,
+      "usage_complete": true,
+      "uncertain_reserved_tokens": 0,
+      "model_requests": 2,
+      "execution_policy": "bounded-actions-v4/fixed-context-v1/logs-v2",
+      "cached_test_calls": 1,
+      "backend": "docker",
+      "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+      "id": "39e80626e6e448268d4bf379739213f6",
+      "task": "log-limit-zero",
+      "architecture": "fixed",
+      "condition": "clean",
+      "fixture": false,
+      "provider": {
+        "provider": "ollama",
+        "model": "qwen2.5-coder:7b",
+        "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "completion_version": "completion-v5",
+        "context_policy": "visible-history-v1",
+        "admission_policy": "qwen-tokenizer-v1",
+        "tokenizer": {
+          "tokenizer_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+          "tokenizer_revision": "c03e6d358207e414f1eca0bb1891e29f1db0e242",
+          "template_sha256": "1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320",
+          "safety_margin_tokens": 64
+        },
+        "non_ascii_admission": "message-bytes-v2",
+        "fingerprint_verified": true,
+        "prompt_sha256": "2abcbbb59d5630c1bb14072f90466204e86cfa357bf2fb2148f3125c8101ab0e",
+        "stage_prompt_sha256": {
+          "agent": "ff273c7350529cf3f43e5e66d0988b8a277ff8b8ee1746865dae1692329d8106",
+          "inspect": "398437c50e5fc20a247c00fdc54a337c3d7474b3d1c4ac5ac3f0dc30e4f4688e",
+          "patch": "b1ad0e1be7880ee4bb43b8f85459719e815c0560667de1dcecffa8bc412964f3",
+          "planner": "f6f20d97b912919342aac7b736cc43302ba907fc546e61a93753a3271a574da4",
+          "writer": "6f87787ae1606ec8bfc5943a7858312dc33beb8894e06f45bf39f5f8254022ca",
+          "reviewer": "68f055d51678922f674c55c2031ba41c381414584b93523898739e4d21b1f0b4",
+          "revision": "c580eac66adfad5dacc65c4a6e25f25cd7c9df2a1492962bff1022e7a9a183d6"
+        },
+        "endpoint": "http://127.0.0.1:11434",
+        "num_ctx": 8192,
+        "max_output_tokens": 1024,
+        "temperature": 0,
+        "seed": 20261030,
+        "cost_basis": "local inference; API fees only, excludes hardware/electricity"
+      },
+      "budget": {
+        "tool_calls": 20,
+        "seconds": 600.0,
+        "tokens": 24000,
+        "dollars": 0.25
+      },
+      "tool_calls": 6,
+      "fault_triggered": false,
+      "seconds": 10.546999999991385,
+      "verification": {
+        "verifier": {
+          "passed": false,
+          "exit_code": 1,
+          "output": "AssertionError: "
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "verified_completion": false
+    },
+    {
+      "status": "submitted",
+      "tokens": 2637,
+      "dollars": 0.0,
+      "known_dollars": 0.0,
+      "usage_complete": true,
+      "uncertain_reserved_tokens": 0,
+      "model_requests": 2,
+      "execution_policy": "bounded-actions-v4/fixed-context-v1/logs-v2",
+      "cached_test_calls": 0,
+      "backend": "docker",
+      "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+      "id": "416e70140c834c00bff69ea5348b2911",
+      "task": "log-title-length",
+      "architecture": "fixed",
+      "condition": "clean",
+      "fixture": false,
+      "provider": {
+        "provider": "ollama",
+        "model": "qwen2.5-coder:7b",
+        "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "completion_version": "completion-v5",
+        "context_policy": "visible-history-v1",
+        "admission_policy": "qwen-tokenizer-v1",
+        "tokenizer": {
+          "tokenizer_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+          "tokenizer_revision": "c03e6d358207e414f1eca0bb1891e29f1db0e242",
+          "template_sha256": "1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320",
+          "safety_margin_tokens": 64
+        },
+        "non_ascii_admission": "message-bytes-v2",
+        "fingerprint_verified": true,
+        "prompt_sha256": "2abcbbb59d5630c1bb14072f90466204e86cfa357bf2fb2148f3125c8101ab0e",
+        "stage_prompt_sha256": {
+          "agent": "ff273c7350529cf3f43e5e66d0988b8a277ff8b8ee1746865dae1692329d8106",
+          "inspect": "398437c50e5fc20a247c00fdc54a337c3d7474b3d1c4ac5ac3f0dc30e4f4688e",
+          "patch": "b1ad0e1be7880ee4bb43b8f85459719e815c0560667de1dcecffa8bc412964f3",
+          "planner": "f6f20d97b912919342aac7b736cc43302ba907fc546e61a93753a3271a574da4",
+          "writer": "6f87787ae1606ec8bfc5943a7858312dc33beb8894e06f45bf39f5f8254022ca",
+          "reviewer": "68f055d51678922f674c55c2031ba41c381414584b93523898739e4d21b1f0b4",
+          "revision": "c580eac66adfad5dacc65c4a6e25f25cd7c9df2a1492962bff1022e7a9a183d6"
+        },
+        "endpoint": "http://127.0.0.1:11434",
+        "num_ctx": 8192,
+        "max_output_tokens": 1024,
+        "temperature": 0,
+        "seed": 20261030,
+        "cost_basis": "local inference; API fees only, excludes hardware/electricity"
+      },
+      "budget": {
+        "tool_calls": 20,
+        "seconds": 600.0,
+        "tokens": 24000,
+        "dollars": 0.25
+      },
+      "tool_calls": 5,
+      "fault_triggered": false,
+      "seconds": 10.0,
+      "verification": {
+        "verifier": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "verified_completion": true
+    },
+    {
+      "status": "submitted",
+      "tokens": 2818,
+      "dollars": 0.0,
+      "known_dollars": 0.0,
+      "usage_complete": true,
+      "uncertain_reserved_tokens": 0,
+      "model_requests": 2,
+      "execution_policy": "bounded-actions-v4/fixed-context-v1/logs-v2",
+      "cached_test_calls": 0,
+      "backend": "docker",
+      "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+      "id": "b1f72c60aeca4f5f952f61d2907356d5",
+      "task": "log-limit-zero",
+      "architecture": "fixed",
+      "condition": "malformed",
+      "fixture": false,
+      "provider": {
+        "provider": "ollama",
+        "model": "qwen2.5-coder:7b",
+        "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "completion_version": "completion-v5",
+        "context_policy": "visible-history-v1",
+        "admission_policy": "qwen-tokenizer-v1",
+        "tokenizer": {
+          "tokenizer_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+          "tokenizer_revision": "c03e6d358207e414f1eca0bb1891e29f1db0e242",
+          "template_sha256": "1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320",
+          "safety_margin_tokens": 64
+        },
+        "non_ascii_admission": "message-bytes-v2",
+        "fingerprint_verified": true,
+        "prompt_sha256": "2abcbbb59d5630c1bb14072f90466204e86cfa357bf2fb2148f3125c8101ab0e",
+        "stage_prompt_sha256": {
+          "agent": "ff273c7350529cf3f43e5e66d0988b8a277ff8b8ee1746865dae1692329d8106",
+          "inspect": "398437c50e5fc20a247c00fdc54a337c3d7474b3d1c4ac5ac3f0dc30e4f4688e",
+          "patch": "b1ad0e1be7880ee4bb43b8f85459719e815c0560667de1dcecffa8bc412964f3",
+          "planner": "f6f20d97b912919342aac7b736cc43302ba907fc546e61a93753a3271a574da4",
+          "writer": "6f87787ae1606ec8bfc5943a7858312dc33beb8894e06f45bf39f5f8254022ca",
+          "reviewer": "68f055d51678922f674c55c2031ba41c381414584b93523898739e4d21b1f0b4",
+          "revision": "c580eac66adfad5dacc65c4a6e25f25cd7c9df2a1492962bff1022e7a9a183d6"
+        },
+        "endpoint": "http://127.0.0.1:11434",
+        "num_ctx": 8192,
+        "max_output_tokens": 1024,
+        "temperature": 0,
+        "seed": 20261030,
+        "cost_basis": "local inference; API fees only, excludes hardware/electricity"
+      },
+      "budget": {
+        "tool_calls": 20,
+        "seconds": 600.0,
+        "tokens": 24000,
+        "dollars": 0.25
+      },
+      "tool_calls": 7,
+      "fault_triggered": true,
+      "seconds": 10.703000000008615,
+      "verification": {
+        "verifier": {
+          "passed": false,
+          "exit_code": 1,
+          "output": "AssertionError: "
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "verified_completion": false
+    },
+    {
+      "status": "submitted",
+      "tokens": 2735,
+      "dollars": 0.0,
+      "known_dollars": 0.0,
+      "usage_complete": true,
+      "uncertain_reserved_tokens": 0,
+      "model_requests": 2,
+      "execution_policy": "bounded-actions-v4/fixed-context-v1/logs-v2",
+      "cached_test_calls": 0,
+      "backend": "docker",
+      "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+      "id": "da87049a7729461b9b430b1a1e29add7",
+      "task": "log-title-length",
+      "architecture": "fixed",
+      "condition": "malformed",
+      "fixture": false,
+      "provider": {
+        "provider": "ollama",
+        "model": "qwen2.5-coder:7b",
+        "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "completion_version": "completion-v5",
+        "context_policy": "visible-history-v1",
+        "admission_policy": "qwen-tokenizer-v1",
+        "tokenizer": {
+          "tokenizer_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+          "tokenizer_revision": "c03e6d358207e414f1eca0bb1891e29f1db0e242",
+          "template_sha256": "1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320",
+          "safety_margin_tokens": 64
+        },
+        "non_ascii_admission": "message-bytes-v2",
+        "fingerprint_verified": true,
+        "prompt_sha256": "2abcbbb59d5630c1bb14072f90466204e86cfa357bf2fb2148f3125c8101ab0e",
+        "stage_prompt_sha256": {
+          "agent": "ff273c7350529cf3f43e5e66d0988b8a277ff8b8ee1746865dae1692329d8106",
+          "inspect": "398437c50e5fc20a247c00fdc54a337c3d7474b3d1c4ac5ac3f0dc30e4f4688e",
+          "patch": "b1ad0e1be7880ee4bb43b8f85459719e815c0560667de1dcecffa8bc412964f3",
+          "planner": "f6f20d97b912919342aac7b736cc43302ba907fc546e61a93753a3271a574da4",
+          "writer": "6f87787ae1606ec8bfc5943a7858312dc33beb8894e06f45bf39f5f8254022ca",
+          "reviewer": "68f055d51678922f674c55c2031ba41c381414584b93523898739e4d21b1f0b4",
+          "revision": "c580eac66adfad5dacc65c4a6e25f25cd7c9df2a1492962bff1022e7a9a183d6"
+        },
+        "endpoint": "http://127.0.0.1:11434",
+        "num_ctx": 8192,
+        "max_output_tokens": 1024,
+        "temperature": 0,
+        "seed": 20261030,
+        "cost_basis": "local inference; API fees only, excludes hardware/electricity"
+      },
+      "budget": {
+        "tool_calls": 20,
+        "seconds": 600.0,
+        "tokens": 24000,
+        "dollars": 0.25
+      },
+      "tool_calls": 6,
+      "fault_triggered": true,
+      "seconds": 8.859000000025844,
+      "verification": {
+        "verifier": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        },
+        "regression": {
+          "passed": true,
+          "exit_code": 0,
+          "output": "External API checks passed"
+        }
+      },
+      "verified_completion": true
+    }
+  ]
+}

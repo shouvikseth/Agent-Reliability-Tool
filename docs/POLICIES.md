@@ -1,5 +1,7 @@
 # Development execution policies
 
+Current revision: `bounded-actions-v4/fixed-context-v1/logs-v2` adds predetermined source/log acquisition to the fixed workflow, with one retry only for a retryable log-decoding error. It replaces model-selected inspection and leaves two fixed-workflow model stages. Every acquisition call uses the common budget. See [design and smoke evidence](FIXED_CONTEXT_PILOT.md); earlier definitions below describe preserved baselines.
+
 Update: `bounded-actions-v2` additionally stops the third read/log request for the same unchanged path/content; successful edits reset observation counts. Known Ollama token-repetition aborts now count as generation failures with uncertain token usage retained. See [the exact-wire reproduction](REPETITION_DIAGNOSIS.md). The v1 definition below remains the baseline for prior reports.
 
 These policies replace the v3 pilot's behavior only in new runs. Old traces and outcomes remain intact. All architectures use the same policies; no patch is submitted implicitly.
