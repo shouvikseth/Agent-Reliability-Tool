@@ -101,3 +101,13 @@ def test_mocked_openai_repair_through_docker(backend, tmp_path):
     assert result['tokens'] == 360
     assert tools.diff()
     assert all(check['passed'] for check in grade(task, tools.workspace / 'app.py', backend).values())
+
+
+@pytest.mark.parametrize('task', TASKS[-2:], ids=lambda task:task.id)
+def test_log_development_seeds_and_reference_fixes(backend,tmp_path,task):
+    seed(task,tmp_path)
+    source=tmp_path/'app.py'
+    broken=grade(task,source,backend)
+    assert not broken['verifier']['passed'] and broken['regression']['passed']
+    source.write_text(source.read_text().replace(task.bad,task.good))
+    assert all(check['passed'] for check in grade(task,source,backend).values())

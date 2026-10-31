@@ -14,6 +14,7 @@ from pathlib import Path
 from lab.runtime import Budget, ScriptedModel, Tools, execute
 from lab.tasks import TASKS, REGRESSION, seed, verifier
 from lab.policies import EXECUTION_POLICY
+from lab.log_contract import LOG_CONTRACT
 
 
 def grade(task, source: Path, backend=None):
@@ -68,6 +69,7 @@ def smoke(output: Path, architecture, fault, backend=None, *, model=None, task=N
     (run / 'manifest.json').write_text(json.dumps({'task': task.id, 'issue': task.issue, 'architecture': architecture,
         'condition': fault, 'budget': asdict(budget), 'provider': metadata,
         'execution_policy': EXECUTION_POLICY,
+        'log_contract': LOG_CONTRACT,
         'image': backend.image if backend else None}, indent=2), encoding='utf-8')
     result = execute(architecture, model, task.issue, tools)
     if hasattr(model, 'metadata'):

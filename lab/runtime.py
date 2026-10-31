@@ -7,6 +7,7 @@ import time
 import math
 import hashlib
 from lab.policies import EXECUTION_POLICY, MAX_ACTIONS
+from lab.log_contract import log_response, encode_log
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Protocol
@@ -70,7 +71,8 @@ class Tools:
         try:
             if not self.injected and ((self.fault == "timeout" and name == "test") or (self.fault == "malformed" and name == "logs")):
                 self.injected = True
-                result = {"error": "timeout_before_execution"} if name == "test" else "{malformed-response"
+                result = {"error": "timeout_before_execution"} if name == "test" else log_response('{malformed-response')
+                self.event('fault_injected', name=name, condition=self.fault, boundary='logs-v2' if name=='logs' else 'before-test-execution')
             elif name == "list":
                 result = sorted(p.name for p in self.workspace.iterdir() if p.is_file())
             elif name in {"read", "logs"}:
@@ -79,6 +81,8 @@ class Tools:
                 self.observation_counts[key] = self.observation_counts.get(key, 0) + 1
                 if self.observation_counts[key] >= 3:
                     raise RepeatedObservation('Same unchanged content requested three times; run stopped without submission')
+                if name == 'logs':
+                    result = log_response(encode_log(result))
             elif name == "replace":
                 if args["path"] != "app.py":
                     raise ValueError("Only app.py may be edited")

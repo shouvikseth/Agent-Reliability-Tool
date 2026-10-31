@@ -103,7 +103,7 @@ def test_development_pilot_schedule_is_balanced_and_seeded():
 
 def test_injected_schedule_matches_clean_order_and_assigns_four_tasks_each():
     from lab.pilot import schedule
-    ids = [task.id for task in TASKS]
+    ids = [task.id for task in TASKS[:8]]
     clean, injected = schedule(ids,3,42), schedule(ids,3,42,'injected')
     assert len(injected)==72
     assert [{k:v for k,v in row.items() if k!='condition'} for row in clean] == [{k:v for k,v in row.items() if k!='condition'} for row in injected]
