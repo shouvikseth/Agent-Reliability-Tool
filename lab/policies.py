@@ -2,7 +2,7 @@
 import hashlib
 import json
 
-EXECUTION_POLICY = 'bounded-actions-v3/logs-v2'
+EXECUTION_POLICY = 'bounded-actions-v4/fixed-context-v1/logs-v2'
 CONTEXT_POLICY = 'visible-history-v1'
 MAX_ACTIONS = 6
 

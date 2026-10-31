@@ -7,7 +7,7 @@ import time
 import math
 import hashlib
 from lab.policies import EXECUTION_POLICY, MAX_ACTIONS
-from lab.log_contract import log_response, encode_log
+from lab.log_contract import log_response, encode_log, LOG_CONTRACT
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Protocol
@@ -31,6 +31,27 @@ class BudgetExceeded(Exception):
 
 class RepeatedObservation(RuntimeError):
     pass
+
+
+class ContextAcquisitionError(RuntimeError):
+    pass
+
+
+def acquire_fixed_context(tools, history):
+    """Predetermined inspection: one source read, one log request, one eligible retry."""
+    def acquire(name, **arguments):
+        result = tools.call(name, **arguments)
+        history.append({'tool': name, 'arguments': arguments, 'result': result})
+        return result
+    acquire('read', path='app.py')
+    for attempt in (1, 2):
+        result = acquire('logs')
+        tools.event('context_acquisition', attempt=attempt, log_ok=isinstance(result, dict) and result.get('ok') is True)
+        if isinstance(result, dict) and result.get('schema') == LOG_CONTRACT and result.get('ok') is True and isinstance(result.get('content'), str):
+            return
+        error = result.get('error', {}) if isinstance(result, dict) else {}
+        if attempt == 2 or error.get('code') != 'invalid_log_response' or error.get('retryable') is not True:
+            raise ContextAcquisitionError('Fixed inspection failed to acquire valid logs within its bounded retry policy')
 
 
 class Tools:
@@ -176,7 +197,7 @@ def execute(architecture: str, model: Model, issue: str, tools: Tools):
     all_tools = read | {"replace", "test", "submit"}
     try:
         if architecture == "fixed":
-            step("inspect", read)
+            acquire_fixed_context(tools, history)
             step("patch", {"replace"})
             history.append({"tool": "test", "result": tools.call("test")})
             step("revision", {"replace", "test"})

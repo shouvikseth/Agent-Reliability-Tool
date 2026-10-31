@@ -54,7 +54,7 @@ def test_architecture_contract(tools, architecture):
     assert result["status"] == "submitted"
     assert tools.submitted
     assert tools.diff() == ""
-    assert all(json.loads(line)["kind"] in {"tool", "model"} for line in tools.events.read_text().splitlines())
+    assert all(json.loads(line)["kind"] in {"tool", "model", "context_acquisition"} for line in tools.events.read_text().splitlines())
 
 
 def test_schedule_balanced():
@@ -86,7 +86,7 @@ def test_no_change_revision_preserves_patch_and_submits(tools, architecture):
     assert result['status'] == 'submitted'
     assert tools.submitted
     assert calls == ['test']
-    assert tools.calls == 3  # edit, one test, orchestrator submission
+    assert tools.calls == (5 if architecture == 'fixed' else 3)
 
 
 def test_development_pilot_schedule_is_balanced_and_seeded():
