@@ -1,0 +1,33 @@
+{
+  "scope": "isolated calibration; not benchmark outcomes",
+  "cases": [
+    {
+      "case": "empty",
+      "expected": 27,
+      "actual": 27,
+      "matched": true
+    },
+    {
+      "case": "unicode",
+      "expected": 41,
+      "actual": 42,
+      "matched": false
+    },
+    {
+      "case": "special_tokens",
+      "expected": 35,
+      "actual": 35,
+      "matched": true
+    },
+    {
+      "case": "long_history",
+      "expected": 747,
+      "actual": 747,
+      "matched": true
+    }
+  ],
+  "tokenizer_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+  "tokenizer_revision": "c03e6d358207e414f1eca0bb1891e29f1db0e242",
+  "template_sha256": "1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320",
+  "safety_margin_tokens": 64
+}

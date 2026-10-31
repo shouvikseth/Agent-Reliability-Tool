@@ -136,3 +136,67 @@ def test_local_http_diagnostic_is_bounded_and_retains_usage_uncertainty(tools):
     assert 'HTTP 500 (runner)' in result['error']
     assert not result['usage_complete']
     assert 'private text' not in tools.events.read_text()
+
+
+@pytest.mark.parametrize('mismatch', [False, True])
+def test_tokenizer_mode_validates_counts_before_actions(tools, monkeypatch, mismatch):
+    class Counter:
+        def __init__(self, path): pass
+        def count(self, messages): return 101 if mismatch else 100
+        def verify(self, digest, template): assert template == 'validated template'
+        def metadata(self): return {'safety_margin_tokens': 64}
+    monkeypatch.setattr('lab.token_accounting.QwenCounter', Counter)
+    seen = []
+    base = transport_for(seen=seen)
+    def handler(request):
+        if request.url.path == '/api/show':
+            return httpx.Response(200, json={'template': 'validated template'})
+        return base.handle_request(request)
+    model = OllamaModel(tokenizer_file='fixture', transport=httpx.MockTransport(handler))
+    result = execute('single', model, 'issue', tools)
+    assert result['tokens'] == 120
+    assert model.metadata()['fingerprint_verified']
+    assert model.metadata()['admission_policy'] == 'qwen-tokenizer-v1'
+    if mismatch:
+        assert result['status'] == 'infrastructure_invalid'
+        assert not tools.submitted
+    else:
+        assert result['status'] == 'submitted'
+
+
+def test_changed_template_prevents_generation(tools, monkeypatch):
+    class Counter:
+        def __init__(self, path): pass
+        def count(self, messages): return 100
+        def verify(self, digest, template): raise ValueError('Fingerprint changed')
+        def metadata(self): return {}
+    monkeypatch.setattr('lab.token_accounting.QwenCounter', Counter)
+    base = transport_for()
+    paths = []
+    def handler(request):
+        paths.append(request.url.path)
+        if request.url.path == '/api/show':
+            return httpx.Response(200, json={'template': 'changed'})
+        return base.handle_request(request)
+    result = execute('single', OllamaModel(tokenizer_file='fixture', transport=httpx.MockTransport(handler)), 'issue', tools)
+    assert result['status'] == 'infrastructure_invalid'
+    assert '/api/chat' not in paths
+    assert result['model_requests'] == 0
+
+
+def test_unicode_prompt_uses_explicit_byte_fallback(tools, monkeypatch):
+    class Counter:
+        def __init__(self, path): pass
+        def count(self, messages): raise AssertionError('Unicode must not use unvalidated counting')
+        def verify(self, digest, template): pass
+        def metadata(self): return {}
+    monkeypatch.setattr('lab.token_accounting.QwenCounter', Counter)
+    base = transport_for()
+    def handler(request):
+        if request.url.path == '/api/show': return httpx.Response(200,json={'template':'fixture'})
+        return base.handle_request(request)
+    result = execute('single', OllamaModel(tokenizer_file='fixture',transport=httpx.MockTransport(handler)), 'Fix café input', tools)
+    assert result['status'] == 'submitted'
+    accounting = next(json.loads(line) for line in tools.events.read_text().splitlines() if json.loads(line)['kind']=='context_accounting')
+    assert accounting['policy'] == 'message-bytes-v2/non-ascii-fallback'
+    assert accounting['expected_input_tokens'] is None

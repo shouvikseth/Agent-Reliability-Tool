@@ -129,6 +129,7 @@ def main():
     parser.add_argument('--max-seconds', type=float, default=180)
     parser.add_argument('--max-tool-calls', type=int, default=20)
     parser.add_argument('--max-output-tokens', type=int, default=None)
+    parser.add_argument('--tokenizer-file', type=Path, help='Opt in to validated Qwen 7B tokenizer admission')
     args = parser.parse_args()
     model = None
     if args.command == 'run':
@@ -138,13 +139,15 @@ def main():
             parser.error('OPENAI_API_KEY is missing. Set it in this PowerShell session; never paste it into chat.')
         try:
             if args.provider == 'openai':
+                if args.tokenizer_file:
+                    parser.error('--tokenizer-file is for Ollama only')
                 from lab.openai_provider import OpenAIModel, DEFAULT_MODEL
                 model = OpenAIModel(args.model or DEFAULT_MODEL, args.max_output_tokens if args.max_output_tokens is not None else 2048)
             else:
                 from lab.ollama_provider import OllamaModel, DEFAULT_MODEL
-                model = OllamaModel(args.model or DEFAULT_MODEL, args.max_output_tokens if args.max_output_tokens is not None else 1024, seed=args.seed)
+                model = OllamaModel(args.model or DEFAULT_MODEL, args.max_output_tokens if args.max_output_tokens is not None else 1024, seed=args.seed, tokenizer_file=args.tokenizer_file)
             budget = Budget(args.max_tool_calls, args.max_seconds, args.max_tokens, args.max_dollars)
-        except ValueError as error:
+        except (ValueError, OSError, ImportError) as error:
             parser.error(str(error))
     backend = None
     if args.backend == 'docker' and args.command != 'schedule':

@@ -17,3 +17,10 @@ def test_unvalidated_tokenizer_is_rejected_before_loading(tmp_path):
     path.write_text('{}')
     with pytest.raises(ValueError, match='pinned'):
         count_qwen([], path)
+
+
+def test_counter_rejects_non_ascii_before_encoding():
+    from lab.token_accounting import QwenCounter
+    counter = object.__new__(QwenCounter)
+    with pytest.raises(ValueError, match='Non-ASCII'):
+        counter.count([{'role':'system','content':'rules'},{'role':'user','content':'café'}])
