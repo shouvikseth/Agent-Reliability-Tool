@@ -25,6 +25,8 @@ Optional Qwen tokenizer admission is available with `--tokenizer-file diagnostic
 
 Local generation requests are now captured byte-for-byte under each run's `requests/` directory for diagnostic replay. The previously unexplained HTTP 500 was reproduced as a token-repetition abort; [diagnosis and bounded handling](docs/REPETITION_DIAGNOSIS.md) document the evidence, revised failure classification, and remaining limitations.
 
+The [72-trial clean development pilot](docs/DEVELOPMENT_PILOT_72.md) is complete: fixed 18/24, single 8/24, team 17/24 verified completions. All outcomes, per-task consistency, failures, and limitations are published. This is development evidence, not a held-out benchmark or general architecture ranking. `python -m lab.report <pilot-directory> --output <new-json-file>` validates schedule completeness and regenerates aggregates without overwriting earlier exports.
+
 To run the balanced local development pilot (four development tasks, all three architectures, clean tools, one repetition each):
 
 ```powershell
