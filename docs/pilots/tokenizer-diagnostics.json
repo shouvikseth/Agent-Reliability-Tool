@@ -1,0 +1,87 @@
+{
+  "scope": "isolated diagnostic; not benchmark outcomes",
+  "server_version": "0.40.13",
+  "tokenizer_source": {
+    "repo": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "revision": "c03e6d358207e414f1eca0bb1891e29f1db0e242",
+    "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+    "bytes": 7031645
+  },
+  "single_request_replays": [
+    {
+      "variant": "exact-schema-1",
+      "status": 200,
+      "error": null,
+      "input_tokens": 1702,
+      "output_tokens": 46,
+      "done_reason": "stop"
+    },
+    {
+      "variant": "exact-schema-2",
+      "status": 200,
+      "error": null,
+      "input_tokens": 1702,
+      "output_tokens": 46,
+      "done_reason": "stop"
+    },
+    {
+      "variant": "json-mode",
+      "status": 200,
+      "error": null,
+      "input_tokens": 1702,
+      "output_tokens": 38,
+      "done_reason": "stop"
+    }
+  ],
+  "sequence_replay": [
+    {
+      "step": 1,
+      "status": 200,
+      "error": null,
+      "local_count": 299,
+      "server_count": 299
+    },
+    {
+      "step": 2,
+      "status": 200,
+      "error": null,
+      "local_count": 1076,
+      "server_count": 1076
+    },
+    {
+      "step": 3,
+      "status": 200,
+      "error": null,
+      "local_count": 1177,
+      "server_count": 1177
+    },
+    {
+      "step": 4,
+      "status": 200,
+      "error": null,
+      "local_count": 1309,
+      "server_count": 1309
+    },
+    {
+      "step": 5,
+      "status": 200,
+      "error": null,
+      "local_count": 1440,
+      "server_count": 1440
+    },
+    {
+      "step": 6,
+      "status": 200,
+      "error": null,
+      "local_count": 1571,
+      "server_count": 1571
+    },
+    {
+      "step": 7,
+      "status": 200,
+      "error": null,
+      "local_count": 1702,
+      "server_count": 1702
+    }
+  ]
+}
