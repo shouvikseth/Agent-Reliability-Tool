@@ -88,3 +88,26 @@ def test_local_transport_failure_is_actionable(tools):
     result = execute('single', OllamaModel(transport=httpx.MockTransport(fail)), 'issue', tools)
     assert result['status'] == 'infrastructure_invalid'
     assert 'Install and start Ollama' in result['error']
+
+
+def test_provider_sends_only_current_stage_completion_rules(tools):
+    seen = []
+    base = transport_for(seen=seen)
+    def handler(request):
+        response = base.handle_request(request)
+        if request.url.path == '/api/chat':
+            payload = json.loads(request.content)
+            if 'Stage: revision' in payload['messages'][0]['content']:
+                data = json.loads(response.content)
+                data['message']['content'] = '{"text":"No further changes needed.","actions":[]}'
+                return httpx.Response(200, json=data)
+        return response
+    model = OllamaModel(transport=httpx.MockTransport(handler))
+    model.bind(tools)
+    assert model.respond('agent', 'issue', [], allowed={'submit'})['actions'][0]['name'] == 'submit'
+    assert model.respond('revision', 'issue', [], allowed={'test'})['actions'] == []
+    prompts = [json.loads(request.content)['messages'][0]['content'] for request in seen if request.url.path == '/api/chat']
+    assert 'No further changes needed' not in prompts[0]
+    assert 'An empty action list does not finish' in prompts[0]
+    assert 'No further changes needed' in prompts[1]
+    assert 'Ready to grade' not in prompts[1]

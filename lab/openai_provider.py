@@ -6,7 +6,7 @@ import hashlib
 from decimal import Decimal
 
 from lab.runtime import BudgetExceeded
-from lab.prompts import COMPLETION_RULES, COMPLETION_VERSION
+from lab.prompts import COMPLETION_VERSION, completion_for
 
 DEFAULT_MODEL = 'gpt-5.4-mini-2026-03-17'
 PRICES = {DEFAULT_MODEL: ('0.75', '0.075', '4.50')}
@@ -84,14 +84,11 @@ Use respond to provide a brief visible status and ordered actions. Do not output
 Tools: list {} lists files; read {path} reads a file; logs {} reads supplied logs;
 replace {path,old,new} replaces exactly one matching string in app.py;
 test {} runs canonical public regression tests; submit {} ends the run with the current patch.
-Set unused argument fields to null. Only app.py may be edited. Start by reading app.py.
+Set unused argument fields to null. Only app.py may be edited.
 Tests are advisory and may not cover the issue: reason from the supplied behavior description.
 A timeout_before_execution means the command did not execute; you may retry within budget.
-For inspect/planner read app.py and describe the plan; patch/writer edits and tests where allowed;
-reviewer inspects and critiques; revision makes at most one revision cycle and may test.
-Fixed/team stages have one model response each, so batch necessary actions in that response.
-The single agent may iterate; submit when finished. Do not include actions after submit.
-''' + COMPLETION_RULES
+Do not include actions after submit. Follow the current stage instructions for completion.
+'''
 
 
 class OpenAIModel:
@@ -128,6 +125,8 @@ class OpenAIModel:
         return {'provider': 'openai', 'model': self.model, 'max_output_tokens': self.max_output_tokens,
                 'completion_version': COMPLETION_VERSION,
                 'prompt_sha256': hashlib.sha256(INSTRUCTIONS.encode()).hexdigest(),
+                'stage_prompt_sha256': {role: hashlib.sha256((INSTRUCTIONS + completion_for(role)).encode()).hexdigest()
+                                        for role in ('agent', 'inspect', 'patch', 'planner', 'writer', 'reviewer', 'revision')},
                 'reasoning_effort': 'none', 'rates_per_million': dict(zip(('input', 'cached_input', 'output'), map(str, self.rates))),
                 'price_source': PRICE_SOURCE, 'price_checked': '2026-10-30', 'max_retries': 0}
 
@@ -161,7 +160,7 @@ class OpenAIModel:
                 visible.append(item)
         payload = {
             'model': self.model,
-            'instructions': INSTRUCTIONS + '\nCurrent stage: ' + role + '. Allowed tools: ' + ', '.join(sorted(allowed)),
+            'instructions': INSTRUCTIONS + completion_for(role) + '\nCurrent stage: ' + role + '. Allowed tools: ' + ', '.join(sorted(allowed)),
             'input': json.dumps({'issue': issue, 'history': visible}, ensure_ascii=False),
             'tools': [action_tool(allowed)],
             'tool_choice': {'type': 'function', 'name': 'respond'},

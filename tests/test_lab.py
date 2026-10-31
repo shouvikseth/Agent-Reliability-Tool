@@ -87,3 +87,15 @@ def test_no_change_revision_preserves_patch_and_submits(tools, architecture):
     assert tools.submitted
     assert calls == ['test']
     assert tools.calls == 3  # edit, one test, orchestrator submission
+
+
+def test_development_pilot_schedule_is_balanced_and_seeded():
+    from lab.pilot import schedule
+    tasks = ['pagination-offset', 'blank-title', 'repeat-close', 'request-conflict']
+    rows = schedule(tasks, 2, 42)
+    assert rows == schedule(tasks, 2, 42)
+    assert len(rows) == 24
+    for task in tasks:
+        for repetition in (1, 2):
+            block = [row['architecture'] for row in rows if row['task'] == task and row['repetition'] == repetition]
+            assert sorted(block) == ['fixed', 'single', 'team']
