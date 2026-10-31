@@ -21,6 +21,8 @@ python -m venv .venv
 
 For a local model without API fees, see [the Ollama setup guide](docs/OLLAMA.md). Both providers use the same restricted tools and Docker grader. Report provider-specific experiments separately.
 
+Optional Qwen tokenizer admission is available with `--tokenizer-file diagnostics/qwen-tokenizer.json`. It checks the tokenizer/model/template fingerprints and uses conservative fallback for non-ASCII prompts. See [setup](docs/OLLAMA.md) and the [12-trial integration pilot](docs/TOKENIZER_PILOT.md); the default byte-admission baseline remains available.
+
 To run the balanced local development pilot (four development tasks, all three architectures, clean tools, one repetition each):
 
 ```powershell

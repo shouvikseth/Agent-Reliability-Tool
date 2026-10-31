@@ -30,6 +30,25 @@ If the CLI is not recognized, restart the terminal after installation. If the ad
 
 ## Runtime and limits
 
+### Opt-in tokenizer admission
+
+The byte-based default remains available for baseline reproduction. To opt in to fingerprinted `qwen-tokenizer-v1`, install the optional tokenizer dependency and obtain the pinned tokenizer asset (about 7 MB, no model weights):
+
+```powershell
+.\.venv\Scripts\python -m pip install 'tokenizers==0.22.2'
+New-Item -ItemType Directory -Force diagnostics | Out-Null
+Invoke-WebRequest -Uri 'https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct/resolve/c03e6d358207e414f1eca0bb1891e29f1db0e242/tokenizer.json' -OutFile diagnostics/qwen-tokenizer.json
+.\.venv\Scripts\python -m lab.cli run --provider ollama --backend docker --task pagination-final --architecture single --max-seconds 600 --tokenizer-file diagnostics/qwen-tokenizer.json
+```
+
+For the 12-trial development pilot, use:
+
+```powershell
+.\.venv\Scripts\python -u -m lab.pilot --tokenizer-file diagnostics/qwen-tokenizer.json
+```
+
+The mode supports only the validated Qwen 7B model digest and template. It verifies the tokenizer SHA-256, installed model digest, and template hash before generation; an incompatible fingerprint prevents inference. For ASCII prompts it reserves rendered-token count plus 64 tokens of margin, and requires reported prompt usage to match exactly before executing actions. Usage from mismatched responses is still recorded. Non-ASCII prompts explicitly fall back to byte-based admission: Unicode calibration found one input where the Hugging Face tokenizer count differed from Ollama by one token. This fallback is visible in context events and metadata. No model weights, server settings, or previous outcomes are changed.
+
 The adapter uses the local-only endpoint `http://127.0.0.1:11434`, ignores proxy environment variables, sends no API key, performs no automatic downloads or cloud fallback, and accepts only the two documented local Qwen tags. It uses Ollama's [JSON schema outputs](https://docs.ollama.com/capabilities/structured-outputs) for ordered actions, validates role permissions, and records the installed model digest. Context is 8192 tokens, output limit defaults to 1024, temperature is zero, and the CLI seed is recorded. These settings do not guarantee deterministic generation. Freeze model digests and the Ollama version before evaluation; tags can change.
 
 Ollama has no exact input-token preflight in this adapter. Current `message-bytes-v2` conservatively reserves actual message UTF-8 bytes plus template allowance, excluding the decoding grammar and duplicate JSON escaping, then reconciles reported prompt/output counts. The shared visible-history policy shortens commentary/test logs and replaces duplicate file content with markers; full originals remain in traces. This is a conservative pilot estimate, not tokenizer-exact admission control; unexpected overages stop before actions execute. Long histories can exhaust this allowance before actual context is full. Different providers therefore have different admission policies and should not be presented as a controlled same-model architecture comparison. See [the policy pilot and limitations](POLICY_PILOT.md).

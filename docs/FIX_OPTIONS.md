@@ -1,5 +1,7 @@
 # Validated repair options for local execution
 
+Update: the tokenizer candidate below has now been integrated as an opt-in ASCII-only admission mode with fingerprint verification and Unicode fallback. See [the integration pilot](TOKENIZER_PILOT.md). The investigation below describes the preceding diagnostic stage; its results are preserved.
+
 ## Context accounting: replace bytes with the pinned Qwen tokenizer
 
 The most practical fix is now experimentally supported. Downloaded only the official Qwen tokenizer (7,031,645 bytes; not model weights) at repository revision `c03e6d358207e414f1eca0bb1891e29f1db0e242`. Its SHA-256 is recorded in [tokenizer-diagnostics.json](pilots/tokenizer-diagnostics.json). The upstream source is [Qwen's tokenizer configuration](https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct/blob/c03e6d358207e414f1eca0bb1891e29f1db0e242/tokenizer_config.json).
