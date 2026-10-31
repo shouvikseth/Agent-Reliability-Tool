@@ -4,6 +4,8 @@ The study runner adds the controls required to execute the separately validated 
 
 All **100 automated tests passed** with Docker integration enabled. Fifteen new cases cover committed starts, preserving failures, recovery after a saved-result crash, interrupted attempts, duplicate rejection, artifact identity and completion checks, immutable records, concurrent locking, read-only status, source/design/environment drift, and local metadata-only provider preflight. Crash recovery tests use synthetic temporary results and make no held-out model requests.
 
+The first live preparation passed at source commit `9130c42be4ed6458c04affa8393004c411c74fe2`. The [preparation evidence](studies/heldout-v1-preparation.json) records manifest/code fingerprints, observed versions and model/image fingerprints, and **216 pending slots with zero starts**. The complete frozen manifest and ledger remain local under `runs/heldout-v1/`. This evidence contains no evaluation outcomes. Environment versions reflect the installed host environment, including AnyIO 4.15.1; the project dependency declaration currently pins 4.9.0. Resume requires the observed frozen environment rather than assuming those versions coincide, and the host environment differs from the isolated image.
+
 ## Prepare and inspect
 
 From a clean, committed checkout, with Docker and Ollama running and the pinned tokenizer installed:

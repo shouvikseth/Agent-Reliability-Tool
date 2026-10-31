@@ -14,6 +14,8 @@ The [held-out design](docs/HELDOUT_DESIGN.md) now contains twelve new cases acro
 
 The complete suite now passes **100 tests**, including Docker integration and fifteen study-accounting/preflight cases. Failed and interrupted attempts are preserved; resume starts only previously unstarted slots.
 
+The first frozen study preparation passed live metadata and Docker health checks. [Preparation evidence](docs/studies/heldout-v1-preparation.json) records **216 pending slots, zero started attempts**, and the observed runtime fingerprints. No held-out model generation has run; executing the frozen study is the next step.
+
 ## Run on Windows
 
 ```powershell

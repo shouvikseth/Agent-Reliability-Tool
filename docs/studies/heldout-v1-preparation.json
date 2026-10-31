@@ -1,0 +1,73 @@
+{
+  "scope": "study_preparation_only",
+  "model_evaluation_runs": 0,
+  "source_commit": "9130c42be4ed6458c04affa8393004c411c74fe2",
+  "frozen_manifest_sha256": "320ecaba787ce1b3d0a227c840ebbb13c675487d9951aa6df47b661986214e75",
+  "manifest_canonical_sha256": "d8ff47f7cbb2588846e63829b8e9ce78545e00673d062e29dbe7a7be12998436",
+  "validation_design_sha256": "42615d80608c95613b7a8155d88336a4a55f9b2f3a4f3d6d0dd3cc412c9ea67e",
+  "code_sha256": {
+    "docker/Dockerfile": "fecae787065d0671f00c5fd018f82fe77d200acc11c89678b3eda87662e12a55",
+    "docker/requirements.txt": "d3daec1634b2922747c9eac0290b1e3209bcf37d14292ade07b494e022dc095b",
+    "docker/worker.py": "2504e3974e97dab28f1854ff2fd2c1dd8b6998f61032b3c72a4f4f1490218879",
+    "lab/__init__.py": "02c6f1a69b5a8242d85de030941fdade86eb7140501a1cc84904a506c230fac8",
+    "lab/cli.py": "b354046516359a6d86222f4708f60965f9d6f0dbcde9c37f2646619f52f79e97",
+    "lab/docker_backend.py": "ef21b8b0dc832e22cf572fda80ad563ddf959062dd3d8bd735031bb3b73eced1",
+    "lab/heldout.py": "6576b4a7ee7bbac49468c56392ca67f738f6f7e240b35eeb4eb3bdb0ec09a286",
+    "lab/log_contract.py": "b19c1245b5207444303042e83adadf4c4fb4d6fc549da1caa57f6b2dc61735b9",
+    "lab/ollama_provider.py": "390b0f5e3ec658b6eb1d4a7556e2a5249d4d69048b2502d11337fdba5d3886aa",
+    "lab/openai_provider.py": "08f3268ec3ef5d931aed0820c2a3dcac78b22a47ebede2c8cf30d4359458be58",
+    "lab/pilot.py": "2cbfb9ac18fbbb526da3b0c9ca0d2ec56aa6a726767e9bf6f55d6bf916d32606",
+    "lab/policies.py": "a8e50a35342308322788ca13de6ebc291faa5150a702bafd0874582d84d21015",
+    "lab/prompts.py": "aeae23a6ff700a1c12c79d71619d00947e99d2b090a9895600663a5e86a92153",
+    "lab/replay.py": "ed806e05fae55de8879a040bb3787bed2cd75a5cb10fd9bc5a7e70746f30c98e",
+    "lab/report.py": "b9245c477a3fc443af0d5f2bd487ce02ae1d9be1a9a3be65db6ab5373bee21f3",
+    "lab/request_capture.py": "c9990aa3a08d65373113a3e8cbe7982085ab43fcd24335b4d9e4cfc4f08cf208",
+    "lab/runtime.py": "a09741fca96d246c920d27dcda77bd33d075bf0455b6c77d791f73aa5ede243d",
+    "lab/study.py": "a4ebedf4cff341bb96f835ae3aff8ccb04ba415333a6958a64eee90f49513cd7",
+    "lab/tasks.py": "eaed056d09318ea8dd3632d83cd1ad21c8fd6cf919af55304f658baed54942de",
+    "lab/token_accounting.py": "25c8ef3c9b18bcf71fd75625083a2c28959fc6c3a6539d4711b51aa3116ef58d",
+    "pyproject.toml": "d0cf0da3952a3197b698d7278c7572a1ba0d70bce94f7d2522effef8dc07af2c",
+    "target_app/__init__.py": "e2bcdbdc5cd144e2f6c0389b61eec3e97eed94666d5724866218dfb7b0f212df",
+    "target_app/app.py": "5430d708b712bf133e3eec2d4e5df0a5ba604f201af16d0f6fa10b5be895d28b"
+  },
+  "preflight": {
+    "checked_at": "2026-10-31T15:05:17.589487+00:00",
+    "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+    "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+    "tokenizer": {
+      "tokenizer_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+      "tokenizer_revision": "c03e6d358207e414f1eca0bb1891e29f1db0e242",
+      "template_sha256": "1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320",
+      "safety_margin_tokens": 64
+    },
+    "ollama_version": "0.40.13",
+    "environment": {
+      "python": "3.11.1",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "docker_engine": "29.8.2",
+      "packages": {
+        "fastapi": "0.115.12",
+        "starlette": "0.46.2",
+        "anyio": "4.15.1",
+        "httpx": "0.28.1",
+        "pytest": "9.2.0",
+        "tokenizers": "0.22.2"
+      }
+    }
+  },
+  "automatic_retries": false,
+  "primary_analysis": "all_scheduled_slots_no_exclusions",
+  "ledger_summary": {
+    "scheduled": 216,
+    "started": 0,
+    "pending": 216,
+    "active": 0,
+    "finished": 0,
+    "interrupted": 0,
+    "verified": 0,
+    "statuses": {},
+    "incomplete_usage": 0,
+    "excluded": 0,
+    "denominator": 216
+  }
+}
