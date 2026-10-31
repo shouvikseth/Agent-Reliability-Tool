@@ -8,7 +8,7 @@ import statistics
 
 
 def summarize(schedule, rows, results):
-    key = lambda row: (row['task'], row['repetition'], row['architecture'])
+    key = lambda row: (row['task'], row['repetition'], row['architecture'], row.get('condition', 'clean'))
     expected = Counter(key(row) for row in schedule)
     observed = Counter(key(row) for row in rows)
     if expected != observed or any(count != 1 for count in observed.values()):
@@ -42,6 +42,8 @@ def summarize(schedule, rows, results):
             'known_api_dollars': known_cost,
             'api_cost_per_success': known_cost/successes if successes and complete_usage else None,
             'cached_test_calls': sum(result.get('cached_test_calls', 0) for result in group),
+            'faults_assigned': sum(result.get('condition', 'clean') != 'clean' for result in group),
+            'faults_triggered': sum(result.get('fault_triggered', False) for result in group),
         }
     consistency = {}
     for task in sorted({row['task'] for row in rows}):
@@ -68,6 +70,8 @@ def main():
         result = json.loads((args.pilot/row['id']/'result.json').read_text(encoding='utf-8'))
         if result['id'] != row['id'] or result['task'] != row['task'] or result['architecture'] != row['architecture']:
             raise ValueError('Result identity mismatch')
+        if result.get('condition','clean') != row.get('condition','clean'):
+            raise ValueError('Result fault condition mismatch')
         results[row['id']] = result
     summary = summarize(manifest['schedule'], rows, results)
     args.output.write_text(json.dumps({'scope': 'development_only', 'manifest': manifest,

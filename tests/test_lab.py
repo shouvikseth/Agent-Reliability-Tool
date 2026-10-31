@@ -99,3 +99,14 @@ def test_development_pilot_schedule_is_balanced_and_seeded():
         for repetition in (1, 2):
             block = [row['architecture'] for row in rows if row['task'] == task and row['repetition'] == repetition]
             assert sorted(block) == ['fixed', 'single', 'team']
+
+
+def test_injected_schedule_matches_clean_order_and_assigns_four_tasks_each():
+    from lab.pilot import schedule
+    ids = [task.id for task in TASKS]
+    clean, injected = schedule(ids,3,42), schedule(ids,3,42,'injected')
+    assert len(injected)==72
+    assert [{k:v for k,v in row.items() if k!='condition'} for row in clean] == [{k:v for k,v in row.items() if k!='condition'} for row in injected]
+    assert sum(row['condition']=='timeout' for row in injected)==36
+    assert sum(row['condition']=='malformed' for row in injected)==36
+    assert len({row['condition'] for row in injected if row['task']=='pagination-final'})==1
