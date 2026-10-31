@@ -23,6 +23,8 @@ For a local model without API fees, see [the Ollama setup guide](docs/OLLAMA.md)
 
 Optional Qwen tokenizer admission is available with `--tokenizer-file diagnostics/qwen-tokenizer.json`. It checks the tokenizer/model/template fingerprints and uses conservative fallback for non-ASCII prompts. See [setup](docs/OLLAMA.md) and the [12-trial integration pilot](docs/TOKENIZER_PILOT.md); the default byte-admission baseline remains available.
 
+Local generation requests are now captured byte-for-byte under each run's `requests/` directory for diagnostic replay. The previously unexplained HTTP 500 was reproduced as a token-repetition abort; [diagnosis and bounded handling](docs/REPETITION_DIAGNOSIS.md) document the evidence, revised failure classification, and remaining limitations.
+
 To run the balanced local development pilot (four development tasks, all three architectures, clean tools, one repetition each):
 
 ```powershell

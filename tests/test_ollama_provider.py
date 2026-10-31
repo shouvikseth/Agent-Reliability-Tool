@@ -200,3 +200,15 @@ def test_unicode_prompt_uses_explicit_byte_fallback(tools, monkeypatch):
     accounting = next(json.loads(line) for line in tools.events.read_text().splitlines() if json.loads(line)['kind']=='context_accounting')
     assert accounting['policy'] == 'message-bytes-v2/non-ascii-fallback'
     assert accounting['expected_input_tokens'] is None
+
+
+def test_repetition_abort_is_generation_failure_not_infrastructure(tools):
+    base = transport_for()
+    def handler(request):
+        if request.url.path == '/api/chat':
+            return httpx.Response(500,json={'error':'prediction aborted, token repeat limit reached'})
+        return base.handle_request(request)
+    result = execute('single',OllamaModel(transport=httpx.MockTransport(handler)),'issue',tools)
+    assert result['status'] == 'agent_error'
+    assert not result['usage_complete']
+    assert result['uncertain_reserved_tokens'] > 0

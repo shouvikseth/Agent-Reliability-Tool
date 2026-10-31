@@ -98,3 +98,15 @@ def test_grader_infrastructure_failure_still_saves_execution_and_result(tmp_path
     assert not result['verified_completion']
     assert json.loads((run/'execution.json').read_text())['submitted']
     assert json.loads((run/'result.json').read_text())['status'] == 'infrastructure_invalid'
+
+
+def test_unchanged_read_loop_stops_before_next_generation(tools):
+    class Reader:
+        def respond(self, role, issue, history, *, allowed):
+            return {'text':'inspect','actions':[{'name':'read','arguments':{'path':'app.py'}}],
+                    'usage':{'tokens':1,'dollars':0}}
+    result = execute('single',Reader(),'issue',tools)
+    assert result['status'] == 'agent_error'
+    assert result['tokens'] == 3
+    assert tools.calls == 3
+    assert not tools.submitted

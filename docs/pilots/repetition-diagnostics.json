@@ -1,0 +1,285 @@
+{
+  "scope": "diagnostic only; does not replace prior pilot outcomes",
+  "isolated_request_replays": [
+    {
+      "scope": "diagnostic_only",
+      "attempt": 1,
+      "request_sha256": "a6b772cedd1ddceb3acad080a383b69e14ceac98670e92bbd9af9dddbed32be7",
+      "server_version": "0.40.13",
+      "status": 200,
+      "category": "unclassified",
+      "response_sha256": "336bceb4a17538d70878a6a166b915e90fd5776934f804c7e34616342964067f",
+      "response_bytes": 553,
+      "input_tokens": 1702,
+      "output_tokens": 46,
+      "done_reason": "stop"
+    },
+    {
+      "scope": "diagnostic_only",
+      "attempt": 2,
+      "request_sha256": "a6b772cedd1ddceb3acad080a383b69e14ceac98670e92bbd9af9dddbed32be7",
+      "server_version": "0.40.13",
+      "status": 200,
+      "category": "unclassified",
+      "response_sha256": "59fafeec5e5211635d1d2a75bb188a4aa610cbee088d28ef2d0af79073bc850c",
+      "response_bytes": 552,
+      "input_tokens": 1702,
+      "output_tokens": 46,
+      "done_reason": "stop"
+    },
+    {
+      "scope": "diagnostic_only",
+      "attempt": 3,
+      "request_sha256": "a6b772cedd1ddceb3acad080a383b69e14ceac98670e92bbd9af9dddbed32be7",
+      "server_version": "0.40.13",
+      "status": 200,
+      "category": "unclassified",
+      "response_sha256": "a8c52e860534fedfbca435aa55a576e67be7e503063f800f9ae77e42de50d1ad",
+      "response_bytes": 552,
+      "input_tokens": 1702,
+      "output_tokens": 46,
+      "done_reason": "stop"
+    }
+  ],
+  "full_sequence_replays": [
+    {
+      "scope": "diagnostic_only",
+      "condition": "warm_sequence",
+      "request": "request-0001.json",
+      "request_sha256": "500aaf527b4a8e0ad3630b5f410348da47bcd3a95c1723e324022636b4325f78",
+      "status": 200,
+      "input_tokens": 299
+    },
+    {
+      "scope": "diagnostic_only",
+      "condition": "warm_sequence",
+      "request": "request-0002.json",
+      "request_sha256": "45b7dc50fd6b33dcd8e8472b29a84effeb02367032103c97c699baba8d10a346",
+      "status": 200,
+      "input_tokens": 1076
+    },
+    {
+      "scope": "diagnostic_only",
+      "condition": "warm_sequence",
+      "request": "request-0003.json",
+      "request_sha256": "ba91bf713d366ab873898f662da18d9b59229e0c7fb4227b37713e66db9dc34f",
+      "status": 200,
+      "input_tokens": 1177
+    },
+    {
+      "scope": "diagnostic_only",
+      "condition": "warm_sequence",
+      "request": "request-0004.json",
+      "request_sha256": "5a23da56025edfe2af8a051a29f1e362bcca3ab34948ae31e2f34768f3883f47",
+      "status": 200,
+      "input_tokens": 1309
+    },
+    {
+      "scope": "diagnostic_only",
+      "condition": "warm_sequence",
+      "request": "request-0005.json",
+      "request_sha256": "c706b2e3cf0a201ae32631e8ee3c3b56978d1b06c6be7ad355ce2072b4ded280",
+      "status": 200,
+      "input_tokens": 1440
+    },
+    {
+      "scope": "diagnostic_only",
+      "condition": "warm_sequence",
+      "request": "request-0006.json",
+      "request_sha256": "3e731630ebe5efdf0ff0df7e3ffd18e6e843703a95e9eab53555080a5f44ff75",
+      "status": 200,
+      "input_tokens": 1571
+    },
+    {
+      "scope": "diagnostic_only",
+      "condition": "warm_sequence",
+      "request": "request-0007.json",
+      "request_sha256": "a6b772cedd1ddceb3acad080a383b69e14ceac98670e92bbd9af9dddbed32be7",
+      "status": 500,
+      "input_tokens": null,
+      "error_digest": "e58efdadfb338fc1b1bf72aee9f304d87c844c53d47703eea3700771a7426d47"
+    },
+    {
+      "scope": "diagnostic_only",
+      "condition": "cold_sequence",
+      "request": "request-0001.json",
+      "request_sha256": "500aaf527b4a8e0ad3630b5f410348da47bcd3a95c1723e324022636b4325f78",
+      "status": 200,
+      "input_tokens": 299
+    },
+    {
+      "scope": "diagnostic_only",
+      "condition": "cold_sequence",
+      "request": "request-0002.json",
+      "request_sha256": "45b7dc50fd6b33dcd8e8472b29a84effeb02367032103c97c699baba8d10a346",
+      "status": 200,
+      "input_tokens": 1076
+    },
+    {
+      "scope": "diagnostic_only",
+      "condition": "cold_sequence",
+      "request": "request-0003.json",
+      "request_sha256": "ba91bf713d366ab873898f662da18d9b59229e0c7fb4227b37713e66db9dc34f",
+      "status": 200,
+      "input_tokens": 1177
+    },
+    {
+      "scope": "diagnostic_only",
+      "condition": "cold_sequence",
+      "request": "request-0004.json",
+      "request_sha256": "5a23da56025edfe2af8a051a29f1e362bcca3ab34948ae31e2f34768f3883f47",
+      "status": 200,
+      "input_tokens": 1309
+    },
+    {
+      "scope": "diagnostic_only",
+      "condition": "cold_sequence",
+      "request": "request-0005.json",
+      "request_sha256": "c706b2e3cf0a201ae32631e8ee3c3b56978d1b06c6be7ad355ce2072b4ded280",
+      "status": 200,
+      "input_tokens": 1440
+    },
+    {
+      "scope": "diagnostic_only",
+      "condition": "cold_sequence",
+      "request": "request-0006.json",
+      "request_sha256": "3e731630ebe5efdf0ff0df7e3ffd18e6e843703a95e9eab53555080a5f44ff75",
+      "status": 200,
+      "input_tokens": 1571
+    },
+    {
+      "scope": "diagnostic_only",
+      "condition": "cold_sequence",
+      "request": "request-0007.json",
+      "request_sha256": "a6b772cedd1ddceb3acad080a383b69e14ceac98670e92bbd9af9dddbed32be7",
+      "status": 500,
+      "input_tokens": null,
+      "error_digest": "e58efdadfb338fc1b1bf72aee9f304d87c844c53d47703eea3700771a7426d47"
+    }
+  ],
+  "observed_server_error": "prediction aborted, token repeat limit reached",
+  "before_guard": {
+    "status": "infrastructure_invalid",
+    "tokens": 7189,
+    "dollars": 0.0,
+    "known_dollars": 0.0,
+    "usage_complete": false,
+    "uncertain_reserved_tokens": 2790,
+    "model_requests": 7,
+    "execution_policy": "bounded-actions-v1",
+    "cached_test_calls": 0,
+    "error": "Local Ollama HTTP 500 (unclassified); reservation retained",
+    "backend": "docker",
+    "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+    "id": "c8acad95134240b6948da2831b96bf7b",
+    "task": "pagination-offset",
+    "architecture": "single",
+    "condition": "clean",
+    "fixture": false,
+    "provider": {
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+      "completion_version": "completion-v4",
+      "context_policy": "visible-history-v1",
+      "admission_policy": "qwen-tokenizer-v1",
+      "tokenizer": {
+        "tokenizer_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+        "tokenizer_revision": "c03e6d358207e414f1eca0bb1891e29f1db0e242",
+        "template_sha256": "1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320",
+        "safety_margin_tokens": 64
+      },
+      "non_ascii_admission": "message-bytes-v2",
+      "fingerprint_verified": true,
+      "prompt_sha256": "2abcbbb59d5630c1bb14072f90466204e86cfa357bf2fb2148f3125c8101ab0e",
+      "stage_prompt_sha256": {
+        "agent": "86aa1e2884df6c3918e180dee951cd4ec54ad0d17a66a8566b4ff8008f83199d",
+        "inspect": "24d44fa327bcb889966be6ecd7938a94b3e9e84b00cbd4b2a0cd2f72ea15f8c2",
+        "patch": "2f81ae46c7e81ec4eae103e9a171c9748cc03d2aa84bb8d96290b13a9521c7d5",
+        "planner": "51fca2dbe27fe91fab77af89f687ecde5fffd4b62a502accf697e13eed99ea4e",
+        "writer": "e68b933cb205930fc83af900ad0c4c5e0baa0777400283fd9df7c500bb45cc65",
+        "reviewer": "2c943482aea7ff0ac812c983ee2ea7cb464ef2851da0964e0fd69c18c5b12f59",
+        "revision": "7034aa549c8fb91c0f62790338cae1cc65755bbea96b30844d2ae18c50a44354"
+      },
+      "endpoint": "http://127.0.0.1:11434",
+      "num_ctx": 8192,
+      "max_output_tokens": 1024,
+      "temperature": 0,
+      "seed": 20261030,
+      "cost_basis": "local inference; API fees only, excludes hardware/electricity"
+    },
+    "budget": {
+      "tool_calls": 20,
+      "seconds": 180.0,
+      "tokens": 24000,
+      "dollars": 0.25
+    },
+    "tool_calls": 6,
+    "fault_triggered": false,
+    "seconds": 17.28200000000652,
+    "verification": null,
+    "verified_completion": false
+  },
+  "after_guard": {
+    "status": "agent_error",
+    "tokens": 4086,
+    "dollars": 0.0,
+    "known_dollars": 0.0,
+    "usage_complete": true,
+    "uncertain_reserved_tokens": 0,
+    "model_requests": 4,
+    "execution_policy": "bounded-actions-v2",
+    "cached_test_calls": 0,
+    "error": "Same unchanged content requested three times; run stopped without submission",
+    "backend": "docker",
+    "image": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+    "id": "1e5dd64dfa09421692338599c20faed7",
+    "task": "pagination-offset",
+    "architecture": "single",
+    "condition": "clean",
+    "fixture": false,
+    "provider": {
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "model_digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+      "completion_version": "completion-v4",
+      "context_policy": "visible-history-v1",
+      "admission_policy": "qwen-tokenizer-v1",
+      "tokenizer": {
+        "tokenizer_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+        "tokenizer_revision": "c03e6d358207e414f1eca0bb1891e29f1db0e242",
+        "template_sha256": "1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320",
+        "safety_margin_tokens": 64
+      },
+      "non_ascii_admission": "message-bytes-v2",
+      "fingerprint_verified": true,
+      "prompt_sha256": "2abcbbb59d5630c1bb14072f90466204e86cfa357bf2fb2148f3125c8101ab0e",
+      "stage_prompt_sha256": {
+        "agent": "86aa1e2884df6c3918e180dee951cd4ec54ad0d17a66a8566b4ff8008f83199d",
+        "inspect": "24d44fa327bcb889966be6ecd7938a94b3e9e84b00cbd4b2a0cd2f72ea15f8c2",
+        "patch": "2f81ae46c7e81ec4eae103e9a171c9748cc03d2aa84bb8d96290b13a9521c7d5",
+        "planner": "51fca2dbe27fe91fab77af89f687ecde5fffd4b62a502accf697e13eed99ea4e",
+        "writer": "e68b933cb205930fc83af900ad0c4c5e0baa0777400283fd9df7c500bb45cc65",
+        "reviewer": "2c943482aea7ff0ac812c983ee2ea7cb464ef2851da0964e0fd69c18c5b12f59",
+        "revision": "7034aa549c8fb91c0f62790338cae1cc65755bbea96b30844d2ae18c50a44354"
+      },
+      "endpoint": "http://127.0.0.1:11434",
+      "num_ctx": 8192,
+      "max_output_tokens": 1024,
+      "temperature": 0,
+      "seed": 20261030,
+      "cost_basis": "local inference; API fees only, excludes hardware/electricity"
+    },
+    "budget": {
+      "tool_calls": 20,
+      "seconds": 180.0,
+      "tokens": 24000,
+      "dollars": 0.25
+    },
+    "tool_calls": 4,
+    "fault_triggered": false,
+    "seconds": 5.7810000000172295,
+    "verification": null,
+    "verified_completion": false
+  }
+}

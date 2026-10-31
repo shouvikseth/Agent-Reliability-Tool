@@ -7,6 +7,7 @@ from lab.openai_provider import ProviderError, ModelOutputError, action_tool, de
 from lab.runtime import BudgetExceeded
 from lab.prompts import COMPLETION_VERSION, completion_for
 from lab.policies import CONTEXT_POLICY, visible_history, history_size
+from lab.request_capture import save_request, safe_error
 
 DEFAULT_MODEL = 'qwen2.5-coder:7b'
 LOCAL_MODELS = {DEFAULT_MODEL, 'qwen2.5-coder:3b'}
@@ -126,7 +127,9 @@ class OllamaModel:
                 self.requests += 1
                 self.tools.event('model_reservation', role=role, input_token_bound=input_bound,
                                  output_limit=output_limit, reserved_dollars=0)
-                response = await client.post('/api/chat', json=payload)
+                data, capture = save_request(self.tools.events.parent, self.requests, payload)
+                self.tools.event('local_request', role=role, **capture)
+                response = await client.post('/api/chat', content=data, headers={'Content-Type': 'application/json'})
                 if response.status_code == 404:
                     raise ProviderError('Ollama model unavailable. Run: ollama pull ' + self.model)
                 response.raise_for_status()
@@ -154,11 +157,11 @@ class OllamaModel:
         except (BudgetExceeded, ProviderError, ModelOutputError, asyncio.CancelledError):
             raise
         except httpx.HTTPStatusError as error:
-            status = error.response.status_code
-            text = error.response.text.lower()
-            category = next((phrase for phrase in ('out of memory', 'context length', 'input length',
-                'runner', 'grammar', 'connection') if phrase in text), 'unclassified')
-            self.tools.event('local_http_error', status=status, category=category)
+            diagnostic = safe_error(error.response)
+            status, category = diagnostic['status'], diagnostic['category']
+            self.tools.event('local_http_error', **diagnostic)
+            if category == 'token repeat limit reached':
+                raise ModelOutputError('Local generation aborted by token repetition guard; usage reservation retained') from None
             raise ProviderError(f'Local Ollama HTTP {status} ({category}); reservation retained') from None
         except httpx.ConnectError:
             raise ProviderError('Ollama is not reachable at localhost:11434. Install and start Ollama for Windows.') from None

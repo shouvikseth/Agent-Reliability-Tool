@@ -28,6 +28,10 @@ class BudgetExceeded(Exception):
     pass
 
 
+class RepeatedObservation(RuntimeError):
+    pass
+
+
 class Tools:
     def __init__(self, workspace: Path, events: Path, budget: Budget, fault: str = "clean", backend=None):
         self.backend = backend
@@ -42,6 +46,7 @@ class Tools:
         self.original = (workspace / "app.py").read_text()
         self.passed_tests = {}
         self.cached_tests = 0
+        self.observation_counts = {}
 
     def event(self, kind, **data):
         with self.events.open("a", encoding="utf-8") as stream:
@@ -70,6 +75,10 @@ class Tools:
                 result = sorted(p.name for p in self.workspace.iterdir() if p.is_file())
             elif name in {"read", "logs"}:
                 result = self.path("logs.txt" if name == "logs" else args["path"]).read_text()[:30000]
+                key = (name, 'logs.txt' if name == 'logs' else args['path'], hashlib.sha256(result.encode()).hexdigest())
+                self.observation_counts[key] = self.observation_counts.get(key, 0) + 1
+                if self.observation_counts[key] >= 3:
+                    raise RepeatedObservation('Same unchanged content requested three times; run stopped without submission')
             elif name == "replace":
                 if args["path"] != "app.py":
                     raise ValueError("Only app.py may be edited")
@@ -78,6 +87,7 @@ class Tools:
                 if not args["old"] or source.count(args["old"]) != 1:
                     raise ValueError("Replacement anchor must occur exactly once")
                 path.write_text(source.replace(args["old"], args["new"]))
+                self.observation_counts.clear()
                 result = {"edited": args["path"]}
             elif name == "test":
                 key = hashlib.sha256((self.workspace / 'app.py').read_bytes()).hexdigest()
