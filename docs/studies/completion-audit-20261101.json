@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-01",
+  "scope": "fresh_checkout_verification_not_model_replication",
+  "audited_source_commit": "1acf3dfbb58ec7c0ce0d401cdb425c2d42d86d5c",
+  "branch": "codex/reliability-lab",
+  "python_profile": "editable .[dev,local-tokenizer]",
+  "pip_check": {
+    "exit_code": 0,
+    "broken_requirements": false
+  },
+  "tests": {
+    "passed": 115,
+    "skipped": 1,
+    "failed": 0,
+    "docker_integration": true,
+    "skipped_case": "test_installed_sdk_http_contract",
+    "reason": "Optional openai/httpx2 SDK packages absent in free-provider profile"
+  },
+  "development_task_validation": {
+    "tasks": 10,
+    "valid": 10,
+    "backend": "docker"
+  },
+  "frontend": {
+    "npm_ci": "passed",
+    "npm_audit_vulnerabilities": 0,
+    "production_build": "passed",
+    "next": "16.4.3",
+    "react": "19.3.1",
+    "node": "22.20.0"
+  },
+  "fresh_viewer": {
+    "http_status": 200,
+    "published_outcomes": 216,
+    "local_run_artifacts_present": false,
+    "missing_trace_label": "verified",
+    "events_endpoint_without_trace": 404
+  },
+  "optional_openai_extra": {
+    "resolver_exit_code": 1,
+    "installable_with_current_base_constraints": false,
+    "conflict": [
+      "project requires anyio==4.9.0",
+      "openai==3.42.0 requires anyio>=4.10.0,<5"
+    ]
+  },
+  "docker_image_rebuilt": false,
+  "docker_image_used": "sha256:3313f675a54b8801aa69fdd15a061adeee3922c1613dcccf72d52b94859c1676",
+  "model_generation_requests": 0,
+  "heldout_evaluation_rerun": false,
+  "existing_study": {
+    "runtime_commit": "9130c42be4ed6458c04affa8393004c411c74fe2",
+    "runtime_fingerprints_match": true,
+    "scheduled": 216,
+    "finished": 216,
+    "verified": 111,
+    "unchanged_manifest": true
+  },
+  "published_results_sha256": "887b6496d1cf9c43995e0961fe49b43f538fe7a126acd370538f248cc2f0e2e5",
+  "wrap_up_changes": "README, completion report, audit evidence, plan notes, and generated egg-info ignore rule only"
+}

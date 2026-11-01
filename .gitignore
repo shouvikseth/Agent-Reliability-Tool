@@ -9,3 +9,4 @@ diagnostics/
 viewer/node_modules/
 viewer/.next/
 viewer/out/
+*.egg-info/

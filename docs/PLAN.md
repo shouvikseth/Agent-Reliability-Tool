@@ -1,5 +1,7 @@
 # Four-week implementation plan
 
+Completion handoff: the local research lab, frozen evaluation, and read-only viewer are delivered. See the [November 1 completion report](COMPLETION_REPORT.md) and fresh-checkout audit. The free-provider profile passed dependency and functional checks; the optional paid-provider SDK extra has a confirmed AnyIO constraint conflict and remains follow-up work. Earlier milestones below are retained as history.
+
 ## Week 1 — target and validation (12–15 hours)
 
 Implemented: original FastAPI/SQLite issue tracker, eight development mutations, author-only verifier construction, public regression test, seed/reference validation, and runtime tests.
@@ -14,7 +16,7 @@ Docker milestone implemented: restricted disposable containers, bounded source t
 
 Provider milestone implemented: optional pinned OpenAI SDK; Responses function-call adapter; pinned pilot model/rates; exact input-token preflight; pre-call token/dollar reservation; automatic retries disabled; shared role ledger; request deadline cancellation; uncertain billing retained explicitly; mocked SDK and Docker repair tests; live-model CLI restricted to Docker. Live API behavior and account model access still require a user-run pilot with credentials.
 
-Remaining: paid pilot evidence, reconciliation against provider billing, broader adversarial hardening and infrastructure error classification, full prompt/provenance freeze. Acceptance: hostile candidate and path-escape tests cannot reach host files or author assets, timeouts stop child processes, and role/retry costs reconcile.
+The local-provider prompt/provenance freeze and held-out evidence are complete. Optional remaining work includes fixing the paid-provider dependency profile before any paid live pilot, provider billing reconciliation, and broader adversarial hardening. The implemented isolation tests cover host-mount absence, restrictions, path rejection, deadlines, and grading separation; this is not a multi-tenant security guarantee.
 
 ## Week 3 — freeze and evaluation (12–17 hours)
 
