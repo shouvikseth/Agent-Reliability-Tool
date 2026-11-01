@@ -24,8 +24,8 @@ Acceptance: 216 scheduled outcomes accounted for, exclusions and reruns auditabl
 
 ## Week 4 — reporting and trace viewer (11–15 hours)
 
-Implemented reporting: complete held-out export, raw counts/percentages, task consistency, fault assignment versus exposure, durations including failures, regression counts, known API fees, and incomplete usage. The read-only trace API and viewer below are the next milestone.
+Implemented reporting: complete held-out export, raw counts/percentages, task consistency, fault assignment versus exposure, durations including failures, regression counts, known API fees, and incomplete usage. The [read-only local API and Next.js viewer](VIEWER.md) are now implemented and verified against all 216 saved outcomes. Production build and mobile/desktop browser checks passed; all 116 tests pass.
 
-Build a small read-only results API and Next.js viewer from persisted runs: issue, visible model text, tool calls, injection events, patch, verification, and resource usage. Add a separate disposable patch-review checkout only after read-only viewing works.
+The viewer displays issues, visible model status, tool calls, injection events, patches, verification, and resource usage. It supports missing local artifacts without losing published outcomes, verifies local result hashes, and has no editing or rerun routes. The optional next milestone is a separate disposable patch-review checkout, keeping original study workspaces and outcomes immutable.
 
 Report raw counts and percentages, per-task consistency, fault assignment versus triggering, median/range durations including failures, regression rate, budget exhaustion, and cost per verified success (null when none succeed). Keep scripted runs out of research tables. Any interval must resample tasks rather than runs. Publish reproduction commands, frozen manifest, limitations, raw results, and a short negative-result-friendly narrative.
