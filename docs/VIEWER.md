@@ -1,4 +1,16 @@
-# Local read-only study viewer
+# Read-only study viewer
+
+## Host the results on Vercel
+
+The hosted version is a static snapshot of the committed report. It includes all 216 outcomes, grades, resource records, filtering, selection downloads, and the study manifest. Optional local traces, patches, issue manifests, model requests, credentials, and run workspaces are not copied. The existing loopback Python server remains for local evidence inspection; do not expose it publicly.
+
+Import `shouvikseth/Agent-Reliability-Tool` into Vercel using branch `codex/reliability-lab`. Set **Root Directory** to `viewer` and enable **Include source files outside of the Root Directory in the Build Step**, because the exporter reads the committed `docs/studies/heldout-v1-results.json` one directory above. Use Node 22.x. The checked-in `viewer/vercel.json` sets Next.js, install `npm ci`, build `npm run build:hosted`, and output `out`. No environment variables, API keys, Python, Docker, database, or model server are required for hosting.
+
+Set the project's production branch to `codex/reliability-lab` if Vercel initially selects the repository default. Future pushes on that branch can redeploy the snapshot. Vercel serves only the static output, not the repository or ignored run folders. Docker/Ollama study execution remains local.
+
+To check the hosted build locally, run `npm --prefix viewer run build:hosted`, then serve `viewer/out` with a static HTTP server. A normal `npm --prefix viewer run build` restores the frontend's local API mode. Generated published data under `viewer/public/study` is ignored and regenerated for each hosted build.
+
+The build and root-directory settings follow [Vercel's build configuration guide](https://vercel.com/docs/builds/configure-a-build); the viewer uses [Next.js static export](https://nextjs.org/docs/app/guides/static-exports).
 
 The viewer explores the completed 216-trial held-out study using the published result export and optional local run artifacts. It displays task and condition filters, architecture outcomes, independent grades, visible trace events, recorded patches, resource usage, and the frozen study manifest. It has no execution or editing endpoints.
 

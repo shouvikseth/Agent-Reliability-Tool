@@ -9,4 +9,5 @@ diagnostics/
 viewer/node_modules/
 viewer/.next/
 viewer/out/
+viewer/public/study/
 *.egg-info/

@@ -5,7 +5,9 @@ const number = value => value == null ? '—' : Number(value).toLocaleString('en
 const seconds = value => value == null ? '—' : `${value.toFixed(2)} s`;
 const title = value => value ? value[0].toUpperCase() + value.slice(1) : '—';
 const verdict = row => row.verified ? 'Verified' : row.status === 'submitted' ? 'Check failed' : title(row.status?.replaceAll('_', ' '));
+const hosted = process.env.NEXT_PUBLIC_VIEWER_MODE === 'static';
 async function get(url, signal) {
+  if (hosted) url = url.replace(/^\/api\//, '/study/') + '.json';
   const response = await fetch(url, { signal });
   const body = await response.json();
   if (!response.ok) throw new Error(body.error || 'Could not load saved data.');
@@ -103,7 +105,7 @@ export default function Page() {
       <div className="sidebar-bottom"><span className="status-dot" /> Read-only workspace<p>No execution or editing controls</p></div>
     </aside>
     <div className="workspace">
-      <header className="topbar"><div className="breadcrumb">Research <span>/</span> Held-out study <span>/</span> <strong>v1</strong></div><Badge>LOCAL VIEWER</Badge></header>
+      <header className="topbar"><div className="breadcrumb">Research <span>/</span> Held-out study <span>/</span> <strong>v1</strong></div><Badge>{hosted ? 'PUBLISHED STUDY' : 'LOCAL VIEWER'}</Badge></header>
       <main id="explorer">
         <section className="page-heading"><div><div className="eyebrow">EVIDENCE, AT A GLANCE</div><h1>Study explorer<span className="title-dot">.</span></h1><p>Inspect recorded behavior, from the first tool call to the final grade.</p></div><button className="secondary" onClick={() => setManifestOpen(true)}>Study manifest <span>↗</span></button></section>
         <div className="study-meta"><Badge tone="teal">COMPLETED</Badge><span>{data.model}</span><span>12 held-out tasks</span><span>3 repetitions per condition</span><span className="mono">{data.source_commit.slice(0, 7)}</span></div>
@@ -164,7 +166,7 @@ export default function Page() {
             </section>
           </div>
         </section>
-        <footer><span>AGENT RELIABILITY LAB <b>/</b> A record of what happened.</span><span>Local artifacts · No rerun or edit actions</span></footer>
+        <footer><span>AGENT RELIABILITY LAB <b>/</b> A record of what happened.</span><span>{hosted ? 'Published outcomes · Experiments run locally' : 'Local artifacts · No rerun or edit actions'}</span></footer>
       </main>
     </div>
     <dialog ref={dialog} onCancel={() => setManifestOpen(false)}><div className="dialog-heading"><div><div className="eyebrow">FROZEN STUDY</div><h2>Study manifest</h2></div><button className="secondary" onClick={() => setManifestOpen(false)} aria-label="Close manifest">Close ×</button></div><p className="fine-print">Source, task fingerprints, configuration, schedule, and observed preflight metadata.</p><pre>{manifest ? JSON.stringify(manifest, null, 2) : 'Loading manifest…'}</pre></dialog>
