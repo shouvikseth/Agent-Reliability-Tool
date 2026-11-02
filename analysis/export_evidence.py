@@ -20,7 +20,9 @@ def evidence(export, directory):
         events, patch = store.events(slot)['events'], store.patch(slot)['patch']
         trials[slot] = {'issue': detail['issue'], 'result_sha256': detail['trial']['result_sha256'],
                         'events': events, 'patch': patch}
-    return {'schema': 'heldout-evidence-v1', 'export_sha256': store.export_sha256,
+    # Normalize line endings: Git checkouts of the report differ by platform.
+    digest = hashlib.sha256(Path(export).read_bytes().replace(b'\r\n', b'\n')).hexdigest()
+    return {'schema': 'heldout-evidence-v1', 'export_sha256': digest,
             'projection': 'visible_model_tools_and_accounting_only', 'trials': trials}
 
 

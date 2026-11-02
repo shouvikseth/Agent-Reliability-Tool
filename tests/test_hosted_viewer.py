@@ -1,4 +1,5 @@
 """The hosted snapshot must agree with the published report and evidence, never raw requests."""
+import hashlib
 import json
 from pathlib import Path
 import shutil
@@ -23,7 +24,8 @@ def test_hosted_export_matches_published_api(tmp_path):
     assert hosted == store.index()
     assert json.loads((tmp_path / 'manifest.json').read_text()) == store.data['manifest']
     evidence = json.loads((root / 'docs/studies/heldout-v1-evidence.json').read_text(encoding='utf-8'))
-    assert evidence['export_sha256'] == store.export_sha256
+    report = (root / 'docs/studies/heldout-v1-results.json').read_bytes().replace(b'\r\n', b'\n')
+    assert evidence['export_sha256'] == hashlib.sha256(report).hexdigest()
     for slot, trial in store.trials.items():
         saved = evidence['trials'][slot]
         detail = json.loads((tmp_path / 'trials' / f'{slot}.json').read_text())

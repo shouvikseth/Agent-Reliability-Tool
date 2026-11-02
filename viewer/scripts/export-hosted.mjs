@@ -9,7 +9,8 @@ export async function exportHosted(destination = new URL('../public/study/', imp
   if (data.schema !== 'heldout-report-v1') throw new Error('Unsupported report schema');
   const evidence = JSON.parse(await readFile(new URL('../../docs/studies/heldout-v1-evidence.json', import.meta.url)));
   const exportSha256 = createHash('sha256').update(raw).digest('hex');
-  if (evidence.schema !== 'heldout-evidence-v1' || evidence.export_sha256 !== exportSha256) throw new Error('Evidence does not match the report');
+  const normalizedSha256 = createHash('sha256').update(raw.toString('utf8').replaceAll('\r\n', '\n')).digest('hex');
+  if (evidence.schema !== 'heldout-evidence-v1' || evidence.export_sha256 !== normalizedSha256) throw new Error('Evidence does not match the report');
   const categories = Object.fromEntries(data.manifest.design.tasks.map(t => [t.task, t.category]));
   const ids = new Set();
   const trials = data.trials.map((trial, index) => {
