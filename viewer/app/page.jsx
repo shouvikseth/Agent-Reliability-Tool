@@ -118,7 +118,7 @@ export default function Page() {
         <section className="architecture-strip" aria-label="Architecture outcomes">
           {['fixed', 'single', 'team'].map(a => { const m = data.summary.architectures[a].all; return <button key={a} onClick={() => setArchitecture(architecture === a ? 'all' : a)} aria-pressed={architecture === a} className={`architecture-card ${architecture === a ? 'chosen' : ''}`}><span className={`agent-icon ${a}`}>{a[0].toUpperCase()}</span><span className="architecture-body"><span><strong>{title(a)}</strong><span>{m.verified}/{m.scheduled} verified <b>{m.completion_percent.toFixed(1)}%</b></span></span><span className="progress"><i style={{ width: `${m.completion_percent}%` }} /></span></span></button>; })}
         </section>
-        <p className="study-caveat">One small application, twelve authored defects. These outcomes describe this study; they do not establish a general architecture ranking.</p>
+        <p className="study-caveat">One small application, twelve authored defects. These outcomes describe this study; they do not establish a general architecture ranking. A post-study audit found near-identical repetitions, so this is closer to twelve independent cases than 216. Public tests never failed, injected faults changed one task outcome, and three verified fixed runs retain a limit=0 regression.</p>
 
         <section className="explorer-card">
           <div className="explorer-header"><div><h2>Trial records <span>{rows.length}</span></h2><p aria-live="polite">{filteredVerified} verified · {rows.length - filteredVerified} unsuccessful in this selection</p></div><button className="text-button" onClick={download}>↓ Export selection</button></div>

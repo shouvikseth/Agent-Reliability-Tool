@@ -2,9 +2,11 @@
 
 ## Host the results on Vercel
 
-The hosted version is a static snapshot of the committed report. It includes all 216 outcomes, grades, resource records, filtering, selection downloads, and the study manifest. Optional local traces, patches, issue manifests, model requests, credentials, and run workspaces are not copied. The existing loopback Python server remains for local evidence inspection; do not expose it publicly.
+The [hosted version](https://agent-reliability-lab-alpha.vercel.app/) is a static snapshot of two committed exports. `heldout-v1-results.json` supplies all 216 outcomes, grades, resource records, filtering, selection downloads, and the study manifest. `heldout-v1-evidence.json` supplies issue text, allowlisted visible trace events, and recorded patches, and the build fails unless it matches the report hashes. Raw model requests, credentials, and run workspaces are not copied. The existing loopback Python server remains for local evidence inspection; do not expose it publicly.
 
-Import `shouvikseth/Agent-Reliability-Tool` into Vercel using branch `codex/reliability-lab`. Set **Root Directory** to `viewer` and enable **Include source files outside of the Root Directory in the Build Step**, because the exporter reads the committed `docs/studies/heldout-v1-results.json` one directory above. Use Node 22.x. Select the **Other** framework preset: the checked-in `viewer/vercel.json` disables framework runtime adaptation (`framework: null`), installs with `npm ci`, builds with `npm run build:hosted`, and serves `out` as static files. Selecting the Next.js adapter with an `out` override causes it to look for runtime manifests in the exported static directory. No environment variables, API keys, Python, Docker, database, or model server are required for hosting.
+Regenerate evidence with `.\.venv\Scripts\python analysis/export_evidence.py runs/heldout-v1 --output <new path>`. It applies the same event projection as the local API and refuses an existing output.
+
+Import `shouvikseth/Agent-Reliability-Tool` into Vercel using branch `codex/reliability-lab`. Set **Root Directory** to `viewer` and enable **Include source files outside of the Root Directory in the Build Step**, because the exporter reads the committed `docs/studies` exports one directory above. Use Node 22.x. Select the **Other** framework preset: the checked-in `viewer/vercel.json` disables framework runtime adaptation (`framework: null`), installs with `npm ci`, builds with `npm run build:hosted`, and serves `out` as static files. Selecting the Next.js adapter with an `out` override causes it to look for runtime manifests in the exported static directory. No environment variables, API keys, Python, Docker, database, or model server are required for hosting.
 
 Set the project's production branch to `codex/reliability-lab` if Vercel initially selects the repository default. Future pushes on that branch can redeploy the snapshot. Vercel serves only the static output, not the repository or ignored run folders. Docker/Ollama study execution remains local.
 
@@ -65,7 +67,7 @@ The server never imports candidate application code. Files are bounded to 16 MiB
 
 ## Verification
 
-All **116 tests passed** with Docker integration enabled. Seven viewer tests cover saved data and missing optional artifacts, visible-event projection, result/manifest/path conflicts, unknown IDs, loopback binding, same-origin checks, write-method rejection, traversal rejection, static serving, and unchanged input files after HTTP requests. The production Next.js build passed.
+When the viewer shipped, all **116 tests passed** with Docker integration enabled; the suite now has 117 with the hosted export test. Seven viewer tests cover saved data and missing optional artifacts, visible-event projection, result/manifest/path conflicts, unknown IDs, loopback binding, same-origin checks, write-method rejection, traversal rejection, static serving, and unchanged input files after HTTP requests. The production Next.js build passed.
 
 Browser QA against the actual study checked:
 

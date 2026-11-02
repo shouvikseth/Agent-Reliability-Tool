@@ -16,6 +16,10 @@ All 216 slots are accounted for. There were no replacement attempts, exclusions,
 
 These are twelve mutations in one small application, with dependent repetitions. The results do not establish a general architecture ranking. Read the [full evaluation and limitations](docs/HELDOUT_EVALUATION.md), [complete result export](docs/studies/heldout-v1-results.json), and [frozen preparation evidence](docs/studies/heldout-v1-preparation.json).
 
+**Read the [post-study audit](docs/POST_STUDY_AUDIT.md) before quoting these rates.** The accounting reproduces exactly, but the design is weaker than the trial count suggests. Repetitions were nearly identical: 71/72 cells produced one patch, so on clean runs the comparison is closer to 11, 6, and 2 of 12 defects for fixed, team, and single. Public tests never failed, injected faults changed one of 36 task outcomes, and development gave fixed its guaranteed log access. In 180 separate clean audit trials the order held (fixed, team, single), though at temperature 0.2 fixed fell to 28/36 and single reached 9/36. The frozen results above are unchanged.
+
+[Explore the hosted study](https://agent-reliability-lab-alpha.vercel.app/), including visible traces and patches for all 216 trials.
+
 ## Windows quickstart: view the saved study
 
 Use Python 3.11+ and Node/npm. The verified viewer build used Node 22.20.0. For a new checkout:
@@ -32,7 +36,7 @@ npm --prefix viewer run build
 
 Open [the viewer](http://127.0.0.1:8765). Stop its server with Ctrl+C. Viewing saved outcomes needs no API key, model generation, or running Docker.
 
-The viewer filters all 216 outcomes and shows grades, usage, the frozen manifest, and optional local traces and patches. A fresh clone contains the published outcomes; raw traces, exact model requests, and candidate workspaces remain local under ignored `runs/` directories. Missing artifacts are labeled explicitly. [Viewer guide and API](docs/VIEWER.md).
+The viewer filters all 216 outcomes and shows grades, usage, the frozen manifest, and traces and patches. The hosted snapshot reads them from the committed [evidence export](docs/studies/heldout-v1-evidence.json). This local server reads ignored `runs/` directories instead, so a fresh clone labels them as missing locally. Exact model requests and candidate workspaces are never published. [Viewer guide and API](docs/VIEWER.md).
 
 ## Check the implementation
 
@@ -51,7 +55,7 @@ $env:LAB_DOCKER_TESTS = '1'
 .\.venv\Scripts\python -m lab.cli validate --backend docker
 ```
 
-The fresh free-provider environment passed **115 tests with one optional installed-SDK test skipped**; `pip check` passed. The original study/viewer environment passed all **116 tests**, including that SDK contract check. The fresh audit reused the existing immutable Docker image rather than rebuilding it. [Audit evidence](docs/studies/completion-audit-20261101.json).
+The suite has **117 tests**. The original environment passes all of them with Docker enabled. In a fresh free-provider install, `pip check` passes and tests skip the optional installed-SDK contract, plus seven Docker tests unless `LAB_DOCKER_TESTS` is set. The image also rebuilds from its pins; a rebuilt image has a new ID, so strict study resumption still requires the recorded image. Earlier counts in dated reports describe those moments. [Completion audit](docs/studies/completion-audit-20261101.json) and [post-study audit](docs/POST_STUDY_AUDIT.md).
 
 `validate` checks that every seeded development task fails its defect check, passes regression checks, and passes both after its reference edit. All ten passed in the fresh checkout. `smoke` is a scripted fixture and must not be counted as model evidence. `lab.cli schedule` retains a historical placeholder design; it is not the completed study runner.
 
@@ -74,14 +78,14 @@ Resolving this optional dependency profile requires a separate revision and new 
 ## Execution and accounting boundaries
 
 - Candidate code runs in disposable containers: no network, host mounts, Docker socket, or credentials; non-root UID; read-only root; bounded temporary storage, memory, CPU, processes, and deadlines.
-- Independent checks run outside candidate containers against JSON API responses. Candidate source is never imported on the host by Docker grading. Canonical public tests are advisory; defect and regression checks determine completion.
+- Independent checks run outside candidate containers against JSON API responses. Candidate source is never imported on the host by Docker grading. Canonical public tests are advisory; defect and regression checks determine completion. Candidates cannot read the checks or change their logic, but they produce the responses being checked, so grading is not tamper-proof against adversarial code.
 - Local/host execution is for trusted development fixtures only. Live model runs require Docker. This is a local research isolation layer, not a hardened multi-tenant service; candidates can tamper with their own response stream, and Docker/kernel isolation remains a dependency.
 - The frozen study ledger preserves every start and terminal result. Failed and interrupted attempts are never automatically retried or excluded. Missing usage remains incomplete; uncertain token reservations are not measured extra consumption.
-- The viewer is loopback-only and read-only. It validates local result hashes, confines file access, and renders saved text as text. It provides no editing or rerun endpoints.
+- The Python viewer server is loopback-only and read-only. It validates local result hashes, confines file access, and renders saved text as text. It provides no editing or rerun endpoints. The Vercel deployment is a separate static snapshot of committed exports.
 
 ## Project records
 
-- [Completion report](docs/COMPLETION_REPORT.md) and [implementation plan](docs/PLAN.md)
+- [Post-study audit](docs/POST_STUDY_AUDIT.md), [completion report](docs/COMPLETION_REPORT.md), and [implementation plan](docs/PLAN.md)
 - [Held-out design](docs/HELDOUT_DESIGN.md), [evaluation report](docs/HELDOUT_EVALUATION.md), and [result export](docs/studies/heldout-v1-results.json)
 - [Study runner](docs/STUDY_RUNNER.md), [viewer](docs/VIEWER.md), and [Ollama setup](docs/OLLAMA.md)
 - [72-trial development pilot](docs/DEVELOPMENT_PILOT_72.md) and [matched fault pilot](docs/FAULT_PILOT_72.md)
@@ -89,3 +93,5 @@ Resolving this optional dependency profile requires a separate revision and new 
 - [Execution policies](docs/POLICIES.md), [token-repetition diagnosis](docs/REPETITION_DIAGNOSIS.md), and [design review](docs/REVIEW.md)
 
 Earlier development datasets retain their original policy versions and are not pooled with the held-out study. Disposable patch-review workspaces and broader benchmark replication are optional future work, separate from the delivered read-only lab.
+
+Released under the [MIT License](LICENSE).

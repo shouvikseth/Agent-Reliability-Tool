@@ -1,5 +1,7 @@
 # Frozen held-out evaluation
 
+> The frozen outcomes below are unchanged. The later [post-study audit](POST_STUDY_AUDIT.md) qualifies how to read them, including fault effects, independence, and one undetected regression.
+
 ## Results
 
 All **216/216 scheduled slots** finished with durable results. There were no interruptions, replacement attempts, exclusions, infrastructure-invalid outcomes, or exhausted budgets. **111/216 (51.4%)** repairs passed independent defect and regression checks. Of 168 independently graded submissions, 57 failed the defect check and none failed the regression check. The remaining 48 attempts stopped as agent errors before submission. No unsuccessful attempt was rerun away.

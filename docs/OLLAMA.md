@@ -16,7 +16,7 @@ ollama pull qwen2.5-coder:7b
 3. Start Docker Desktop if it is not running. Then run the local pilot from the repository:
 
 ```powershell
-cd "C:\Users\shouv\OneDrive\Documents\ChatGPT\agent reliability check"
+cd Agent-Reliability-Tool
 .\.venv\Scripts\python -m lab.cli run --provider ollama --backend docker --model qwen2.5-coder:7b --task pagination-final --architecture single --max-seconds 600 --max-tokens 24000
 ```
 

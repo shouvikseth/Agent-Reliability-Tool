@@ -1,4 +1,4 @@
-// Publish only the committed report. Never inspect ignored run artifacts or credentials.
+// Publish only committed reports. Never inspect ignored run artifacts or credentials.
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
@@ -7,6 +7,9 @@ export async function exportHosted(destination = new URL('../public/study/', imp
   const raw = await readFile(new URL('../../docs/studies/heldout-v1-results.json', import.meta.url));
   const data = JSON.parse(raw);
   if (data.schema !== 'heldout-report-v1') throw new Error('Unsupported report schema');
+  const evidence = JSON.parse(await readFile(new URL('../../docs/studies/heldout-v1-evidence.json', import.meta.url)));
+  const exportSha256 = createHash('sha256').update(raw).digest('hex');
+  if (evidence.schema !== 'heldout-evidence-v1' || evidence.export_sha256 !== exportSha256) throw new Error('Evidence does not match the report');
   const categories = Object.fromEntries(data.manifest.design.tasks.map(t => [t.task, t.category]));
   const ids = new Set();
   const trials = data.trials.map((trial, index) => {
@@ -27,16 +30,23 @@ export async function exportHosted(destination = new URL('../public/study/', imp
   await save('study.json', {
     schema: 'viewer-v1', summary: data.summary, trials,
     source_commit: data.manifest.source_commit,
-    export_sha256: createHash('sha256').update(raw).digest('hex'),
+    export_sha256: exportSha256,
     model: data.manifest.design.configuration.provider_expected.model,
     local_artifacts_present: false, hosting: 'static',
   });
   await save('manifest.json', data.manifest);
-  for (const trial of data.trials) await save(`trials/${trial.attempt_id}.json`, {
-    trial, issue: null, available: { events: false, patch: false },
-    integrity: 'local_result_unavailable',
-    artifact_note: 'Hosted copy contains the committed outcome report only. Local traces and patches are not published.',
-  });
+  for (const trial of data.trials) {
+    const saved = evidence.trials[trial.attempt_id];
+    if (saved?.result_sha256 !== trial.result_sha256) throw new Error('Evidence does not match a trial');
+    await mkdir(new URL(`trials/${trial.attempt_id}/`, destination), { recursive: true });
+    await save(`trials/${trial.attempt_id}.json`, {
+      trial, issue: saved.issue, available: { events: true, patch: true },
+      integrity: 'published_evidence_matched',
+      artifact_note: 'Hosted copy contains allowlisted visible traces and recorded diffs. Raw model requests are not published.',
+    });
+    await save(`trials/${trial.attempt_id}/events.json`, { events: saved.events, projection: evidence.projection });
+    await save(`trials/${trial.attempt_id}/patch.json`, { patch: saved.patch });
+  }
   return trials.length;
 }
 

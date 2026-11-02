@@ -4,6 +4,8 @@
 **Report date:** November 1, 2026  
 **Handoff:** local research lab, recorded evaluation, and read-only viewer delivered. The free-provider workflow passed a fresh-checkout audit. The optional paid-provider dependency profile has a confirmed unresolved conflict, detailed below.
 
+> This report records the handoff as of its date. Later work added a hosted snapshot and a [post-study audit](POST_STUDY_AUDIT.md) that qualifies its results.
+
 ## Delivered scope
 
 - A FastAPI/SQLite issue tracker with ten development defects and twelve separately authored held-out defects across pagination, validation, state transitions, and duplicate-request behavior.

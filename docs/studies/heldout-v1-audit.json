@@ -1,0 +1,1997 @@
+{
+  "schema": "heldout-audit-v1",
+  "profile": {
+    "cells": 72,
+    "cells_with_identical_patches": 71,
+    "task_architecture_pairs": 36,
+    "outcome_changed_by_fault": [
+      {
+        "task": "heldout-03",
+        "architecture": "fixed",
+        "verified": {
+          "clean": 3,
+          "malformed": 0
+        }
+      }
+    ],
+    "test_tool_results": {
+      "exit_0": 141,
+      "cached": 19,
+      "fault": 42
+    },
+    "failed_grading_after_green_public_test": 48,
+    "clean_tasks_solved": {
+      "fixed": 11,
+      "single": 2,
+      "team": 6
+    },
+    "clean_sign_tests": {
+      "fixed_vs_team": {
+        "wins": 5,
+        "losses": 0,
+        "two_sided_p": 0.0625
+      },
+      "fixed_vs_single": {
+        "wins": 9,
+        "losses": 0,
+        "two_sided_p": 0.0039
+      },
+      "team_vs_single": {
+        "wins": 4,
+        "losses": 0,
+        "two_sided_p": 0.125
+      }
+    },
+    "failed_with_reference_source": [
+      {
+        "task": "heldout-12",
+        "architecture": "single",
+        "condition": "clean",
+        "repetition": 1,
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      }
+    ]
+  },
+  "differential": {
+    "requests": 60,
+    "verified_trials": 111,
+    "unique_sources": 6,
+    "verified_trials_differing": {
+      "fixed": 3
+    },
+    "differences": [
+      {
+        "sha256": "b401f6a51a0cd087be129e971e95f0d5ae9c6f45a13313e655491d888a7bd3b1",
+        "trials": 3,
+        "tasks": [
+          "heldout-03"
+        ],
+        "crash": null,
+        "changes": [
+          {
+            "request": "GET /issues?limit=0",
+            "reference": 422,
+            "candidate": 200
+          }
+        ]
+      }
+    ]
+  },
+  "sensitivity": {
+    "clean_trials": 180,
+    "status": {
+      "submitted": 139,
+      "agent_error": 39,
+      "budget_exhausted": 2
+    },
+    "verified": [
+      {
+        "plan": "replay",
+        "seed": 20261030,
+        "architecture": "fixed",
+        "verified": 11,
+        "trials": 12
+      },
+      {
+        "plan": "replay",
+        "seed": 20261030,
+        "architecture": "single",
+        "verified": 3,
+        "trials": 12
+      },
+      {
+        "plan": "replay",
+        "seed": 20261030,
+        "architecture": "team",
+        "verified": 7,
+        "trials": 12
+      },
+      {
+        "plan": "seed-only",
+        "seed": 1,
+        "architecture": "fixed",
+        "verified": 11,
+        "trials": 12
+      },
+      {
+        "plan": "seed-only",
+        "seed": 1,
+        "architecture": "single",
+        "verified": 2,
+        "trials": 12
+      },
+      {
+        "plan": "seed-only",
+        "seed": 1,
+        "architecture": "team",
+        "verified": 7,
+        "trials": 12
+      },
+      {
+        "plan": "t0.2",
+        "seed": 11,
+        "architecture": "fixed",
+        "verified": 10,
+        "trials": 12
+      },
+      {
+        "plan": "t0.2",
+        "seed": 11,
+        "architecture": "single",
+        "verified": 5,
+        "trials": 12
+      },
+      {
+        "plan": "t0.2",
+        "seed": 11,
+        "architecture": "team",
+        "verified": 7,
+        "trials": 12
+      },
+      {
+        "plan": "t0.2",
+        "seed": 12,
+        "architecture": "fixed",
+        "verified": 9,
+        "trials": 12
+      },
+      {
+        "plan": "t0.2",
+        "seed": 12,
+        "architecture": "single",
+        "verified": 2,
+        "trials": 12
+      },
+      {
+        "plan": "t0.2",
+        "seed": 12,
+        "architecture": "team",
+        "verified": 6,
+        "trials": 12
+      },
+      {
+        "plan": "t0.2",
+        "seed": 13,
+        "architecture": "fixed",
+        "verified": 9,
+        "trials": 12
+      },
+      {
+        "plan": "t0.2",
+        "seed": 13,
+        "architecture": "single",
+        "verified": 2,
+        "trials": 12
+      },
+      {
+        "plan": "t0.2",
+        "seed": 13,
+        "architecture": "team",
+        "verified": 6,
+        "trials": 12
+      }
+    ],
+    "rows": [
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-01",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-01",
+        "architecture": "single",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-01",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-02",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-02",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-02",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-03",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-03",
+        "architecture": "single",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-03",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-04",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-04",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-04",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-05",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-05",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-05",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-06",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-06",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-06",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-07",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-07",
+        "architecture": "single",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-07",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-08",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-08",
+        "architecture": "single",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-08",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-09",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-09",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Local generation aborted by token repetition guard; usage reservation retained"
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-09",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-10",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-10",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-10",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-11",
+        "architecture": "fixed",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-11",
+        "architecture": "single",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-11",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-12",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-12",
+        "architecture": "single",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "replay",
+        "temperature": 0,
+        "seed": 20261030,
+        "task": "heldout-12",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-01",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-01",
+        "architecture": "single",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-01",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-02",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-02",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-02",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-03",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-03",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-03",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-04",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-04",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-04",
+        "architecture": "team",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-05",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-05",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-05",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-06",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-06",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-06",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-07",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-07",
+        "architecture": "single",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-07",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-08",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-08",
+        "architecture": "single",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-08",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-09",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-09",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Local generation aborted by token repetition guard; usage reservation retained"
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-09",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-10",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-10",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-10",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-11",
+        "architecture": "fixed",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-11",
+        "architecture": "single",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-11",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-12",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-12",
+        "architecture": "single",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "seed-only",
+        "temperature": 0,
+        "seed": 1,
+        "task": "heldout-12",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-01",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-01",
+        "architecture": "single",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-01",
+        "architecture": "team",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-02",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-02",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Two consecutive empty agent turns without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-02",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-03",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-03",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Local response incomplete; try a larger output limit within budget"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-03",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-04",
+        "architecture": "fixed",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-04",
+        "architecture": "single",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-04",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-05",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-05",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-05",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-06",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-06",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-06",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-07",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-07",
+        "architecture": "single",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-07",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-08",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-08",
+        "architecture": "single",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-08",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-09",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-09",
+        "architecture": "single",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-09",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-10",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-10",
+        "architecture": "single",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-10",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-11",
+        "architecture": "fixed",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-11",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Local generation aborted by token repetition guard; usage reservation retained"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-11",
+        "architecture": "team",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-12",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-12",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 11,
+        "task": "heldout-12",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-01",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-01",
+        "architecture": "single",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-01",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-02",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-02",
+        "architecture": "single",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-02",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-03",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-03",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-03",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-04",
+        "architecture": "fixed",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-04",
+        "architecture": "single",
+        "verified": false,
+        "status": "budget_exhausted",
+        "error": "Local prompt exceeds conservative token/context allowance"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-04",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-05",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-05",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-05",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-06",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-06",
+        "architecture": "single",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-06",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-07",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-07",
+        "architecture": "single",
+        "verified": false,
+        "status": "budget_exhausted",
+        "error": "Local prompt exceeds conservative token/context allowance"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-07",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-08",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-08",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Two consecutive empty agent turns without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-08",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-09",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-09",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-09",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-10",
+        "architecture": "fixed",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-10",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-10",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-11",
+        "architecture": "fixed",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-11",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Two consecutive empty agent turns without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-11",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-12",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-12",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 12,
+        "task": "heldout-12",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-01",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-01",
+        "architecture": "single",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-01",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-02",
+        "architecture": "fixed",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-02",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-02",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-03",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-03",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-03",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-04",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-04",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Two consecutive empty agent turns without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-04",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-05",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-05",
+        "architecture": "single",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-05",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-06",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-06",
+        "architecture": "single",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-06",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-07",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-07",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Two consecutive empty agent turns without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-07",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-08",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-08",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Two consecutive empty agent turns without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-08",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-09",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-09",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-09",
+        "architecture": "team",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-10",
+        "architecture": "fixed",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-10",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-10",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-11",
+        "architecture": "fixed",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-11",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Local generation aborted by token repetition guard; usage reservation retained"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-11",
+        "architecture": "team",
+        "verified": false,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-12",
+        "architecture": "fixed",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-12",
+        "architecture": "single",
+        "verified": false,
+        "status": "agent_error",
+        "error": "Same unchanged content requested three times; run stopped without submission"
+      },
+      {
+        "plan": "t0.2",
+        "temperature": 0.2,
+        "seed": 13,
+        "task": "heldout-12",
+        "architecture": "team",
+        "verified": true,
+        "status": "submitted",
+        "error": null
+      }
+    ]
+  }
+}

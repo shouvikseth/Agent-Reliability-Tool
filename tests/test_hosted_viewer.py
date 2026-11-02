@@ -1,4 +1,4 @@
-"""The hosted snapshot must agree with the local API without publishing local artifacts."""
+"""The hosted snapshot must agree with the published report and evidence, never raw requests."""
 import json
 from pathlib import Path
 import shutil
@@ -6,7 +6,7 @@ import subprocess
 
 import pytest
 
-from viewer.server import Store
+from viewer.server import EVENT_FIELDS, Store
 
 
 @pytest.mark.skipif(not shutil.which('node'), reason='Node is required for the hosted exporter')
@@ -22,12 +22,16 @@ def test_hosted_export_matches_published_api(tmp_path):
     assert hosted.pop('hosting') == 'static'
     assert hosted == store.index()
     assert json.loads((tmp_path / 'manifest.json').read_text()) == store.data['manifest']
-    for slot in store.trials:
+    evidence = json.loads((root / 'docs/studies/heldout-v1-evidence.json').read_text(encoding='utf-8'))
+    assert evidence['export_sha256'] == store.export_sha256
+    for slot, trial in store.trials.items():
+        saved = evidence['trials'][slot]
         detail = json.loads((tmp_path / 'trials' / f'{slot}.json').read_text())
-        expected = store.detail(slot)
-        detail.pop('artifact_note')
-        expected.pop('artifact_note')
-        assert detail == expected
-    assert len(list(tmp_path.rglob('*.json'))) == len(store.trials) + 2
-    assert not list(tmp_path.rglob('events*'))
-    assert not list(tmp_path.rglob('patch*'))
+        assert detail['trial'] == trial and detail['issue'] == saved['issue']
+        assert detail['available'] == {'events': True, 'patch': True}
+        assert saved['result_sha256'] == trial['result_sha256']
+        events = json.loads((tmp_path / 'trials' / slot / 'events.json').read_text())['events']
+        assert events == saved['events'] and {e['kind'] for e in events} <= set(EVENT_FIELDS)
+        assert json.loads((tmp_path / 'trials' / slot / 'patch.json').read_text())['patch'] == saved['patch']
+    assert len(list(tmp_path.rglob('*.json'))) == 3*len(store.trials) + 2
+    assert not list(tmp_path.rglob('request*'))
